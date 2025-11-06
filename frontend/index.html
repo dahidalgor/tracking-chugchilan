@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Hola esta es la pagina de tracking</h1>
-        <script src="" async defer></script>
-    </body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Chugchilán</title>
+  
+  <!-- CSS de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <!-- JS de Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Crear el mapa centrado en Chugchilán
+    const map = L.map('map').setView([-0.8695, -78.8964], 13);
+
+    // Capa de mapa (por ahora online con OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Agregar marcador
+    L.marker([-0.8695, -78.8964])
+      .addTo(map)
+      .bindPopup("Bienvenido a Chugchilán 🏞️<br>Inicio del trekking")
+      .openPopup();
+
+    // Mostrar ubicación actual (GPS del usuario)
+    map.locate({ setView: true, maxZoom: 16 });
+    map.on('locationfound', e => {
+      L.marker(e.latlng).addTo(map)
+        .bindPopup("Tu ubicación actual 📍").openPopup();
+    });
+  </script>
+</body>
 </html>
