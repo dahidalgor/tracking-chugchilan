@@ -1,46 +1,221 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapa de Chugchilán</title>
-  
-  <!-- CSS de Leaflet -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <style>
-    #map {
-      height: 100vh;
-      width: 100%;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tracking Quilotoa — Prototipo</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --nav-bg:#0b1417;          /* header oscuro */
+    --hero-txt:#fff;           /* texto sobre hero */
+    --primary:#18c1e6;         /* cyan botón */
+    --primary-2:#12a6c7;       /* hover */
+    --gold:#85713f;            /* títulos dorado-olivo */
+    --ink:#0e1b1f;             /* texto base */
+    --muted:#5f7278;           /* texto secundario */
+    --line:#e6eef1;            /* bordes */
+    --radius:22px;
+    --shadow:0 16px 48px rgba(0,0,0,.16);
+    --shadow-sm:0 8px 20px rgba(0,0,0,.12);
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:var(--maxw);margin-inline:auto;padding:clamp(16px,3vw,28px)}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:40;background:var(--nav-bg);border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav{display:flex;align-items:center;gap:18px}
+  .menu{display:flex;gap:26px;align-items:center}
+  .menu a{color:#cde2e7;font-weight:800;letter-spacing:.2px;position:relative}
+  .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:3px;background:var(--primary);border-radius:999px}
+  .spacer{flex:1}
+  .cta{background:var(--primary);color:#06333d;padding:10px 16px;border-radius:999px;font-weight:800}
+  .cta:hover{background:var(--primary-2)}
+
+  /* HERO */
+  .hero{position:relative;min-height:70vh;display:grid;place-items:center;color:var(--hero-txt);text-align:center}
+  .hero::before{content:"";position:absolute;inset:0;background:url('https://jrnogales.neocities.org/tracking/imagenes/quilotoa-3.jpg') center/cover no-repeat}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.45))}
+  .hero-inner{position:relative;z-index:1;max-width:980px;padding:0 16px}
+  .hero h1{font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,4rem);margin:0 0 8px}
+  .hero p{font-size:clamp(1rem,2.1vw,1.25rem);opacity:.98;margin:0 0 22px}
+  .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--primary);color:#06333d;padding:14px 22px;border-radius:999px;font-weight:800;box-shadow:var(--shadow-sm)}
+  .btn-primary:hover{background:var(--primary-2)}
+
+  /* SECCIONES */
+  section{scroll-margin-top:90px}
+  .section{padding:clamp(36px,6vw,76px) 0}
+  .title{font-family:Poppins,system-ui,sans-serif;font-weight:800;color:var(--gold);font-size:clamp(1.8rem,3vw,2.6rem);text-align:center;margin:0 0 8px}
+  .subtitle{text-align:center;color:var(--muted);margin:0 0 22px}
+
+  /* Fondo general después del hero */
+  .after-hero{background:url('https://jrnogales.neocities.org/tracking/imagenes/fondor.jpg') center/cover fixed no-repeat}
+
+  /* MAPA */
+  .map-img{width:100%;height:auto;border-radius:18px;box-shadow:var(--shadow)}
+
+  /* GRID / CARDS */
+  .grid{display:grid;gap:18px}
+  .cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media (max-width:1024px){.cols-4,.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:640px){.cols-4,.cols-3{grid-template-columns:1fr}}
+  .card{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--shadow-sm);background:#fff}
+  .card .media{width:100%;aspect-ratio:16/11;object-fit:cover}
+
+  /* Ocultar títulos en hospedaje (solo imágenes) */
+  #hospedaje .overlay{display:none}
+
+  /* GUIAS */
+  .guide{display:grid;grid-template-columns:80px 1fr;gap:12px;align-items:center;padding:14px}
+  .guide img{width:80px;height:80px;border-radius:16px;object-fit:cover}
+</style>
 </head>
 <body>
-  <div id="map"></div>
 
-  <!-- JS de Leaflet -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    // Crear el mapa centrado en Chugchilán
-    const map = L.map('map').setView([-0.8695, -78.8964], 13);
+<!-- NAV -->
+<header>
+  <div class="container nav">
+    <nav class="menu" aria-label="principal">
+      <a class="active" href="#hero">INICIO</a>
+      <a href="#ruta">RUTA</a>
+      <a href="#hospedaje">HOSPEDAJE</a>
+      <a href="#actividades">ACTIVIDADES</a>
+      <a href="#guias">GUÍAS</a>
+      <a href="#contacto">CONTACTO</a>
+    </nav>
+    <div class="spacer"></div>
+    <a class="cta" href="#ruta">Planificar ruta</a>
+  </div>
+</header>
 
-    // Capa de mapa (por ahora online con OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-    }).addTo(map);
+<!-- HERO -->
+<section id="hero" class="hero" aria-label="Portada">
+  <div class="hero-inner">
+    <h1>TRACKING QUILOTOA</h1>
+    <p>NCaminar es solo el comienzo: vive la experiencia andina, comparte con su gente y guarda momentos que quedarán para siempre.</p>
+    <a class="btn-primary" href="#actividades">Explorar</a>
+  </div>
+</section>
 
-    // Agregar marcador
-    L.marker([-0.8695, -78.8964])
-      .addTo(map)
-      .bindPopup("Bienvenido a Chugchilán 🏞️<br>Inicio del trekking")
-      .openPopup();
+<div class="after-hero">
+  <!-- RUTA -->
+  <section id="ruta" class="section">
+    <h2 class="title">LA RUTA</h2>
+    <p class="subtitle">Explora el recorrido completo y planifica tus paradas favoritas.</p>
+    <div class="container">
+      <img class="map-img" src="https://jrnogales.neocities.org/tracking/imagenes/mapaTracking.png" alt="Mapa Tracking Quilotoa">
+    </div>
+  </section>
 
-    // Mostrar ubicación actual (GPS del usuario)
-    map.locate({ setView: true, maxZoom: 16 });
-    map.on('locationfound', e => {
-      L.marker(e.latlng).addTo(map)
-        .bindPopup("Tu ubicación actual 📍").openPopup();
-    });
-  </script>
+  <!-- HOSPEDAJE (sin filtros y sin títulos) -->
+  <section id="hospedaje" class="section">
+    <h2 class="title">Elige tu mejor opción para hospedarte y relajarte</h2>
+    <div id="portfolio" class="container grid cols-4">
+      <!-- CHUGCHILAN -->
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=10" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min32-2-1024x683.jpg" alt="Hostal Cloud Forest">
+        </a>
+      </article>
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=14" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541057-1024x683.jpg" alt="Hostería Puyu Pacha">
+        </a>
+      </article>
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=11" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541024-1024x683.jpg" alt="Lagoon Hotel">
+        </a>
+      </article>
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=18" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541016-1024x683.jpg" alt="Centro Turístico Quilotoa Ñan">
+        </a>
+      </article>
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=13" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min5410-1024x683.jpg" alt="Cabaña Luna y Miel">
+        </a>
+      </article>
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=12" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min51-1024x683.jpg" alt="Hostal Backpackers">
+        </a>
+      </article>
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=9" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min19-1024x683.jpg" alt="Hostal Doña Clarita">
+        </a>
+      </article>
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=7" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min17-1024x683.jpg" alt="El Bautista Camping">
+        </a>
+      </article>
+      <!-- QUILOTOA -->
+      <article class="card">
+        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=17" target="_blank" rel="noopener">
+          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_1712-1024x683.jpg" alt="Hotel Princesa Toa">
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES con tus imágenes -->
+  <section id="actividades" class="section" style="background:#f3f7f9;">
+    <h2 class="title">Vive estas experiencias</h2>
+    <p class="subtitle">Programas auténticos en granjas y paisajes andinos, operados por la comunidad.</p>
+    <div class="container grid cols-4">
+      <article class="card">
+        <img class="media" src="https://cdn.pixabay.com/photo/2016/08/26/01/55/animals-1621075_1280.jpg" alt="Granja de animales">
+      </article>
+      <article class="card">
+        <img class="media" src="https://panoramaagrario.com/wp-content/uploads/2016/06/cultivos.jpg" alt="Siembra">
+      </article>
+      <article class="card">
+        <img class="media" src="https://www.micebo.es/data/blog/328/images/_mini/post_grd/891/pescar-trucha.jpg?t=20220422b" alt="Pesca deportiva">
+      </article>
+      <article class="card">
+        <img class="media" src="https://losciruelos.es/wp-content/uploads/2017/02/montar-a-caballo-beneficios.jpg" alt="Montar a caballo">
+      </article>
+    </div>
+  </section>
+
+  <!-- GUÍAS con tus imágenes -->
+  <section id="guias" class="section">
+    <h2 class="title">Guías locales certificados</h2>
+    <p class="subtitle">Conocimiento de territorio, seguridad y acompañamiento en tu idioma.</p>
+    <div class="container grid cols-3">
+      <article class="card"><div class="guide">
+        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ambiente.gob.ec%2Fmae-permite-el-ingreso-de-guias-nacionales-a-12-areas-protegidas-para-fomentar-y-promover-el-turismo%2F&psig=AOvVaw1Uh0UF5idTG937sY428sLr&ust=1761450717805000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCJiC1LW5vpADFQAAAAAdAAAAABAE" alt="Guía 1">
+        <div><strong>Guía Local 1</strong><br><span class="subtitle">Español / Inglés</span></div>
+      </div></article>
+      <article class="card"><div class="guide">
+        <img src="https://ecuadorconventions.org/wp-content/uploads/2025/01/Guianza-Turistica.webp" alt="Guía 2">
+        <div><strong>Guía Local 2</strong><br><span class="subtitle">Español / Francés</span></div>
+      </div></article>
+      <article class="card"><div class="guide">
+        <img src="https://travelecuador.org/wp-content/uploads/2022/06/Marco-I-have-a-Mission.jpg" alt="Guía 3">
+        <div><strong>Guía Local 3</strong><br><span class="subtitle">Español</span></div>
+      </div></article>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section">
+    <h2 class="title">¿Listo para empezar?</h2>
+    <p class="subtitle">Escríbenos fechas, número de personas y actividades que te interesan.</p>
+    <div class="container" style="display:flex;justify-content:center">
+      <a class="btn-primary" href="mailto:info@quilotoatrail.com">Contactar</a>
+    </div>
+  </section>
+</div>
+
 </body>
 </html>
