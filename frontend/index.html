@@ -22,7 +22,12 @@
   <!-- NAV -->
   <header>
     <div class="container nav">
-      <nav class="menu" aria-label="principal">
+      <button id="hamburger" class="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="menu" class="menu" aria-label="principal">
         <a class="active" href="#hero">INICIO</a>
         <a href="#ruta">RUTA</a>
         <a href="#hospedaje">HOSPEDAJE</a>
@@ -54,9 +59,9 @@
         <div id="map"></div>
 
         <div class="panel">
-          <button id="btnFollow">🧭 Seguir ON</button>
-          <button id="btnLocate">📍 Mi ubicación</button>
-          <button id="btnCompass">🧲 Brújula</button>
+          <button id="btnFollow" title="Activar/desactivar seguimiento">🧭 Seguir ON</button>
+          <button id="btnLocate" title="Centrar en tu ubicación">📍 Mi ubicación</button>
+          <button id="btnCompass" title="Activar brújula del dispositivo">🧲 Brújula</button>
         </div>
 
         <div class="legend">
@@ -171,12 +176,37 @@
     <section id="contacto" class="section">
       <h2 class="title">¿Listo para empezar?</h2>
       <p class="subtitle">Escríbenos fechas, número de personas y actividades que te interesan.</p>
-      <div class="container" style="display:flex;justify-content:center">
+      <div class="container" style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;">
         <a class="btn-primary" href="mailto:info@quilotoatrail.com">Contactar</a>
       </div>
     </section>
 
   </div>
+
+  <!-- SCRIPT DEL HAMBURGER MENU -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+
+    // Cerrar menu al hacer click en un enlace
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        menu.classList.remove('active');
+      });
+    });
+
+    // Cerrar menu al hacer scroll
+    window.addEventListener('scroll', () => {
+      hamburger.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  </script>
 
   <!-- SCRIPT DEL MAPA AVANZADO -->
   <script>
@@ -192,7 +222,11 @@
       async: true,
       polyline_options: { color:'#2563eb', weight:4, opacity:.95 }
     })
-    .on('loaded', e => map.fitBounds(e.target.getBounds(), { padding:[30,30] }))
+    .on('loaded', e => {
+      const bounds = e.target.getBounds();
+      const padding = window.innerWidth <= 640 ? [20,20] : [30,30];
+      map.fitBounds(bounds, { padding });
+    })
     .on('error', () => alert('No pude cargar ' + gpxUrl + '. ¿Nombre/ruta correctos?'))
     .addTo(map);
 
@@ -226,7 +260,7 @@
     function showBanner(msg){
       banner.textContent = msg;
       banner.style.display='block';
-      setTimeout(()=> banner.style.display='none', 2400);
+      setTimeout(()=> banner.style.display='none', 3000);
     }
 
     function checkOffRoute(latlng){
@@ -298,7 +332,7 @@
           if (state !== 'granted') return alert('Permiso de brújula denegado');
         }
         window.addEventListener('deviceorientation', handleOrientation, { passive:true });
-        alert('Brújula activada');
+        showBanner('Brújula activada');
       } catch {
         alert('Tu navegador no permite brújula');
       }
