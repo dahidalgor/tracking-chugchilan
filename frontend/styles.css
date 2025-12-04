@@ -424,6 +424,19 @@ section{scroll-margin-top:80px}
 .panel button:active{
   transform:scale(0.95);
 }
+
+.btn-start{
+  background:#18c1e6 !important;
+  color:#06333d !important;
+  font-weight:800;
+}
+.btn-start:hover{
+  background:#12a6c7 !important;
+}
+.btn-start.active{
+  background:#0d7a8f !important;
+  opacity:0.7;
+}
 .legend {
   position:absolute;
   left:12px;
@@ -492,4 +505,46 @@ section{scroll-margin-top:80px}
     font-size:12px;
     padding:8px 12px;
   }
+}
+
+/* PUNTOS DE INTERÉS */
+.leaflet-popup-content-wrapper{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+}
+
+.leaflet-popup{
+  margin-bottom:0;
+}
+
+.point-popup{
+  padding:0;
+  margin:0;
+}
+
+.point-popup h3{
+  margin:0 0 8px;
+  color:var(--gold);
+  font-size:14px;
+  font-weight:800;
+  padding:12px 12px 0;
+}
+
+.point-popup p{
+  margin:0;
+  color:var(--ink);
+  font-size:12px;
+  line-height:1.4;
+  padding:0 12px 12px;
+}
+
+.leaflet-popup-close-button{
+  color:var(--ink);
+  opacity:0.6;
+  font-size:20px;
+}
+
+.leaflet-popup-close-button:hover{
+  opacity:1;
 }

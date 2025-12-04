@@ -59,6 +59,7 @@
         <div id="map"></div>
 
         <div class="panel">
+          <button id="btnStart" title="Iniciar trekking y seguimiento" class="btn-start">🚀 INICIAR</button>
           <button id="btnFollow" title="Activar/desactivar seguimiento">🧭 Seguir ON</button>
           <button id="btnLocate" title="Centrar en tu ubicación">📍 Mi ubicación</button>
           <button id="btnCompass" title="Activar brújula del dispositivo">🧲 Brújula</button>
@@ -209,30 +210,71 @@
     });
   </script>
 
-  <!-- SCRIPT DEL MAPA AVANZADO -->
+  <!-- SCRIPT DEL MAPA AVANZADO CON PUNTOS DE INTERÉS -->
   <script>
+    // ----- CONFIGURACIÓN GLOBAL -----
+    let routeLayer = null;
+    let routeLine = null;
+    let interestPoints = [];
+    let routeStarted = false;
+
     // ----- MAPA BASE -----
     const map = L.map('map', { zoomControl:true }).setView([-0.9, -78.8], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19, attribution: '&copy; OpenStreetMap'
     }).addTo(map);
 
-    // ----- RUTA GPX -----
+    // ----- CARGAR PUNTOS DE INTERÉS -----
+    async function loadInterestPoints(){
+      try {
+        const response = await fetch('points.json');
+        if (!response.ok) throw new Error('No se pudo cargar points.json');
+        const data = await response.json();
+        interestPoints = data.points || [];
+        addInterestPointsToMap();
+      } catch (error) {
+        console.warn('Puntos de interés no disponibles (offline):', error);
+      }
+    }
+
+    function addInterestPointsToMap(){
+      interestPoints.forEach(point => {
+        const marker = L.circleMarker([point.lat, point.lng], {
+          radius: 8,
+          fillColor: "#85713f",
+          color: "#fff",
+          weight: 2,
+          opacity: 0.8,
+          fillOpacity: 0.8
+        }).addTo(map);
+
+        const popupContent = `
+          <div class="point-popup">
+            <h3>${point.title}</h3>
+            <p>${point.description}</p>
+          </div>
+        `;
+
+        marker.bindPopup(popupContent);
+        marker.on('click', () => {
+          marker.openPopup();
+        });
+      });
+    }
+
+    // ----- CARGAR RUTA GPX -----
     const gpxUrl = 'quilotoa_trail.gpx';
     const gpxLayer = new L.GPX(gpxUrl, {
       async: true,
       polyline_options: { color:'#2563eb', weight:4, opacity:.95 }
     })
     .on('loaded', e => {
-      const bounds = e.target.getBounds();
-      const padding = window.innerWidth <= 640 ? [20,20] : [30,30];
-      map.fitBounds(bounds, { padding });
+      // NO enfocar automáticamente, solo mostrar la ruta
+      console.log('Ruta cargada correctamente');
     })
-    .on('error', () => alert('No pude cargar ' + gpxUrl + '. ¿Nombre/ruta correctos?'))
+    .on('error', () => console.error('No se pudo cargar ' + gpxUrl))
     .addTo(map);
 
-    // Convertimos a línea para alertas
-    let routeLine = null;
     gpxLayer.on('loaded', () => {
       const gj = gpxLayer.toGeoJSON();
       routeLine = (gj.features || [gj]).find(f => f.geometry?.type === 'LineString') || null;
@@ -265,13 +307,56 @@
     }
 
     function checkOffRoute(latlng){
-      if (!routeLine) return;
+      if (!routeLine || !routeStarted) return;
       const p = turf.point([latlng.lng, latlng.lat]);
       const dist = turf.pointToLineDistance(p, routeLine, {units:'meters'});
       if (dist > 30) showBanner('Te alejaste de la ruta (~' + dist.toFixed(0) + ' m)');
     }
 
-    // ----- GEOLOC (botón Mi ubicación) -----
+    // ----- BOTÓN INICIAR -----
+    document.getElementById('btnStart').addEventListener('click', function() {
+      if (!routeStarted) {
+        routeStarted = true;
+        follow = true;
+        this.classList.add('active');
+        this.textContent = '✓ INICIADO';
+        showBanner('Trekking iniciado. Solicitar ubicación...');
+        
+        // Destacar la ruta - VISIBLE Y BRILLANTE
+        if (gpxLayer) {
+          gpxLayer.setStyle({ 
+            color: '#18c1e6',
+            weight: 6,
+            opacity: 1
+          });
+          // Enfocar la ruta cuando se inicia
+          try {
+            const bounds = gpxLayer.getBounds();
+            const padding = window.innerWidth <= 640 ? [50,50] : [80,80];
+            map.fitBounds(bounds, { padding, animate:true, duration:0.8 });
+          } catch(e) { console.log('No se pudo enfocar ruta'); }
+        }
+        
+        // Activar geolocalización automáticamente
+        map.locate({ watch:true, setView:true, maxZoom:17, enableHighAccuracy:true });
+      } else {
+        // Parar seguimiento
+        routeStarted = false;
+        follow = false;
+        this.classList.remove('active');
+        this.textContent = 'Iniciar';
+        if (gpxLayer) {
+          gpxLayer.setStyle({ 
+            color: '#2563eb',
+            weight: 4,
+            opacity: 0.8
+          });
+        }
+        showBanner('Trekking pausado');
+      }
+    });
+
+    // ----- GEOLOC -----
     document.getElementById('btnLocate').addEventListener('click', () => {
       map.locate({ watch:true, setView:true, maxZoom:17, enableHighAccuracy:true });
     });
@@ -307,14 +392,8 @@
     });
 
     map.on('locationerror', (e) => {
-      alert(
-        "⚠️ No se pudo obtener ubicación.\n\n" +
-        "Detalle: " + e.message + " (code " + e.code + ")\n\n" +
-        "Prueba:\n" +
-        "• Abrir en navegador con HTTPS\n" +
-        "• Activar permisos de ubicación\n" +
-        "• Activar Ubicación precisa en el dispositivo"
-      );
+      console.error('Error de ubicación:', e);
+      showBanner('⚠️ No se pudo obtener ubicación');
     });
 
     // ----- BRÚJULA -----
@@ -340,12 +419,15 @@
     }
     document.getElementById('btnCompass').onclick = enableCompass;
 
-    // ----- Toggle seguir -----
+    // ----- TOGGLE SEGUIR -----
     document.getElementById('btnFollow').onclick = (ev) => {
       follow = !follow;
       ev.target.textContent = follow ? "🧭 Seguir ON" : "🧭 Seguir OFF";
       showBanner(follow ? "Seguir activado" : "Seguir desactivado");
     };
+
+    // ----- INICIALIZAR -----
+    loadInterestPoints();
   </script>
 </body>
 </html>
