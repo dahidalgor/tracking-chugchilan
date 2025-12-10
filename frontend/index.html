@@ -17,25 +17,6 @@
   <!-- ESTILOS -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- ESTILOS PARA EL MODAL Y OCULTAR MARCADORES -->
-  <style>
-    /* Ocultar marcadores del plugin leaflet-gpx */
-    .leaflet-marker-icon {
-      display: none !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-    }
-    
-    .leaflet-marker-pane {
-      display: none !important;
-    }
-    
-    /* Asegurar que solo vea la línea de la ruta */
-    .leaflet-pane > svg,
-    .leaflet-pane > canvas {
-      z-index: 200 !important;
-    }
-  </style>
 </head>
 <body>
 
@@ -933,6 +914,13 @@
     .on('loaded', e => {
       // NO enfocar automáticamente, solo mostrar la ruta
       console.log('Ruta cargada correctamente');
+      
+      // Remover cualquier marcador que haya creado el plugin
+      map.eachLayer(layer => {
+        if (layer instanceof L.Marker) {
+          map.removeLayer(layer);
+        }
+      });
     })
     .on('error', () => console.error('No se pudo cargar ' + gpxUrl))
     .addTo(map);
@@ -940,6 +928,12 @@
     gpxLayer.on('loaded', () => {
       const gj = gpxLayer.toGeoJSON();
       routeLine = (gj.features || [gj]).find(f => f.geometry?.type === 'LineString') || null;
+      
+      // Enfocar el mapa para ver toda la ruta
+      if (gpxLayer.getBounds) {
+        const bounds = gpxLayer.getBounds();
+        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
+      }
     });
 
     // ----- MARCADOR TRIANGULAR -----
