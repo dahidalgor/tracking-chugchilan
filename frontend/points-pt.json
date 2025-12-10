@@ -1,0 +1,186 @@
+{
+  "points": [
+    {
+      "id": 1,
+      "lat": -0.7865641,
+      "lng": -78.9125884,
+      "title": "Planta de Processamento de Chochos",
+      "description": "Aberto de segunda a sexta de 08:00 a 17:00"
+    },
+    {
+      "id": 2,
+      "lat": -0.867055,
+      "lng": -78.91612,
+      "title": "Hotel Comunitário Princesa Toa",
+      "description": "Hotel comunitário com amplos quartos. Contato: (+593) 978820307"
+    },
+    {
+      "id": 3,
+      "lat": -0.86635,
+      "lng": -78.91597,
+      "title": "Comunidade Quilotoa",
+      "description": "Fim da trilha - Lagoa Quilotoa"
+    },
+    {
+      "id": 4,
+      "lat": -0.830307,
+      "lng": -78.91812,
+      "title": "Centro de Turismo Comunitário Inca Ñan",
+      "description": "Experiência autêntica com comunidade indígena. Contato: (+593) 98 167 5323"
+    },
+    {
+      "id": 5,
+      "lat": -0.818697,
+      "lng": -78.9168,
+      "title": "Fazenda Agroecológica",
+      "description": "Experiência agroecológica na região"
+    },
+    {
+      "id": 6,
+      "lat": -0.782238,
+      "lng": -78.905945,
+      "title": "Mirante Chinalo Baixo",
+      "description": "Mirante com belas vistas da região"
+    },
+    {
+      "id": 7,
+      "lat": -0.784617,
+      "lng": -78.91069,
+      "title": "Hostel El Inca",
+      "description": "Hostel familiar confortável. Contato: (+593) 990696465"
+    },
+    {
+      "id": 8,
+      "lat": -0.798768,
+      "lng": -78.91901,
+      "title": "Hostel Cloud Forest",
+      "description": "Espaços amplos e acolhedores. Contato: (+593) 985066782"
+    },
+    {
+      "id": 9,
+      "lat": -0.79949,
+      "lng": -78.92086,
+      "title": "Cidade Chugchilan",
+      "description": "Início da trilha Quilotoa Trail"
+    },
+    {
+      "id": 10,
+      "lat": -0.802098,
+      "lng": -78.92128,
+      "title": "Hostel el Vaquero",
+      "description": "Localizado em lugar pitoresco. Contato: (+593) 961124555"
+    },
+    {
+      "id": 11,
+      "lat": -0.7063791,
+      "lng": -78.8869679,
+      "title": "Sigchos",
+      "description": "Cidade no trajeto da Trilha Quilotoa"
+    },
+    {
+      "id": 12,
+      "lat": -0.784918,
+      "lng": -78.90914,
+      "title": "Mirante Bautista",
+      "description": "Lindo mirante com vistas panorâmicas"
+    },
+    {
+      "id": 13,
+      "lat": -0.832373,
+      "lng": -78.92008,
+      "title": "Mirante Las Golondrinas",
+      "description": "Ponto de observação com vistas espetaculares"
+    },
+    {
+      "id": 14,
+      "lat": -0.847668,
+      "lng": -78.90886,
+      "title": "Mirante Quilotoa, Lado Sigchos",
+      "description": "Mirante com vista para a lagoa de Quilotoa"
+    },
+    {
+      "id": 15,
+      "lat": -0.84099,
+      "lng": -78.912544,
+      "title": "Trilha Guayama Quilotoa",
+      "description": "Trilha alternativa para Quilotoa"
+    },
+    {
+      "id": 16,
+      "lat": -0.799403,
+      "lng": -78.920364,
+      "title": "Hotel Lagoon",
+      "description": "Hotel no centro de Chugchilán. Contato: (+593) 980925472"
+    },
+    {
+      "id": 17,
+      "lat": -0.800052,
+      "lng": -78.92182,
+      "title": "Hostel Backpackers",
+      "description": "Hostel familiar para aventureiros. Contato: (+593) 988542235"
+    },
+    {
+      "id": 18,
+      "lat": -0.799633,
+      "lng": -78.92264,
+      "title": "Caminho para a Floresta Nublada",
+      "description": "Trilha para a floresta nublada"
+    },
+    {
+      "id": 19,
+      "lat": -0.797313,
+      "lng": -78.917015,
+      "title": "Black Sheep Inn ecolodge",
+      "description": "Ecolodge de turismo responsável. Contato: (+593) 939004446"
+    },
+    {
+      "id": 20,
+      "lat": -0.794153,
+      "lng": -78.90541,
+      "title": "Rio Toachi",
+      "description": "Rio importante no trajeto"
+    },
+    {
+      "id": 21,
+      "lat": -0.8298686,
+      "lng": -78.9157556,
+      "title": "Trilha la Moya",
+      "description": "Trilha alternativa na rota"
+    },
+    {
+      "id": 22,
+      "lat": -0.7063127,
+      "lng": -78.8802268,
+      "title": "Starlight Mountain Lodge",
+      "description": "Lodge nas montanhas de Sigchos"
+    },
+    {
+      "id": 23,
+      "lat": -0.7153826,
+      "lng": -78.8769287,
+      "title": "Lodge Sigchos El descanso del inca",
+      "description": "Lodge comunitário em Sigchos"
+    },
+    {
+      "id": 24,
+      "lat": -0.7294426,
+      "lng": -78.877807,
+      "title": "Cascata de Gualligua",
+      "description": "Lindo cachoeiro no trajeto"
+    },
+    {
+      "id": 25,
+      "lat": -0.747769,
+      "lng": -78.8881365,
+      "title": "Mirante",
+      "description": "Ponto de observação no caminho"
+    },
+    {
+      "id": 26,
+      "lat": -0.7577178,
+      "lng": -78.897909,
+      "title": "A Montanha Frailejon",
+      "description": "Montanha com flora de páramo"
+    }
+  ]
+}

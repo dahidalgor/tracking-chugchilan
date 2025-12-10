@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Tracking Quilotoa — Prototipo</title>
+  <title>Tracking Quilotoa</title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;700;800&display=swap" rel="stylesheet" />
@@ -17,9 +17,24 @@
   <!-- ESTILOS -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- ESTILOS PARA EL MODAL - MINIMALISTA -->
+  <!-- ESTILOS PARA EL MODAL Y OCULTAR MARCADORES -->
   <style>
+    /* Ocultar marcadores del plugin leaflet-gpx */
+    .leaflet-marker-icon {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
     
+    .leaflet-marker-pane {
+      display: none !important;
+    }
+    
+    /* Asegurar que solo vea la línea de la ruta */
+    .leaflet-pane > svg,
+    .leaflet-pane > canvas {
+      z-index: 200 !important;
+    }
   </style>
 </head>
 <body>
@@ -52,7 +67,7 @@
           <button class="lang-option" data-lang="en">🇬🇧 English</button>
           <button class="lang-option" data-lang="fr">🇫🇷 French</button>
           <button class="lang-option" data-lang="pt">🇵🇹 Portuguese</button>
-          <button class="lang-option" data-lang="qu">🏴 Quechua</button>
+          <button class="lang-option" data-lang="qu">🏴 Quichua</button>
         </div>
       </div>
       <!-- FIN SECCIÓN AGREGADA -->
@@ -179,23 +194,11 @@
     <section id="guias" class="section">
       <h2 class="title">Guías locales certificados</h2>
       <p class="subtitle">Conocimiento de territorio, seguridad y acompañamiento en tu idioma.</p>
-      <div class="container grid cols-3">
+      <div class="container guide-container">
         <article class="card guide-card" data-guide-id="1">
           <div class="guide">
             <img src="img/Guias/Guia1.jpg" alt="Guía 1">
             <div><strong>Guía Local 1</strong><br><span class="subtitle">Español</span></div>
-          </div>
-        </article>
-        <article class="card guide-card" data-guide-id="2">
-          <div class="guide">
-            <img src="https://ecuadorconventions.org/wp-content/uploads/2025/01/Guianza-Turistica.webp" alt="Guía 2">
-            <div><strong>Guía Local 2</strong><br><span class="subtitle">Español / Francés</span></div>
-          </div>
-        </article>
-        <article class="card guide-card" data-guide-id="3">
-          <div class="guide">
-            <img src="https://travelecuador.org/wp-content/uploads/2022/06/Marco-I-have-a-Mission.jpg" alt="Guía 3">
-            <div><strong>Guía Local 3</strong><br><span class="subtitle">Español</span></div>
           </div>
         </article>
       </div>
@@ -804,6 +807,9 @@
         updateModalForLanguage(lang);
       }
       
+      // Recargar puntos de interés con el nuevo idioma
+      loadInterestPoints(lang);
+      
       // Cerrar menú de idiomas
       closeLanguageMenu();
     }
@@ -871,12 +877,21 @@
     }).addTo(map);
 
     // ----- CARGAR PUNTOS DE INTERÉS -----
-    async function loadInterestPoints(){
+    async function loadInterestPoints(lang = 'es'){
       try {
-        const response = await fetch('points.json');
-        if (!response.ok) throw new Error('No se pudo cargar points.json');
+        const fileName = `points-${lang}.json`;
+        const response = await fetch(fileName);
+        if (!response.ok) throw new Error(`No se pudo cargar ${fileName}`);
         const data = await response.json();
         interestPoints = data.points || [];
+        
+        // Limpiar marcadores anteriores
+        map.eachLayer(layer => {
+          if (layer instanceof L.CircleMarker && layer !== gpxLayer) {
+            map.removeLayer(layer);
+          }
+        });
+        
         addInterestPointsToMap();
       } catch (error) {
         console.warn('Puntos de interés no disponibles (offline):', error);
@@ -912,6 +927,7 @@
     const gpxUrl = 'quilotoa_trail.gpx';
     const gpxLayer = new L.GPX(gpxUrl, {
       async: true,
+      marker_options: false,
       polyline_options: { color:'#2563eb', weight:4, opacity:.95 }
     })
     .on('loaded', e => {
@@ -1073,7 +1089,8 @@
     };
 
     // ----- INICIALIZAR -----
-    loadInterestPoints();
+    const savedLang = localStorage.getItem('preferredLanguage') || 'es';
+    loadInterestPoints(savedLang);
   </script>
 </body>
 </html>
