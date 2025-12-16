@@ -1,0 +1,1096 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>trecking quilotoa puntos</name>
+    <description><![CDATA[Más que una caminata, una experiencia vivencial.<br>Atrévete a recorrer estos senderos milenarios y vive momentos inolvidables]]></description>
+    <Style id="icon-1507-795548-normal">
+      <IconStyle>
+        <color>ff485579</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1507-795548-highlight">
+      <IconStyle>
+        <color>ff485579</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1507-795548">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1507-795548-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1507-795548-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1523-FF5252-normal">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1523-FF5252-highlight">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1523-FF5252">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1523-FF5252-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1523-FF5252-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1546-0F9D58-normal">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1546-0F9D58-highlight">
+      <IconStyle>
+        <color>ff589d0f</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1546-0F9D58">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1546-0F9D58-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1546-0F9D58-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1595-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1595-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1595-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1595-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1595-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1595-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1595-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1595-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1595-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1595-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1602-F57C00-normal">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1602-F57C00-highlight">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1602-F57C00">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1602-F57C00-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1602-F57C00-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1699-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1699-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1699-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1699-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1699-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1886-097138-normal">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1886-097138-highlight">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1886-097138">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1886-097138-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1886-097138-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-DB4436-normal">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-DB4436-highlight">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-DB4436">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-DB4436-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-DB4436-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-F57C00-normal">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-F57C00-highlight">
+      <IconStyle>
+        <color>ff007cf5</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-F57C00">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-F57C00-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-F57C00-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-9C27B0-3713-nodesc-normal">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>3.713</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-9C27B0-3713-nodesc-highlight">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>5.5695</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-9C27B0-3713-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-9C27B0-3713-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-9C27B0-3713-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-9C27B0-3906-nodesc-normal">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>3.906</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-9C27B0-3906-nodesc-highlight">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>5.859</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-9C27B0-3906-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-9C27B0-3906-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-9C27B0-3906-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-9C27B0-4100-normal">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>4.1</width>
+      </LineStyle>
+    </Style>
+    <Style id="line-9C27B0-4100-highlight">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>6.15</width>
+      </LineStyle>
+    </Style>
+    <StyleMap id="line-9C27B0-4100">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-9C27B0-4100-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-9C27B0-4100-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="line-9C27B0-4488-nodesc-normal">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>4.488</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="line-9C27B0-4488-nodesc-highlight">
+      <LineStyle>
+        <color>ffb0279c</color>
+        <width>6.732</width>
+      </LineStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="line-9C27B0-4488-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#line-9C27B0-4488-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#line-9C27B0-4488-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Quilotoa Trail</name>
+      <Placemark>
+        <name>Planta de procesamiento de Chochos (Altramuz)</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoot8P-5xy70hdVSgSMlFQWe7cZcT5QKtT4MzuvuVMnGJcH1yn_UtthmlZQXS9uMxYhUJ9u-H5As6AMCLBSdRY2-lKDQdK4k8fEii-dyC0LNQTAaaEMbSA-mh_paH5Iu4lCTLiOXXw4uzf30lvTgMN8RdP35fMutVzyCdjId0NLffz8jYahM2GMxIKmfQwrt_6O-mUm3TNt3TXaQrjiiKUSOg2LLojvKDEbtrbsAj5_JrpP6dgp1Zo8pb2M?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Abierto de lunes a viernes de 08:00 a 17:00<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorZFmntL6vhX6LYGrOfI1wGf-6u2i6XzYS9QQFz304JfR62CT3p0SbRcOVG2rD5a_h6boUtuXryXIgtDoajNeXyJtNOBj7ZxEKdE9PRrHSGv_SIUyOpT4QEcuFts3GKC8kwMhOjHBT38TzseY9qG48XnpdRRRGn7GXTJOVaouT8Jwj-wWUvK6DhqY2lRLX_BZy9pWLfax0N_tYcLrC1MGODn991wg0kDTaMa1mT4-LwY9y8bK9Kjd8Z12w?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoot8P-5xy70hdVSgSMlFQWe7cZcT5QKtT4MzuvuVMnGJcH1yn_UtthmlZQXS9uMxYhUJ9u-H5As6AMCLBSdRY2-lKDQdK4k8fEii-dyC0LNQTAaaEMbSA-mh_paH5Iu4lCTLiOXXw4uzf30lvTgMN8RdP35fMutVzyCdjId0NLffz8jYahM2GMxIKmfQwrt_6O-mUm3TNt3TXaQrjiiKUSOg2LLojvKDEbtrbsAj5_JrpP6dgp1Zo8pb2M?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorZFmntL6vhX6LYGrOfI1wGf-6u2i6XzYS9QQFz304JfR62CT3p0SbRcOVG2rD5a_h6boUtuXryXIgtDoajNeXyJtNOBj7ZxEKdE9PRrHSGv_SIUyOpT4QEcuFts3GKC8kwMhOjHBT38TzseY9qG48XnpdRRRGn7GXTJOVaouT8Jwj-wWUvK6DhqY2lRLX_BZy9pWLfax0N_tYcLrC1MGODn991wg0kDTaMa1mT4-LwY9y8bK9Kjd8Z12w?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.9125884,-0.7865641,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hotel Comunitario Princesa Toa</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBop2W9VYsqEOJLksbiZP1iiPvRrfw4lW2BRcDzz6xJVmYaDt3QpkMe8qqlHrg5xkHeM-rNF32Uj6-xSfDyiYSiCnC4pbHzhzk_YlOJTij0FuaQvjLu-nfgjCulKtCo84L076uDf5BWl6vJgXl6Jr42iCn2Mu35MGARKTzmyu0etFopPY1jLAFeIJ-Ic7yYuyFSzDjBTMWCxBcjfRP0g3QFqCm8IyRRGbQ7DUxYJLI7gLQUDEQWHKyndFYCU?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Al finalizar el Quilotoa Trail, relájate y descansa en el hotel Princesa Toa, este hotel comunitario cuenta con amplias y cómodas habitaciones equipadas con calefacción, baño privado, agua caliente, Wifi y amplias áreas sociales.<br>Contacto: (+593) 978820307<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooPqJZnijaPZco6lPjzU8igx7mctJMRMIZT3v7hm3gsjsBjUN_-J4FgyVYfMxHQUNiehREztuTkkXfyLg_vNzC7RKzTVXXhLqhbHRrHB9cSvc3ZS23ay3aszRFthbohHcemWYWvNVebiS-R6Vl_nhAKIsPXDsHMoDBqhvP-xYcBWkaoLcXf5EAh86XdhHdl9L8gMxGCsxlSjpbSCpJdKWu2h7SJiEUyFpbmeDhe_xaoCWFfDwv4bV2ghuU?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBop2W9VYsqEOJLksbiZP1iiPvRrfw4lW2BRcDzz6xJVmYaDt3QpkMe8qqlHrg5xkHeM-rNF32Uj6-xSfDyiYSiCnC4pbHzhzk_YlOJTij0FuaQvjLu-nfgjCulKtCo84L076uDf5BWl6vJgXl6Jr42iCn2Mu35MGARKTzmyu0etFopPY1jLAFeIJ-Ic7yYuyFSzDjBTMWCxBcjfRP0g3QFqCm8IyRRGbQ7DUxYJLI7gLQUDEQWHKyndFYCU?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooPqJZnijaPZco6lPjzU8igx7mctJMRMIZT3v7hm3gsjsBjUN_-J4FgyVYfMxHQUNiehREztuTkkXfyLg_vNzC7RKzTVXXhLqhbHRrHB9cSvc3ZS23ay3aszRFthbohHcemWYWvNVebiS-R6Vl_nhAKIsPXDsHMoDBqhvP-xYcBWkaoLcXf5EAh86XdhHdl9L8gMxGCsxlSjpbSCpJdKWu2h7SJiEUyFpbmeDhe_xaoCWFfDwv4bV2ghuU?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.91612,-0.867055,3906.6
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Comunidad Quilotoa</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopXjPqOXzDNUM8xVhNXZ94DB8MPAFYVSK84L5taJaYQqho4Md-nWkSQ64wGhmJARjxHrsbXlX1no9ZTO7_qqGycKvx15fkSN28xqH1iSurSG56oSmR0062Wva99VoECS-SYrvK3-fp9mCpGdzlybl7CuGRI1yfTUBtZrhuxT4dJ_kdYLrwN761CMx_01bo5cgDcqX32ZK4hoJ3Z_I0LPQb7zSN_RTVP8sKeT5KonZXe9r6LaOgxfaxV5y8?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Fin de la ruta.]]></description>
+        <styleUrl>#icon-1546-0F9D58</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopXjPqOXzDNUM8xVhNXZ94DB8MPAFYVSK84L5taJaYQqho4Md-nWkSQ64wGhmJARjxHrsbXlX1no9ZTO7_qqGycKvx15fkSN28xqH1iSurSG56oSmR0062Wva99VoECS-SYrvK3-fp9mCpGdzlybl7CuGRI1yfTUBtZrhuxT4dJ_kdYLrwN761CMx_01bo5cgDcqX32ZK4hoJ3Z_I0LPQb7zSN_RTVP8sKeT5KonZXe9r6LaOgxfaxV5y8?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.91597,-0.86635,3900.6
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Centro de Turismo Comunitario Inca Ñan </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqLvQzqClk5gk2vCehPhKHsCNddITKJh4UoakB0OKGp-9NxeMXvEczkxx7D7xE8F9G0YDCfZpgZsrmkWdjmwHH604i87guPsDi_auQOZaaelmfU67-igremjW1WebXzP4RtuHfT7MaxYr_mfmjx5IaDtaoAys-DnpLMNPIWaLQvSYZYyhXzUv_3WjKfv12aaH6TMZBHhjfI949Jyb-_zRy9zeL3_GAr1E6VYRLr6E-yku5djDHtxCpXoxo?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Quieres vivir una experiencia auténtica junto a una comunidad indígena de la zona, el Centro Turístico Comunitario Quilotoa Ñan es la mejor opción, comparte con familias locales, conoce su cultura, costumbres y tradiciones.<br>Contacto: (+593) 98 167 5323 <br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqWnbWyiQLlpcFppuPPiclD2YjGhF9MGsX-tpWoYCC3CN8arN4YLLuAI1v6YMhodIC_N32q-i93euXOUzRac18NUk6DRq-qf-eJfz58BuAD-TBDn-4L3MOm69g6obdpZ-A4g1tgEvnwQuuGL_jVpuehv5WCuPq2rLIX5vtKXsSeIRvzY4b1OiF2F7nerR_TTwrw7_dpmBt6_sFuMIxYCHAbso1MCXqc4TcmBGo2vtpRQ9bOmUshPHskABo?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqLvQzqClk5gk2vCehPhKHsCNddITKJh4UoakB0OKGp-9NxeMXvEczkxx7D7xE8F9G0YDCfZpgZsrmkWdjmwHH604i87guPsDi_auQOZaaelmfU67-igremjW1WebXzP4RtuHfT7MaxYr_mfmjx5IaDtaoAys-DnpLMNPIWaLQvSYZYyhXzUv_3WjKfv12aaH6TMZBHhjfI949Jyb-_zRy9zeL3_GAr1E6VYRLr6E-yku5djDHtxCpXoxo?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqWnbWyiQLlpcFppuPPiclD2YjGhF9MGsX-tpWoYCC3CN8arN4YLLuAI1v6YMhodIC_N32q-i93euXOUzRac18NUk6DRq-qf-eJfz58BuAD-TBDn-4L3MOm69g6obdpZ-A4g1tgEvnwQuuGL_jVpuehv5WCuPq2rLIX5vtKXsSeIRvzY4b1OiF2F7nerR_TTwrw7_dpmBt6_sFuMIxYCHAbso1MCXqc4TcmBGo2vtpRQ9bOmUshPHskABo?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.91812,-0.830307,3357.2
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Finca Agroecologica</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoo6foTamB0HBryucTqSo0jx15jQw3BWBq3xksjG4rpoke83jZlK2vbf7IeGBoZ8N3d32LKlKSEG7JZ9tKbaLLhl-YodEeu_Qep6RF_chjItRWMwXUvqQ_8JdNo63dL3UzhYSLTAJMAnQJ-ro50uJPB5nkPimhRkGmFL-biPXqtNrpj5Ko10kqklkqrZ7AoEnENfhOgzIK2oPqb73gZ65NFAB6mgfLOV4jQZC57agurJO3cbGfsc3y07xmc?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1886-097138</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoo6foTamB0HBryucTqSo0jx15jQw3BWBq3xksjG4rpoke83jZlK2vbf7IeGBoZ8N3d32LKlKSEG7JZ9tKbaLLhl-YodEeu_Qep6RF_chjItRWMwXUvqQ_8JdNo63dL3UzhYSLTAJMAnQJ-ro50uJPB5nkPimhRkGmFL-biPXqtNrpj5Ko10kqklkqrZ7AoEnENfhOgzIK2oPqb73gZ65NFAB6mgfLOV4jQZC57agurJO3cbGfsc3y07xmc?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.9168,-0.818697,3264.6
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mirador Chinalo Bajo</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBootIzTdMNhB2q0omnU7Xd0-BJYBRJpDP4t5VSMlwIqbE8l-ZSLwPIfW6HZxrFKOqrPO8yXPijrtPsAC4e9Us--CsGbsdGucGzAEEzIyQC4KT7Xd59Ucclm8Y0qfomCurDtQyB_PPxpUGeS0TlQ4cJE1U-qA3MAeB_AIo0qdKzCCvgXlmwwwEsnauAhqeIJ9x2X7McOXA9CPoG12NJjufQQnEVmU9SM2m9DmY71bt8HePhtds2mKjdrYgsg?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1523-FF5252</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBootIzTdMNhB2q0omnU7Xd0-BJYBRJpDP4t5VSMlwIqbE8l-ZSLwPIfW6HZxrFKOqrPO8yXPijrtPsAC4e9Us--CsGbsdGucGzAEEzIyQC4KT7Xd59Ucclm8Y0qfomCurDtQyB_PPxpUGeS0TlQ4cJE1U-qA3MAeB_AIo0qdKzCCvgXlmwwwEsnauAhqeIJ9x2X7McOXA9CPoG12NJjufQQnEVmU9SM2m9DmY71bt8HePhtds2mKjdrYgsg?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.905945,-0.782238,2999.5
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hostal El Inca </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqhwGHaskuOdPg0MkjEyDMpZN_2FivwXBNhDh441KBWIio8SI9mWaSSqavjvL7G5OjV85Wxg-hQE_CRnUnRJ-RZ1KK4H8I5F6kkkRXcnlLdZ9-f9kZ0OrBHXCbVQNiFrqdsokYKHWsAqTdq0Zi6JF1fbDtE-PtOMYOpLUb7sYURu6wISyVIQlDUFAQioqWhviCPedmb3ZWNBiwcAfjXW4rztZ7b-6PweEEYFR5Mj24RUxevdwP7NpCsnfc?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Este pequeño hostal familiar cuenta con las facilidades necesarias para tu descanso, este alojamiento dispone de habitaciones, dobles y triples con baños compartidos y conexión a internet, su restaurante-cafetería cuenta con menús que relatan la gastronomía local.<br>Contacto: (+593) 990696465 <br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqyQcUSHKrD0KfoiuaqqjO4DnjRWyMPvV8JBrCXD6hIgzj9fgGTmTEZ89DSjonFMaAE_aI6ARLV_FpgzfDu7COdF8_0Abs6htBXLdtFv4CKkJk7GAVdsHSVq3ntCLB3ydJkErFdwC1c4OLNDuH2o1NfQQdPKOZqwcaWqlUBaXbsQTVWP4xZWNY6NYkVVoyJnOlxRI_30ehmIJ_v6c8ft50BpHM2-ArzG-RaPLuIhr-kM1RRHLdiLo7JPdU?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqhwGHaskuOdPg0MkjEyDMpZN_2FivwXBNhDh441KBWIio8SI9mWaSSqavjvL7G5OjV85Wxg-hQE_CRnUnRJ-RZ1KK4H8I5F6kkkRXcnlLdZ9-f9kZ0OrBHXCbVQNiFrqdsokYKHWsAqTdq0Zi6JF1fbDtE-PtOMYOpLUb7sYURu6wISyVIQlDUFAQioqWhviCPedmb3ZWNBiwcAfjXW4rztZ7b-6PweEEYFR5Mj24RUxevdwP7NpCsnfc?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqyQcUSHKrD0KfoiuaqqjO4DnjRWyMPvV8JBrCXD6hIgzj9fgGTmTEZ89DSjonFMaAE_aI6ARLV_FpgzfDu7COdF8_0Abs6htBXLdtFv4CKkJk7GAVdsHSVq3ntCLB3ydJkErFdwC1c4OLNDuH2o1NfQQdPKOZqwcaWqlUBaXbsQTVWP4xZWNY6NYkVVoyJnOlxRI_30ehmIJ_v6c8ft50BpHM2-ArzG-RaPLuIhr-kM1RRHLdiLo7JPdU?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.91069,-0.784617,3068.3
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hostal Cloud Forest </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopk94WClI5FgHBIN3xcIYwkibqK7IntPSdqgz0U9vAtiJQiM_C1GY4svpKKrLBHCGwcTuLwspenjUGTtyqZRsXpZEJIDF7xyfSHH2oirKDJptdH1OmLn2A85lSknSHCR8AFt71P7qGjV79SvkpHAeHRpsAlYLW_Y_IuYVTFziMAoMSt-lur_Xe09r1QB1ayHJ2C2qBkUKtn7eD8XS5d392dCd0XdYZJhWoFikpiX7JuuBXxg-qHGMSOdHM?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Cuenta con amplios y acogedores espacios internos y externos, se ofrece alojamiento en habitaciones privadas y familiares equipadas con baño privado, calefacción, agua caliente, WiFi.<br>Contacto: (+593) 985066782 <br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooIo0Q2JgKZGJBO_p7hZ7q4fNWSO3GCpD_HMX0TC94fzVhIBGHn_-EpDl4ftBS--2iohLqkNvmbeOqXbiSTGCLRo6wtScPcqgaiVLfXku-RML69uNzYg_PBfC1lWxuRd-wZYo4VVudR9o0KKFa151i36_hEEzuvTSPFMPeQOT7prFL4zsTq1didMCUnRXiabwMkfJCRcziM6ZyJI_actTZDRD0dTgbfIG9A6ytsyD3C9LZ7M5_RoiurNxk?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopk94WClI5FgHBIN3xcIYwkibqK7IntPSdqgz0U9vAtiJQiM_C1GY4svpKKrLBHCGwcTuLwspenjUGTtyqZRsXpZEJIDF7xyfSHH2oirKDJptdH1OmLn2A85lSknSHCR8AFt71P7qGjV79SvkpHAeHRpsAlYLW_Y_IuYVTFziMAoMSt-lur_Xe09r1QB1ayHJ2C2qBkUKtn7eD8XS5d392dCd0XdYZJhWoFikpiX7JuuBXxg-qHGMSOdHM?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooIo0Q2JgKZGJBO_p7hZ7q4fNWSO3GCpD_HMX0TC94fzVhIBGHn_-EpDl4ftBS--2iohLqkNvmbeOqXbiSTGCLRo6wtScPcqgaiVLfXku-RML69uNzYg_PBfC1lWxuRd-wZYo4VVudR9o0KKFa151i36_hEEzuvTSPFMPeQOT7prFL4zsTq1didMCUnRXiabwMkfJCRcziM6ZyJI_actTZDRD0dTgbfIG9A6ytsyD3C9LZ7M5_RoiurNxk?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.91901,-0.798768,3209.1
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Poblado Chugchilan</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopY0FSIQ33WXhUsweFGpSAOIbuKnsWVVM3P2lMbbPIugsfJS-Q9YRDUvkCQ4XPtJB8W8VdHJF_kTpwxjf58Aom_lntlp0MSTrJ_toyZX5l6GZRh5D4FYuauImEYv3343kmJ57boehnfto_lTdA7sJ3lI5ZLk8QosME8pMdFjnATnt0CWfWXX7BuS1hVBm_qHbTEiGm-16yB6ueXleRq94KHkf9fa9YhVaLpa2exyp_L8rOYjA2K-xfZCgY?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1546-0F9D58</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopY0FSIQ33WXhUsweFGpSAOIbuKnsWVVM3P2lMbbPIugsfJS-Q9YRDUvkCQ4XPtJB8W8VdHJF_kTpwxjf58Aom_lntlp0MSTrJ_toyZX5l6GZRh5D4FYuauImEYv3343kmJ57boehnfto_lTdA7sJ3lI5ZLk8QosME8pMdFjnATnt0CWfWXX7BuS1hVBm_qHbTEiGm-16yB6ueXleRq94KHkf9fa9YhVaLpa2exyp_L8rOYjA2K-xfZCgY?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.92086,-0.79949,3223.7
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hostal el Vaquero </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooGsQIq4I7TnWan7ZnH_6Jx3pPZpwdB3K8Y8QnTWKeevG4F9HK9g-cOq3WN9xT7RzFaT6SBxo7BAfrlqGJihtGwL9-0leLEi_eT-u2VOugr8_A7DmcqoqTT3K2HGqw5iiVrl7pB4DqHNviqezHm97hPPOGzGng1FXf8hDD2kNSkv2noQ4xfP5uF2X3oO0d8C8vOBZLHvyIux0q9yc3ffjrNOSS4mExFRQypwQnImU7D3JwZdrSAuOpFj8Y?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Ubicado en un lugar muy paisajístico, cuenta con habitaciones confortables, equipadas con calefacción, baño privado, agua caliente, WIFI, donde podrás descansar y recargar energías para tu siguiente paso.<br>Contacto: (+593) 961124555  <br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoo3EhbTAT1vENHgziXojcsq8rVIb58BMu3V4g0_4GlNitZfOxEX_VqWMWgVxxs1FMusQQHAhOC2wP7NTjSn06vihhX8lJJv8D_JtKORewvL2lQDAIrU0MxWPkHGi3X0gktkPdTyuWMTeQ-tSKKZQwKTQlTyU6rwdTGcEF-jo7CrpaGK_xa39rQAv_rt_AIvIz_UgFdWQGcGdElTSgolXDjI_56Gd8fz92srQ_8aF-osqfadfscIJ1egh_k?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooGsQIq4I7TnWan7ZnH_6Jx3pPZpwdB3K8Y8QnTWKeevG4F9HK9g-cOq3WN9xT7RzFaT6SBxo7BAfrlqGJihtGwL9-0leLEi_eT-u2VOugr8_A7DmcqoqTT3K2HGqw5iiVrl7pB4DqHNviqezHm97hPPOGzGng1FXf8hDD2kNSkv2noQ4xfP5uF2X3oO0d8C8vOBZLHvyIux0q9yc3ffjrNOSS4mExFRQypwQnImU7D3JwZdrSAuOpFj8Y?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoo3EhbTAT1vENHgziXojcsq8rVIb58BMu3V4g0_4GlNitZfOxEX_VqWMWgVxxs1FMusQQHAhOC2wP7NTjSn06vihhX8lJJv8D_JtKORewvL2lQDAIrU0MxWPkHGi3X0gktkPdTyuWMTeQ-tSKKZQwKTQlTyU6rwdTGcEF-jo7CrpaGK_xa39rQAv_rt_AIvIz_UgFdWQGcGdElTSgolXDjI_56Gd8fz92srQ_8aF-osqfadfscIJ1egh_k?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.92128,-0.802098,3209.3
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sigchos</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorFWYoHOqJkHcU-bQmYncjevp42tUoo3tJ0F8X4fhH_3MFRzLuyvcyTOWh_OyEzh4bkGI-Odd4VUvfeeTDYzaYxIMXfov2a1Q6JTLW6f1CYTKRNDSwNeM7f2EJy03-CPYB9UQ4A11apE1bde5aCGIoTvk-4_XYxaQP6gcDQXmFm-lHvpbUCBRf6y6SNzJZaSh2DArhp9hFrz_ficMYiKl3wwIMerv-TFtPTjzyvum9RSksnVlcXzMfI9IU?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Sigchos]]></description>
+        <styleUrl>#icon-1546-0F9D58</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorFWYoHOqJkHcU-bQmYncjevp42tUoo3tJ0F8X4fhH_3MFRzLuyvcyTOWh_OyEzh4bkGI-Odd4VUvfeeTDYzaYxIMXfov2a1Q6JTLW6f1CYTKRNDSwNeM7f2EJy03-CPYB9UQ4A11apE1bde5aCGIoTvk-4_XYxaQP6gcDQXmFm-lHvpbUCBRf6y6SNzJZaSh2DArhp9hFrz_ficMYiKl3wwIMerv-TFtPTjzyvum9RSksnVlcXzMfI9IU?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.8869679,-0.7063791,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mirador Bautista</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBor7KmOUnhIjLVnoATAouoL1ruP95heoQ0IABALzJUvCjibbU0--Nw090kcUG_P2iYoPhYejuxpY92jXOTtqBrwwlr1lXJLAyIGT2Nv-VIvA_fpUaEGuUJ90zccoR_M1HBT0N3wmoVWCXuWp1wBwg6KClOrHwWt749u10fvsX4MhhNE1Yv1udM5zh1eFzANwNFwEzNldtv_IffFp6Cx3CSh3RzBHJFminiIVYaZPz1JA4vzqfI0pqNZpFjc?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoq_tKq-xvKsiwjUP1M2ftprPpvyWfVRv0PW8aRB7-7KGsZnmwjI-2iXRUetxngaLNdzJEWeA5ciZjfaJaN8u-HV6qQyqrOsWXixGKemUp06IJGfkpXRonZ504DBTUjKpeR-H4fOGrAoe77A2fksoNc-p2VuAEXuFXHY1mnHc_ArbjExwkhas0t2dUV9y7DtpBpa_I9gBnT3doaKUrboNpCBnpoh7yUz1Tx-3otcq8_XuYhufGfA3H18Eh4?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1523-FF5252</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBor7KmOUnhIjLVnoATAouoL1ruP95heoQ0IABALzJUvCjibbU0--Nw090kcUG_P2iYoPhYejuxpY92jXOTtqBrwwlr1lXJLAyIGT2Nv-VIvA_fpUaEGuUJ90zccoR_M1HBT0N3wmoVWCXuWp1wBwg6KClOrHwWt749u10fvsX4MhhNE1Yv1udM5zh1eFzANwNFwEzNldtv_IffFp6Cx3CSh3RzBHJFminiIVYaZPz1JA4vzqfI0pqNZpFjc?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoq_tKq-xvKsiwjUP1M2ftprPpvyWfVRv0PW8aRB7-7KGsZnmwjI-2iXRUetxngaLNdzJEWeA5ciZjfaJaN8u-HV6qQyqrOsWXixGKemUp06IJGfkpXRonZ504DBTUjKpeR-H4fOGrAoe77A2fksoNc-p2VuAEXuFXHY1mnHc_ArbjExwkhas0t2dUV9y7DtpBpa_I9gBnT3doaKUrboNpCBnpoh7yUz1Tx-3otcq8_XuYhufGfA3H18Eh4?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.90914,-0.784918,3067.7
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mirador Las Golondrinas</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorM9Z1HbyBXUY16CXLOMPStFehMi_SDM7MANncpK97w0pmWTyFFQrLlvgKYO_6WgAIjERa_gGP08npkN8pP_-_72CcTtoBy1dGG5D8SzXOIFdM-2wPM3mANVpNEEl49rswt23Wkrtr_AJ-f7BTjeLAwkFC9nFLMnHP2P4quPp5qBX0_HTY8xV2gZUP2-qwNpjwuw4aYm3Ax5HEcFYfWkku5ft6UdoHkV3csFacAdtSVhesI_fZzX_WysXM?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1523-FF5252</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorM9Z1HbyBXUY16CXLOMPStFehMi_SDM7MANncpK97w0pmWTyFFQrLlvgKYO_6WgAIjERa_gGP08npkN8pP_-_72CcTtoBy1dGG5D8SzXOIFdM-2wPM3mANVpNEEl49rswt23Wkrtr_AJ-f7BTjeLAwkFC9nFLMnHP2P4quPp5qBX0_HTY8xV2gZUP2-qwNpjwuw4aYm3Ax5HEcFYfWkku5ft6UdoHkV3csFacAdtSVhesI_fZzX_WysXM?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.92008,-0.832373,3354.1
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mirador Quilotoa, Lado Sigchos</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorF_9QnOHFgBAQwmZ7EgT9rmjju36OZn2wFcevOlQmOOcuXKFXBr9LuV9Ww3ZIb9hfZmA8AmvPK376l2iwPFdNu6NQ9xNeyB7J3sYf0FKY6TQgkB3Tfb6qVXaVli1GAhaug64EJIl2TfG5kgDnvzKvwjZasaxK-7TI3RHSk2IGSLqOp2-cKuJUNiDlDFDLbQxY2RQXDr3GC_iL1ESp80JvYNeSnW2f_ji3WfnOi8iF8jCXcQ6sidGiZjTY?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorNy6foLw29Q16L7Dm6e_p8S-DLPIc1ZZup-APIvyXjgsVhju_W3kKf7IL2H_W9sK2VKNUNmenOftnMJjWwJ3dOv1l4XVXhdAhyOvsLiP8EGWq_AeR9Fc-Kg-mpxC3H4ug13RSUE5pGGSi8bt6Gi72pxe7lTquHlwEHBcAhriJkHVOvWYpQRelLP_tj1qZ1reiYD24zJuS8kGpELmdLM2P5UkHXPtJQ0OjqraG4O0QN3kANy39riu8JDaM?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooteQVUrKpmEgXwcOrqEOe_KUuCP_wvTnUSf8DWZNRZ0WUK2LYNnwuRusLcTB1d1TIM821m-WiRZCE8zQf_oPfO6hlTHoKv53q82xRtG0ifZqzzQWEXh3nPnqQVGNeT7ABwGqmy_C4fQPc1acqSEkuVQyC8osoKFQFGmu6F6miCtdQoIxPtFry0KX0TjYK1lO3DHCmp-KYhmz83k3PGTeaTtAwvxZjj__8ODtbOe9Wx86YrkfDerX014kY?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1523-FF5252</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorF_9QnOHFgBAQwmZ7EgT9rmjju36OZn2wFcevOlQmOOcuXKFXBr9LuV9Ww3ZIb9hfZmA8AmvPK376l2iwPFdNu6NQ9xNeyB7J3sYf0FKY6TQgkB3Tfb6qVXaVli1GAhaug64EJIl2TfG5kgDnvzKvwjZasaxK-7TI3RHSk2IGSLqOp2-cKuJUNiDlDFDLbQxY2RQXDr3GC_iL1ESp80JvYNeSnW2f_ji3WfnOi8iF8jCXcQ6sidGiZjTY?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorNy6foLw29Q16L7Dm6e_p8S-DLPIc1ZZup-APIvyXjgsVhju_W3kKf7IL2H_W9sK2VKNUNmenOftnMJjWwJ3dOv1l4XVXhdAhyOvsLiP8EGWq_AeR9Fc-Kg-mpxC3H4ug13RSUE5pGGSi8bt6Gi72pxe7lTquHlwEHBcAhriJkHVOvWYpQRelLP_tj1qZ1reiYD24zJuS8kGpELmdLM2P5UkHXPtJQ0OjqraG4O0QN3kANy39riu8JDaM?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooteQVUrKpmEgXwcOrqEOe_KUuCP_wvTnUSf8DWZNRZ0WUK2LYNnwuRusLcTB1d1TIM821m-WiRZCE8zQf_oPfO6hlTHoKv53q82xRtG0ifZqzzQWEXh3nPnqQVGNeT7ABwGqmy_C4fQPc1acqSEkuVQyC8osoKFQFGmu6F6miCtdQoIxPtFry0KX0TjYK1lO3DHCmp-KYhmz83k3PGTeaTtAwvxZjj__8ODtbOe9Wx86YrkfDerX014kY?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.90886,-0.847668,3793
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sendero Guayama Quilotoa</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqtqIFPBUrGecdGI9_2o4FB4cI0VCcbkEyEAP1zUrOSM2u1S9u4QL4wPNf9PYJt-VKcuANoKe_kfRqQKP1qTeRYlQCLnM5V0421cTv-uqrnfFxMn55Av2JEUvy1sWJeNmxdeNp17vIPqbf3tkPSUIpgosWZ8VjPHS55DBRASF1asIQHeeVGT7uk-rwf4h4Z6icSc2QqdNhjwEj0QX0a_oumNDFq8OlcOcPdyUmIwT4r75Nfk_nNrh9SVpg?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoq2UVoTFcOIiDVqcq9mfFywpANeZZt7ORTRP-3LrpxxXVgc4zqMO1IBL8m-pzEj1o75X5TznE0wdxjWYpqd76Z-gIGqvfR0qJCbJRJbUzELTS7gg5HwyuOHIkxZIqKa6jVq-hqrZkL_7h4X7rOivrRn9Px9wmvXir3kb_rQuIkgn9SDgp6H6MQLnAmkH7J5BXnVuDBx2lOzB7vWCEBo67HpvRGyy9tvMVE9gDnfaINm1aadEFJaaTFNNFs?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1595-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqtqIFPBUrGecdGI9_2o4FB4cI0VCcbkEyEAP1zUrOSM2u1S9u4QL4wPNf9PYJt-VKcuANoKe_kfRqQKP1qTeRYlQCLnM5V0421cTv-uqrnfFxMn55Av2JEUvy1sWJeNmxdeNp17vIPqbf3tkPSUIpgosWZ8VjPHS55DBRASF1asIQHeeVGT7uk-rwf4h4Z6icSc2QqdNhjwEj0QX0a_oumNDFq8OlcOcPdyUmIwT4r75Nfk_nNrh9SVpg?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoq2UVoTFcOIiDVqcq9mfFywpANeZZt7ORTRP-3LrpxxXVgc4zqMO1IBL8m-pzEj1o75X5TznE0wdxjWYpqd76Z-gIGqvfR0qJCbJRJbUzELTS7gg5HwyuOHIkxZIqKa6jVq-hqrZkL_7h4X7rOivrRn9Px9wmvXir3kb_rQuIkgn9SDgp6H6MQLnAmkH7J5BXnVuDBx2lOzB7vWCEBo67HpvRGyy9tvMVE9gDnfaINm1aadEFJaaTFNNFs?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.912544,-0.84099,3545.1
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Lagoon Hotel </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBor45_HmYIgYhSdofVY1o-LKeqsNQyFwlW_9VRsbr8nJg6wZTuhHDZxiLqoFOtGGz-0juhWe9HFrteqGAAe9o0uFpFOMcCB9d1kPSusTOOBFDFebCJiQKv7BzEPpUOxwzfiqSSO_YgYX4c1gClB_hLMNEexP8xqncAdb3J1wTsQnnDDXR8Op_h1nlpEdv3T3Ewa08UMAB4kH3SE_7Z07GLZe9SC68p-3FD2tLjMABm4LEfMnYtc8WqpTu7o?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Ubicado en el centro de Chugchilán, es una excelente opción de hospedaje en el Quilotoa Trail, cuenta con cómodas y confortables habitaciones, cada una con baño privado, agua caliente, WiFi y servicios de restaurante.<br>Contacto: (+593) 980925472  <br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopSN5z47f_mcKmmvJqs60K-HJo2uymxF1FuvXU0kCy6TXpYwa7ibjcU_Rz5cU38yR2ufY_3XuFp8AywQ-7bV4_Odj9V_o9cnFJWrraydb1UZftotZIy5FLAW8o_D7qCD2XS-8_JOIhCfYHUSz3cRSZOgsgc0-NL4nWmbKpg9pBwc0c0hh1jR_i7iMKfkzm5qZGXMT0YKH_3ccXHVnN7EhlT-9WuWLIdutNR-Ys4lFvSAC1cfLn7x5ipq0o?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBor45_HmYIgYhSdofVY1o-LKeqsNQyFwlW_9VRsbr8nJg6wZTuhHDZxiLqoFOtGGz-0juhWe9HFrteqGAAe9o0uFpFOMcCB9d1kPSusTOOBFDFebCJiQKv7BzEPpUOxwzfiqSSO_YgYX4c1gClB_hLMNEexP8xqncAdb3J1wTsQnnDDXR8Op_h1nlpEdv3T3Ewa08UMAB4kH3SE_7Z07GLZe9SC68p-3FD2tLjMABm4LEfMnYtc8WqpTu7o?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopSN5z47f_mcKmmvJqs60K-HJo2uymxF1FuvXU0kCy6TXpYwa7ibjcU_Rz5cU38yR2ufY_3XuFp8AywQ-7bV4_Odj9V_o9cnFJWrraydb1UZftotZIy5FLAW8o_D7qCD2XS-8_JOIhCfYHUSz3cRSZOgsgc0-NL4nWmbKpg9pBwc0c0hh1jR_i7iMKfkzm5qZGXMT0YKH_3ccXHVnN7EhlT-9WuWLIdutNR-Ys4lFvSAC1cfLn7x5ipq0o?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.920364,-0.799403,3217.8
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hostal Backpackers </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooaCf6N9NxBBg8og6qawKfkDB3_nvX5jyWNgsPvJCIYCMmuUZaXXx8Fr7G5Sgq8o38O7mTT130K3bZfJK1TDmOOhPW_qt4PopJyEzGnj4YleIFCbyNwtA0qJAdoUerSd-H_BefRoT3fgCxmUE1TecUyKtHtWzDBKh1HGcvPNN1x74EMGPd2kI9WlbQSREIxb5HIfzET-0Q8FXk8AA1LMNvG5zaH09IAtgo4miHbaZ8R6dGQOhcHcdq_1kc?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Si eres aventurero y deseas un lugar cómodo tranquilo y muy familiar, este hostal espera por ti, disfruta de momentos únicos en compania de otros aventureros que al igual que tu buscan contar historias y conocer de la cultura local.<br>Contacto: (+593) 988542235 / (+593) 992363785  <br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqNrnnbh6XCgb90Iip010gdx1JsXwHAan2Wd-Ea6q1OGGT8Evc_d9QEX8V02sK26-aiYTD3gevB5SgoITzPJe1PkxebLv28I1fIfCbUFlnkN0gtMQIIk2Bp-n7vbbXX8FefK2wPo58gLfW_RiGa4z4-j0GHzQ9_Y6SCRhebJ-Qi3ZwV4lvqlVWhEJS4GDacIm2PmYTnjaqa_phVZimyAt96DRzT2hL9T85SoZ89a5QISpgKOuvlVSrxa-k?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooaCf6N9NxBBg8og6qawKfkDB3_nvX5jyWNgsPvJCIYCMmuUZaXXx8Fr7G5Sgq8o38O7mTT130K3bZfJK1TDmOOhPW_qt4PopJyEzGnj4YleIFCbyNwtA0qJAdoUerSd-H_BefRoT3fgCxmUE1TecUyKtHtWzDBKh1HGcvPNN1x74EMGPd2kI9WlbQSREIxb5HIfzET-0Q8FXk8AA1LMNvG5zaH09IAtgo4miHbaZ8R6dGQOhcHcdq_1kc?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqNrnnbh6XCgb90Iip010gdx1JsXwHAan2Wd-Ea6q1OGGT8Evc_d9QEX8V02sK26-aiYTD3gevB5SgoITzPJe1PkxebLv28I1fIfCbUFlnkN0gtMQIIk2Bp-n7vbbXX8FefK2wPo58gLfW_RiGa4z4-j0GHzQ9_Y6SCRhebJ-Qi3ZwV4lvqlVWhEJS4GDacIm2PmYTnjaqa_phVZimyAt96DRzT2hL9T85SoZ89a5QISpgKOuvlVSrxa-k?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.92182,-0.800052,3229.2
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Vía a el Bosque Nublado</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoo2tEboIhZyL6IYbou5s31e4PXa9HzmdMfTPeu4ZhEPJvfq_pk0J8AiJSDGYo5-2guOEvca4rxsKSZIyYlUEOpnbQ5CVHsXC6FT6_yD37yViuw3N9PosUCJ88XTgOO6gtkx3qjvfgGuqKH6JXCDoGurJ4ODB449a6SqwTc8ppZVS02EF8kfBatkOWGcL6RieVVVJ1WNwztaotT5qNbiVHiVuLeRl8CmhJD4we5kXcQAvnlrWQWoh0XgWw8?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1699-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoo2tEboIhZyL6IYbou5s31e4PXa9HzmdMfTPeu4ZhEPJvfq_pk0J8AiJSDGYo5-2guOEvca4rxsKSZIyYlUEOpnbQ5CVHsXC6FT6_yD37yViuw3N9PosUCJ88XTgOO6gtkx3qjvfgGuqKH6JXCDoGurJ4ODB449a6SqwTc8ppZVS02EF8kfBatkOWGcL6RieVVVJ1WNwztaotT5qNbiVHiVuLeRl8CmhJD4we5kXcQAvnlrWQWoh0XgWw8?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.92264,-0.799633,3230.9
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Black Sheep Inn ecolodge </name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqSMOJh2gG77Uohnlsjo_LPK1WHTaUtjQWOZURqoQCGd8oO1z5qBzqUMuG_7PA84RhJ8OhlGTNJB3SQkWg7hqee2RmbXCIWksMCMDzJtYp-5xEuTHD0qBT0C8h0NoHhYKuIzNyp5eUJlf9zximv4LQTNQwG4zYqH1jHq7IUNnXiQCrpv2c9RhZHrU7GH1mMoPanUoQ8zdmP2-kLyWjEApuc9FHpIawWixmqDqgaW6S-p4pM8p0w-9asyxs?authuser=0&fife=s16383" height="200" width="auto" /><br><br>Vive la experiencia de alojarte en uno de los ecolodges lideres del ecoturismo en el país, sus prácticas y facilidades amigables con el ambiente te harán sentir parte del turismo responsable y ecológico, todo esto combinado con el confort y calidad que te ofrece. <br>Contacto:(+593) 939004446<br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqap5MP_XRmcdxWJw3OyFyd9KJlhemmEByH5rW-EYbALcsGZ6NERXztDTfK7cvWrW1GOwlsUJtjNJ1dZWfybO6zG319sDyrFLhlHXn_cvgopvQHPCbCtn2cjFGg3zjbviN71ER77RlhYFLCDp4wUecTT58CvDXTpxgmi6AptJyhnT3tCRHJP2HM2HIkPnV_6l7QmiSiSNUbcZl1-_AnmjX6fiENCPCEgbCcPJMmzq-kSt7f3vy8l9ZSeeQ?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqSMOJh2gG77Uohnlsjo_LPK1WHTaUtjQWOZURqoQCGd8oO1z5qBzqUMuG_7PA84RhJ8OhlGTNJB3SQkWg7hqee2RmbXCIWksMCMDzJtYp-5xEuTHD0qBT0C8h0NoHhYKuIzNyp5eUJlf9zximv4LQTNQwG4zYqH1jHq7IUNnXiQCrpv2c9RhZHrU7GH1mMoPanUoQ8zdmP2-kLyWjEApuc9FHpIawWixmqDqgaW6S-p4pM8p0w-9asyxs?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqap5MP_XRmcdxWJw3OyFyd9KJlhemmEByH5rW-EYbALcsGZ6NERXztDTfK7cvWrW1GOwlsUJtjNJ1dZWfybO6zG319sDyrFLhlHXn_cvgopvQHPCbCtn2cjFGg3zjbviN71ER77RlhYFLCDp4wUecTT58CvDXTpxgmi6AptJyhnT3tCRHJP2HM2HIkPnV_6l7QmiSiSNUbcZl1-_AnmjX6fiENCPCEgbCcPJMmzq-kSt7f3vy8l9ZSeeQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.917015,-0.797313,3166
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Río Toachi</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopITYTs9u3vDUiwntrB_Kq-7TgiNoiWMjZOkMo8Pii-Sk9TEOUXn2cALan8_zGLElPfdRWKWSFBlZO5zPF2i5sd9m1Jn9HQvUl2NQ6_Yb8RAHHnSRCQ2mN44RWHoMg4Kfp_1tj9QFZlByK8kCIuQELIk3MSPQoqDRlopSXtcYIRkz3CIabzff408pF8gHdSFfMbJEuNe_bKa-bjQ3Tqb0Sk9jJ3I7gzj66aYNVg8c6DtF6LQQkCqjsRzPM?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopITYTs9u3vDUiwntrB_Kq-7TgiNoiWMjZOkMo8Pii-Sk9TEOUXn2cALan8_zGLElPfdRWKWSFBlZO5zPF2i5sd9m1Jn9HQvUl2NQ6_Yb8RAHHnSRCQ2mN44RWHoMg4Kfp_1tj9QFZlByK8kCIuQELIk3MSPQoqDRlopSXtcYIRkz3CIabzff408pF8gHdSFfMbJEuNe_bKa-bjQ3Tqb0Sk9jJ3I7gzj66aYNVg8c6DtF6LQQkCqjsRzPM?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.90541,-0.794153,3015
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sendero la Moya</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqMEq9rbvLw8dOpKzMR6Oimhjm50Ny2D_cMvYfi7UmXNh6fxhL_ZQ4t8oRdSyhalb6g88dIyh29UZ-w8Lgdyy6UK_OTqC3SK45-CbHuwzM94-2N1q6BBVcWzMrgoZUxXWLmNn_p7YaN_wlr5IIap7V1TPKxlDyONITksfSJJlPzxn3jcWfOXVpvk1xXV8IB-OZk9i02XxfArzw0aKBGjMp5U2nOhdpNplh1rOYf58RK6FRhagtXwJcTwKM?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1595-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqMEq9rbvLw8dOpKzMR6Oimhjm50Ny2D_cMvYfi7UmXNh6fxhL_ZQ4t8oRdSyhalb6g88dIyh29UZ-w8Lgdyy6UK_OTqC3SK45-CbHuwzM94-2N1q6BBVcWzMrgoZUxXWLmNn_p7YaN_wlr5IIap7V1TPKxlDyONITksfSJJlPzxn3jcWfOXVpvk1xXV8IB-OZk9i02XxfArzw0aKBGjMp5U2nOhdpNplh1rOYf58RK6FRhagtXwJcTwKM?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.9157556,-0.8298686,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sendero Principal</name>
+        <styleUrl>#icon-1595-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            -78.8817397,-0.742304,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Starlight Mountain Lodge</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorerJrvl3Ut-Lyd8-KO-PN0KdtRIOo_80xLeV0TvSST07z4ZR7GKd8NQoEnG-7MYV3bEBFOVf_gBadznKguGFhTS06zbyLH-lmmH1VxOdAHgkrjnv2Tqh30T9l7W52Ddw5gUQjkPArqjC1NiN7zhkoSeZK8UgJqQXmCykpIwoie6467jyI-v0qmKBD6g8lQFLcPBDgH8bG8vQVsKH_hkAdGWqOqOrC7ni4-HYjaolkLUOaNXWfwgRxPSDE?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorX08cdef3txD10pN3aN_TaIB4-ULhAqk5fY5aceUq3ebzDblCW4FWC7Aypx3n2SxFem6UGyZwjliqAFwxw8Kif-wAwZmKCNl7j_OuW-wMaGPz7E01jcE1YgXh2sEg8M5Id7lxygJRXU3ZjhYRkDnAr7wp0Zantuhr6mGzZUDiwACHjRCSsASBpxGiXGXPnO9TitoyklIYIXbO4IKikzPRlx40LFIY9Yzh6dbhiHjYAnBkXFkxpNYKrdTs?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqJIELKCWvnqncncX250G2NmwRa6AUppwrLOg9uVbY6rnAVQIlSUBOIfV7ZzQ8fmOTomsWkvbNLn12VtlI-M5aFO-HKPBjtd5NgjBCiXDGU5z6G7qSa1DMEejKEBBdkqIA11G7ZuXvofzx1VECxwgIQVrg_yTr9FSZWjIRM4rUKNHZ3rvSV1m0MK1h-0EWirE_33Ph921VXj2CgZk9T1IUubjjoJvjK2PmR-ooXmXR9lL9c_nYLJh5OVvw?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorerJrvl3Ut-Lyd8-KO-PN0KdtRIOo_80xLeV0TvSST07z4ZR7GKd8NQoEnG-7MYV3bEBFOVf_gBadznKguGFhTS06zbyLH-lmmH1VxOdAHgkrjnv2Tqh30T9l7W52Ddw5gUQjkPArqjC1NiN7zhkoSeZK8UgJqQXmCykpIwoie6467jyI-v0qmKBD6g8lQFLcPBDgH8bG8vQVsKH_hkAdGWqOqOrC7ni4-HYjaolkLUOaNXWfwgRxPSDE?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorX08cdef3txD10pN3aN_TaIB4-ULhAqk5fY5aceUq3ebzDblCW4FWC7Aypx3n2SxFem6UGyZwjliqAFwxw8Kif-wAwZmKCNl7j_OuW-wMaGPz7E01jcE1YgXh2sEg8M5Id7lxygJRXU3ZjhYRkDnAr7wp0Zantuhr6mGzZUDiwACHjRCSsASBpxGiXGXPnO9TitoyklIYIXbO4IKikzPRlx40LFIY9Yzh6dbhiHjYAnBkXFkxpNYKrdTs?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqJIELKCWvnqncncX250G2NmwRa6AUppwrLOg9uVbY6rnAVQIlSUBOIfV7ZzQ8fmOTomsWkvbNLn12VtlI-M5aFO-HKPBjtd5NgjBCiXDGU5z6G7qSa1DMEejKEBBdkqIA11G7ZuXvofzx1VECxwgIQVrg_yTr9FSZWjIRM4rUKNHZ3rvSV1m0MK1h-0EWirE_33Ph921VXj2CgZk9T1IUubjjoJvjK2PmR-ooXmXR9lL9c_nYLJh5OVvw?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.8802268,-0.7063127,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Sigchos lodge "El descanso del inca"]]></name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqCabJtUvxfro6KnIgCg4xgfbEhFAoENFAfLXQMWGbirxiG9o_G-6pbGuE4zL5rN1Ez_iSes5gDUjVs3WZ-S5rJh_R3ZlAdjrdbwQcynI4s4Dsv4nG1mVetp4ufFMbdErrQN-qSREWmSgjq6XfU3RwoYdT3qsQXJg6VWfeT8eMS1-OdRrOTy_v9JgdAyOl3JO23-_Yj6TR_A26jlHxxgt9kcaZr6yr4kBUjMin1Py0ICQzOh4eyRy3OKIQ?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorXYWrZgfpj5PKgWXiOPdHuLIdfIy2rLun3A9fzdPsi6h4TWuDzIdI-bBGbsjeljpSeFvhiGY6gHY5j2vi1F92VM3z1OFrSQZ9b0FR9mlzx0ChOFCSYE2Srlw9et9XQ_hX1QlFWOAWanYiYlVuIdLOKV7c4V1RRB4ev34taLTNxQi9sKG_gR6SviuMHud2sl2yL1C-jMd7hc7x8eYL7gO6qcmHg2txAg53PbBYzhL-HZF2y4Je9D5dNuuc?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqCabJtUvxfro6KnIgCg4xgfbEhFAoENFAfLXQMWGbirxiG9o_G-6pbGuE4zL5rN1Ez_iSes5gDUjVs3WZ-S5rJh_R3ZlAdjrdbwQcynI4s4Dsv4nG1mVetp4ufFMbdErrQN-qSREWmSgjq6XfU3RwoYdT3qsQXJg6VWfeT8eMS1-OdRrOTy_v9JgdAyOl3JO23-_Yj6TR_A26jlHxxgt9kcaZr6yr4kBUjMin1Py0ICQzOh4eyRy3OKIQ?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorXYWrZgfpj5PKgWXiOPdHuLIdfIy2rLun3A9fzdPsi6h4TWuDzIdI-bBGbsjeljpSeFvhiGY6gHY5j2vi1F92VM3z1OFrSQZ9b0FR9mlzx0ChOFCSYE2Srlw9et9XQ_hX1QlFWOAWanYiYlVuIdLOKV7c4V1RRB4ev34taLTNxQi9sKG_gR6SviuMHud2sl2yL1C-jMd7hc7x8eYL7gO6qcmHg2txAg53PbBYzhL-HZF2y4Je9D5dNuuc?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.8769287,-0.7153826,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Cascada de Gualligua</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBor7Xsfj-9ThpPxyJ7TOL0yNzY8PgHueW2ujfrYSXjcwo4uSxA6o2tbvE9ZlZ__4gtMRAmWEHD4As6xBO_OeIwBMqNWaIwLC_CiWbMvFxMuR1Q7lfyfk9otUK_7fn1KRivnzx3P2_lfvwkmRGtKfF5_KGleIXBEoE0Sol_7nNGxCOKA-BYlPM021xfQPSReouUa1E6p6sY6TeQkiXIw5SaqJo4DFnjOhpVheeXM3j24w6m-2uf5qxl6NprM?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqb7RxKvT7HM-LBz1R0LHlg3B0vRE6dYHyLfYjZXY9vVtqlem8MHzZd_DzkdTEs8V5ANo6STVmvACJXkNj3lNxU3WZ-agWh-j-RenmJ_umEe68O4ko-VX6tOorg36K2NXjpEAHi2oJ2IZ8dRZ7gSLJQQ2QjyH6iwXel55CrrzlE8M0XEzoUE1sfCYj1F5qmt3RSpdoiAnWamhY8vkRcDPAvwloincoEKWPkfGXYQwj-v7GU_ntHNkGnfMQ?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1899-DB4436</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBor7Xsfj-9ThpPxyJ7TOL0yNzY8PgHueW2ujfrYSXjcwo4uSxA6o2tbvE9ZlZ__4gtMRAmWEHD4As6xBO_OeIwBMqNWaIwLC_CiWbMvFxMuR1Q7lfyfk9otUK_7fn1KRivnzx3P2_lfvwkmRGtKfF5_KGleIXBEoE0Sol_7nNGxCOKA-BYlPM021xfQPSReouUa1E6p6sY6TeQkiXIw5SaqJo4DFnjOhpVheeXM3j24w6m-2uf5qxl6NprM?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqb7RxKvT7HM-LBz1R0LHlg3B0vRE6dYHyLfYjZXY9vVtqlem8MHzZd_DzkdTEs8V5ANo6STVmvACJXkNj3lNxU3WZ-agWh-j-RenmJ_umEe68O4ko-VX6tOorg36K2NXjpEAHi2oJ2IZ8dRZ7gSLJQQ2QjyH6iwXel55CrrzlE8M0XEzoUE1sfCYj1F5qmt3RSpdoiAnWamhY8vkRcDPAvwloincoEKWPkfGXYQwj-v7GU_ntHNkGnfMQ?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.877807,-0.7294426,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mirador</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooiL8UKxDe10Q0hCkhkUJiGLp_bya7p_EXR3RVMNT9-nbPtASQKj5s3fdlYaaySHCprZuKXIyYcDQP10BjPYGNyZXlkZ4DUIHx6sCM06KaFdaMIEDrINjzHK7suYRvAHEjH_uy85QfMVPt8_GITDDSnfZ132ZAASpw-Y0za5xNtyFfWsVYJhW8wSh-EvMd6Z9p4ZAGPBfUNaywyYJx-02uYNmO8UyD6_Sf3nf4YYM1M9RPsKHFPcSGLS0o?authuser=0&fife=s16383" height="200" width="auto" /><br><br>]]></description>
+        <styleUrl>#icon-1523-FF5252</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooiL8UKxDe10Q0hCkhkUJiGLp_bya7p_EXR3RVMNT9-nbPtASQKj5s3fdlYaaySHCprZuKXIyYcDQP10BjPYGNyZXlkZ4DUIHx6sCM06KaFdaMIEDrINjzHK7suYRvAHEjH_uy85QfMVPt8_GITDDSnfZ132ZAASpw-Y0za5xNtyFfWsVYJhW8wSh-EvMd6Z9p4ZAGPBfUNaywyYJx-02uYNmO8UyD6_Sf3nf4YYM1M9RPsKHFPcSGLS0o?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.8881365,-0.747769,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Frailejon Mountain</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqHuR5QZHOT71ViSHvul1i5TDn429a8o0Zsk7axC0T3gf4fK1OwAm5zmfSOqg_gutReBsOls9gl3wKEDeko3aRc_b2pli5xuS8oUv2XMF4EEvTvGGk-ffJKU3r8h39koMCYrReMtsXYXU9hBjqjroOuZPPoro75nCPCZ1hW_VAsmHRB9X3eEu-NZOLgMR991g0H7naza9xE0gK_ntdpqg3fa0eNkB1wOPJA5mY_Q8VWSkjpVBMkHZ0VGj8?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorqoAIm_s3xqqso7ASRyG-ewXl_0jQIBwum-bRaPWPoebOiHZc8AkXN7z8-umiBSW-B-DGPLBycLqgwvgA9tcBRr6rWoHocnszh4mm5jGNsO6Y84fHW7rJ435Kpq482BSRND4m2UBB8s5tpxYcu69oXObRcYtX-c3a-vWfe6uG0KuUUOqAxMAX1sHDFfujnuphiVBAkyinZrKyEYClplu_MRDqYxg90I-5Zs7YQ8yvGo3fXORIZJ4XS8a0?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoq8SjGYUtC2ORqGYpjilU5G5d47Qb3FayXfD3Wkzn_kfBvZahABbxRq48D8v2xJvLqXwRzWhkwmNYgTo6gy1b1g0B4Zu6PmqZzU5YcwLVwxYPt1CoUWwUmDSPbdWAShfQJe8gJmTqx49sijUdopV047l-lTpgrcEjuYmj5lLmBxUAnAyHPXM-Psb-LEE7ykNncEAmMxDODIFAQPF7IGg13JO7TGix3Sck-WdPk9Dm-QNgcJ-19-AatSwk8?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1602-F57C00</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqHuR5QZHOT71ViSHvul1i5TDn429a8o0Zsk7axC0T3gf4fK1OwAm5zmfSOqg_gutReBsOls9gl3wKEDeko3aRc_b2pli5xuS8oUv2XMF4EEvTvGGk-ffJKU3r8h39koMCYrReMtsXYXU9hBjqjroOuZPPoro75nCPCZ1hW_VAsmHRB9X3eEu-NZOLgMR991g0H7naza9xE0gK_ntdpqg3fa0eNkB1wOPJA5mY_Q8VWSkjpVBMkHZ0VGj8?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorqoAIm_s3xqqso7ASRyG-ewXl_0jQIBwum-bRaPWPoebOiHZc8AkXN7z8-umiBSW-B-DGPLBycLqgwvgA9tcBRr6rWoHocnszh4mm5jGNsO6Y84fHW7rJ435Kpq482BSRND4m2UBB8s5tpxYcu69oXObRcYtX-c3a-vWfe6uG0KuUUOqAxMAX1sHDFfujnuphiVBAkyinZrKyEYClplu_MRDqYxg90I-5Zs7YQ8yvGo3fXORIZJ4XS8a0?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoq8SjGYUtC2ORqGYpjilU5G5d47Qb3FayXfD3Wkzn_kfBvZahABbxRq48D8v2xJvLqXwRzWhkwmNYgTo6gy1b1g0B4Zu6PmqZzU5YcwLVwxYPt1CoUWwUmDSPbdWAShfQJe8gJmTqx49sijUdopV047l-lTpgrcEjuYmj5lLmBxUAnAyHPXM-Psb-LEE7ykNncEAmMxDODIFAQPF7IGg13JO7TGix3Sck-WdPk9Dm-QNgcJ-19-AatSwk8?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.897909,-0.7577178,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Actividades</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooKWKD9jCAlONIbLBn4r2uDqxU87JxJAADIAFzqaKdeVHq9NhNcycI_2LwpBwFwEnw-64PGEoRVW61Tn1N7ah3L9ezUuKOlW_WNg_v-7uoLuhOiuDPTTy1S1URZLd6Q7KJc2dxvOFXh-HWxdJn7URwWEDSG8LDqp4uRdLJV-hJFd6tPh52vm8u_Ftb2PLTgouZwtuf-U4gnKj1qBdW5fbEW-7hPVxn0nd2FS2qT79k7jIqybJcg1hGv5s0?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqV61Zo0eLAtuYpu4gQ2hNXwMnfxhODmNxFyMGgQwMtSs9_NjB8rRGZOvTdPf129vFB3XQFb4p8fVelgGhgJwe7Sr5t7ard-j-ZE45bGwRd7MBcpSqHMyI0r2eUQbEUdJzTMYCSHkdUigi1DIV9WqWHNZyEqxqBGmA123FSyTYcdqxmucSjSDF8wqr8V1Ism_yLjp8ZCcEFf2T8jg6_bZRom6yr9m0IPVU1jKwbfW0gQfJCrwMhDBjwsKY?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopGrMEYN4Nq5hqjKYVo9NfgYEf4zEiGU3v0G4IuC_QxWxk6Ba1tnQWJ6vbmY-TxxJagjUQR2ijuXJpMcy1cH0J90sY5j-y9tGvDEBCO6NK50KENHYHN4aRoiYTDOWfn81DgAe5nvj-Jp2Fy14NlXY69dudQjEuPI_njRmXtCxfkyuG_xwiQQb3Mh9oSkECqZg-dlWlcHqVnBK1pp7gCvSe1foUjXwl8rs88oRsxf-w5EZ9l0wC68GC9UV8?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBop-jnmgq_SQ9-UO3u8DMr0gozM0nSUGdJKl3OZ4p1Laq8D5azHdjDp_a-sQAcrJETkrwcju0ou1Qn3UtlgIFVkRwnceXKb90rOSp-MqrtoxzxkpwTZwSLmquq4tS-V6-gObtm8M1PbPEevOCOzv4U35gH6frzewajR5KckWNxfsROoQpZqU25jhjgbNtakpvt1s8rx-0BBuPYcsxgcXdLUHb7G2qT2djqX3l54hPdkyb2tltXPK769RDYA?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#icon-1507-795548</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooKWKD9jCAlONIbLBn4r2uDqxU87JxJAADIAFzqaKdeVHq9NhNcycI_2LwpBwFwEnw-64PGEoRVW61Tn1N7ah3L9ezUuKOlW_WNg_v-7uoLuhOiuDPTTy1S1URZLd6Q7KJc2dxvOFXh-HWxdJn7URwWEDSG8LDqp4uRdLJV-hJFd6tPh52vm8u_Ftb2PLTgouZwtuf-U4gnKj1qBdW5fbEW-7hPVxn0nd2FS2qT79k7jIqybJcg1hGv5s0?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqV61Zo0eLAtuYpu4gQ2hNXwMnfxhODmNxFyMGgQwMtSs9_NjB8rRGZOvTdPf129vFB3XQFb4p8fVelgGhgJwe7Sr5t7ard-j-ZE45bGwRd7MBcpSqHMyI0r2eUQbEUdJzTMYCSHkdUigi1DIV9WqWHNZyEqxqBGmA123FSyTYcdqxmucSjSDF8wqr8V1Ism_yLjp8ZCcEFf2T8jg6_bZRom6yr9m0IPVU1jKwbfW0gQfJCrwMhDBjwsKY?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopGrMEYN4Nq5hqjKYVo9NfgYEf4zEiGU3v0G4IuC_QxWxk6Ba1tnQWJ6vbmY-TxxJagjUQR2ijuXJpMcy1cH0J90sY5j-y9tGvDEBCO6NK50KENHYHN4aRoiYTDOWfn81DgAe5nvj-Jp2Fy14NlXY69dudQjEuPI_njRmXtCxfkyuG_xwiQQb3Mh9oSkECqZg-dlWlcHqVnBK1pp7gCvSe1foUjXwl8rs88oRsxf-w5EZ9l0wC68GC9UV8?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBop-jnmgq_SQ9-UO3u8DMr0gozM0nSUGdJKl3OZ4p1Laq8D5azHdjDp_a-sQAcrJETkrwcju0ou1Qn3UtlgIFVkRwnceXKb90rOSp-MqrtoxzxkpwTZwSLmquq4tS-V6-gObtm8M1PbPEevOCOzv4U35gH6frzewajR5KckWNxfsROoQpZqU25jhjgbNtakpvt1s8rx-0BBuPYcsxgcXdLUHb7G2qT2djqX3l54hPdkyb2tltXPK769RDYA?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <Point>
+          <coordinates>
+            -78.8979881,-0.7577916,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Línea 34</name>
+        <styleUrl>#line-9C27B0-3713-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -78.8878467,-0.7478142,0
+            -78.8867523,-0.7475138,0
+            -78.8863446,-0.7472135,0
+            -78.8858404,-0.7467951,0
+            -78.8854649,-0.7465912,0
+            -78.885025,-0.746484,0
+            -78.8849714,-0.7460548,0
+            -78.8848426,-0.7455399,0
+            -78.8847139,-0.7452395,0
+            -78.8842847,-0.745497,0
+            -78.8840272,-0.7457974,0
+            -78.8835337,-0.7456901,0
+            -78.8831904,-0.7455292,0
+            -78.8827117,-0.7453839,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Ruta Quilotoa trail</name>
+        <description><![CDATA[<img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooXUIXRiyOxcaW_ahX5pSGWTmjmrppBw6_awX1Fk8EwXAWU4pewXTgN3IEDZglmgVdG8LtyTZc02GxXydhOKIW7ntrjb2ZwNnj9TBMGIVtEkZltK6swEXwpK7MN6zFX6E_sGQIr3nOvqpQlaRqdOYDpRBGQ6gAouRCgiRKWvQH_Ju_QzL5nPSWRWWz2Ie9JEf9DhVqK7j08s5dZrN0a_RhyojrGekz4MKk4Swb8pezCgg0MntBDULYbXOI?authuser=0&fife=s16383" height="200" width="auto" /><br><br><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoocqMRt9iR4BxL_smajaPtdbEOoRAo5SC3TvGmBG2mnegU3Etn25pS0y84du9P6s0m7kH7Lvt0aecEJOmNvS1_o09WdGGOyc2dMxr1_zqPkECoIcKjXt-rCRS-5XAQnfvmf6aE0hgLmz_818seZtckC6tcoIBZ4sCuARpSG35WwfDRp8okGsUSMAeb5o0oWJzRBC60ksCFDYwdurNaHvxIrl1-mr_-5CXBMeWbVUAJGmROTcl8-RCM60f8?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorXMH6kjddZKr0dXADfWal35kqQlnOhA2_ZnyizpdgkNGUnldmxKKOpekWcM7FeLgYult1XuyZ9_o8_4He6P1sA1_u2qku2JKGnAEMVkszN6Z3Hyb0ECgEp8ZNt1ManuzZFpY1H_cQ-MPhBRfAl3n_mhE7dZtKWabq-Ex7lKHgPypp8jgX1LCMSXDBhu1WpmbYglbWttqn9MWo2OM4rfdnwLs96mWRONOgx8_g-B1QZxmGmG3_kFVPAbN0?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopWP7QFMnmqTTE6rtG33DSHFDz55tfu_ZeasoUz7FCZLkNlC17F01vr1Vl5Q_eBS3AbHWG_GIBRC-gD6xYUluECGI0PN3toEQINW_DoANyrGTDTXwHtOrHbSyTh25dzZSe46n6k0UU_jxN0Zp6-5sZg1sapfKe8SL2RQl06JKbyiGhziX7R2VPz7dybt1pnAmJBezcM-EnPLpbqa4MvJewigtjqhgBY7v-fuHg49MgzqPy6K4WR_lEzEug?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopNhW85u_MlwVOgROXP7UZOfY8GtvAcxiZEuEbUCebdpQKyIrVBcfOh1F4K765sgKiIix45CsF2fai1uD-p1_i1Y5rwG7c4_u5AnbmtcG8pjvPPlBL3CIr4aV95KkWVgh5SFZsv2KI496PK2-u_cUzjMjnlZUP1IxSlz7tJK5hE6gc_af6OaT_-jik0g7p3E7uFNh4vPegstuT03MsmXB2LBVAqiLKsAdiu6uPimSTwFUrmjhQtMjQe7X4?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorCGSxCya44neSW9dydkCEmT9djU7UVSWrzXz0Wd4KF94yE-x43NnYj7Mjc5-TwTqGuIZejbHwAyD9INgze7qPMOidmHfyJWDG_irsGKv9WkipGBkh9satFDj3VdPw1DbpSuVJ_4TE7AH6sHE6YGIysUxi-lxiW7A8XqZ0tS7lKCnRmYDhUVQMmO_iQ010FpBgGB4abM9p-C4spShD4gCw1GmvhSq6OZhEef9PDOybrqkTVDf7G3Brcuoo?authuser=0&fife=s16383" height="200" width="auto" /><br><br><img src="https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqN_YzJD98raI1UQtv34It1xsgaFHgYPfhghiAbvsClP6nvm7JQGCdZE55iPbSIpU-TkEeLjyx3MaXXW3ZI77jWE3Mo_7zJmTU02tPvz8AAOGol0uEyzp2-YhWUcW-D8C_BjM6s_M_jpbWWPAZO94jdyJTy4kxZsg43a7ebSo2XJRC_FAdRSk1XDhhcxkeS3T5_iQklde8rSh8onnf9G3FUPUFaM_aGPkoxGjg2A8zyc1cCwPZKL7beAxc?authuser=0&fife=s16383" height="200" width="auto" />]]></description>
+        <styleUrl>#line-9C27B0-4100</styleUrl>
+        <ExtendedData>
+          <Data name="gx_media_links">
+            <value><![CDATA[https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBooXUIXRiyOxcaW_ahX5pSGWTmjmrppBw6_awX1Fk8EwXAWU4pewXTgN3IEDZglmgVdG8LtyTZc02GxXydhOKIW7ntrjb2ZwNnj9TBMGIVtEkZltK6swEXwpK7MN6zFX6E_sGQIr3nOvqpQlaRqdOYDpRBGQ6gAouRCgiRKWvQH_Ju_QzL5nPSWRWWz2Ie9JEf9DhVqK7j08s5dZrN0a_RhyojrGekz4MKk4Swb8pezCgg0MntBDULYbXOI?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoocqMRt9iR4BxL_smajaPtdbEOoRAo5SC3TvGmBG2mnegU3Etn25pS0y84du9P6s0m7kH7Lvt0aecEJOmNvS1_o09WdGGOyc2dMxr1_zqPkECoIcKjXt-rCRS-5XAQnfvmf6aE0hgLmz_818seZtckC6tcoIBZ4sCuARpSG35WwfDRp8okGsUSMAeb5o0oWJzRBC60ksCFDYwdurNaHvxIrl1-mr_-5CXBMeWbVUAJGmROTcl8-RCM60f8?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorXMH6kjddZKr0dXADfWal35kqQlnOhA2_ZnyizpdgkNGUnldmxKKOpekWcM7FeLgYult1XuyZ9_o8_4He6P1sA1_u2qku2JKGnAEMVkszN6Z3Hyb0ECgEp8ZNt1ManuzZFpY1H_cQ-MPhBRfAl3n_mhE7dZtKWabq-Ex7lKHgPypp8jgX1LCMSXDBhu1WpmbYglbWttqn9MWo2OM4rfdnwLs96mWRONOgx8_g-B1QZxmGmG3_kFVPAbN0?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopWP7QFMnmqTTE6rtG33DSHFDz55tfu_ZeasoUz7FCZLkNlC17F01vr1Vl5Q_eBS3AbHWG_GIBRC-gD6xYUluECGI0PN3toEQINW_DoANyrGTDTXwHtOrHbSyTh25dzZSe46n6k0UU_jxN0Zp6-5sZg1sapfKe8SL2RQl06JKbyiGhziX7R2VPz7dybt1pnAmJBezcM-EnPLpbqa4MvJewigtjqhgBY7v-fuHg49MgzqPy6K4WR_lEzEug?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBopNhW85u_MlwVOgROXP7UZOfY8GtvAcxiZEuEbUCebdpQKyIrVBcfOh1F4K765sgKiIix45CsF2fai1uD-p1_i1Y5rwG7c4_u5AnbmtcG8pjvPPlBL3CIr4aV95KkWVgh5SFZsv2KI496PK2-u_cUzjMjnlZUP1IxSlz7tJK5hE6gc_af6OaT_-jik0g7p3E7uFNh4vPegstuT03MsmXB2LBVAqiLKsAdiu6uPimSTwFUrmjhQtMjQe7X4?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBorCGSxCya44neSW9dydkCEmT9djU7UVSWrzXz0Wd4KF94yE-x43NnYj7Mjc5-TwTqGuIZejbHwAyD9INgze7qPMOidmHfyJWDG_irsGKv9WkipGBkh9satFDj3VdPw1DbpSuVJ_4TE7AH6sHE6YGIysUxi-lxiW7A8XqZ0tS7lKCnRmYDhUVQMmO_iQ010FpBgGB4abM9p-C4spShD4gCw1GmvhSq6OZhEef9PDOybrqkTVDf7G3Brcuoo?authuser=0&fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3ALCsBoqN_YzJD98raI1UQtv34It1xsgaFHgYPfhghiAbvsClP6nvm7JQGCdZE55iPbSIpU-TkEeLjyx3MaXXW3ZI77jWE3Mo_7zJmTU02tPvz8AAOGol0uEyzp2-YhWUcW-D8C_BjM6s_M_jpbWWPAZO94jdyJTy4kxZsg43a7ebSo2XJRC_FAdRSk1XDhhcxkeS3T5_iQklde8rSh8onnf9G3FUPUFaM_aGPkoxGjg2A8zyc1cCwPZKL7beAxc?authuser=0&fife=s16383]]></value>
+          </Data>
+        </ExtendedData>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -78.9161093,-0.8651669,0
+            -78.9151973,-0.8622939,0
+            -78.9151115,-0.8605775,0
+            -78.9153301,-0.8586599,0
+            -78.914862,-0.8563133,0
+            -78.9146126,-0.8540229,0
+            -78.9137623,-0.8524191,0
+            -78.9129979,-0.8506437,0
+            -78.9109701,-0.8486913,0
+            -78.9088887,-0.847361,0
+            -78.9085454,-0.8448722,0
+            -78.9124936,-0.8381352,0
+            -78.9156019,-0.8334487,0
+            -78.919875,-0.8295531,0
+            -78.9121181,-0.8266458,0
+            -78.913824,-0.8214107,0
+            -78.9163989,-0.8165296,0
+            -78.9183301,-0.8148347,0
+            -78.9222202,-0.8155598,0
+            -78.9255953,-0.8173149,0
+            -78.9262694,-0.8143197,0
+            -78.9241666,-0.8115305,0
+            -78.9238662,-0.809857,0
+            -78.9212693,-0.8002099,0
+            -78.9208493,-0.7976019,0
+            -78.9189993,-0.7968799,0
+            -78.9177872,-0.7968926,0
+            -78.9167842,-0.7968453,0
+            -78.916154,-0.7965106,0
+            -78.9160427,-0.796193,0
+            -78.9162231,-0.7959484,0
+            -78.9164849,-0.7956438,0
+            -78.9170043,-0.7954249,0
+            -78.9164613,-0.7953402,0
+            -78.9161973,-0.7949444,0
+            -78.9154762,-0.7943995,0
+            -78.9144631,-0.7939962,0
+            -78.9134669,-0.7933829,0
+            -78.9132339,-0.7930573,0
+            -78.912385,-0.7931143,0
+            -78.9116326,-0.7927636,0
+            -78.9111753,-0.7924344,0
+            -78.9106033,-0.7922912,0
+            -78.9101172,-0.7922768,0
+            -78.9093923,-0.7921471,0
+            -78.9087318,-0.7920817,0
+            -78.9081189,-0.7919939,0
+            -78.9072164,-0.7919114,0
+            -78.9066149,-0.7918916,0
+            -78.9062068,-0.7919944,0
+            -78.9054126,-0.7920328,0
+            -78.9033956,-0.7905899,0
+            -78.9025399,-0.7901018,0
+            -78.9013624,-0.7890773,0
+            -78.9009172,-0.788262,0
+            -78.9011533,-0.7866956,0
+            -78.9020535,-0.7847767,0
+            -78.9021919,-0.7843381,0
+            -78.9024591,-0.7839746,0
+            -78.9026654,-0.7832428,0
+            -78.9024426,-0.7819531,0
+            -78.9027957,-0.7823214,0
+            -78.9036326,-0.7821712,0
+            -78.9044636,-0.7815079,0
+            -78.9049299,-0.7813809,0
+            -78.9053999,-0.7809191,0
+            -78.9059558,-0.7816802,0
+            -78.9053999,-0.7809191,0
+            -78.9049299,-0.7813809,0
+            -78.9044636,-0.7815079,0
+            -78.9036326,-0.7821712,0
+            -78.9027957,-0.7823214,0
+            -78.9024426,-0.7819531,0
+            -78.9026837,-0.7800687,0
+            -78.9025468,-0.7797036,0
+            -78.9023304,-0.7790872,0
+            -78.9023401,-0.7778028,0
+            -78.9022641,-0.7766899,0
+            -78.9020218,-0.7750515,0
+            -78.9009211,-0.7737134,0
+            -78.8997498,-0.7720455,0
+            -78.8977951,-0.7686622,0
+            -78.897956,-0.7666238,0
+            -78.8989269,-0.7639848,0
+            -78.8986185,-0.7604875,0
+            -78.8987881,-0.7593128,0
+            -78.8983687,-0.7586289,0
+            -78.8980244,-0.7579557,0
+            -78.8975342,-0.7575481,0
+            -78.896699,-0.7575481,0
+            -78.8961098,-0.7571619,0
+            -78.8957293,-0.7568722,0
+            -78.8950002,-0.756486,0
+            -78.8943927,-0.7563198,0
+            -78.8936886,-0.7560999,0
+            -78.8935404,-0.7555769,0
+            -78.8931015,-0.755133,0
+            -78.8927533,-0.7546643,0
+            -78.8925339,-0.7537987,0
+            -78.8917152,-0.7529753,0
+            -78.8914005,-0.7526595,0
+            -78.8909786,-0.7524403,0
+            -78.8905651,-0.7523106,0
+            -78.8900819,-0.7522291,0
+            -78.8894431,-0.7523461,0
+            -78.8889642,-0.7526355,0
+            -78.8884961,-0.7529356,0
+            -78.8874525,-0.7527635,0
+            -78.8857359,-0.752227,0
+            -78.884427,-0.7506393,0
+            -78.8834507,-0.7488477,0
+            -78.8828016,-0.7464178,0
+            -78.8826701,-0.7460933,0
+            -78.8827117,-0.7453839,0
+            -78.8822068,-0.7431519,0
+            -78.8817397,-0.742304,0
+            -78.8815517,-0.7415849,0
+            -78.8812137,-0.7399489,0
+            -78.880798,-0.7388734,0
+            -78.8801931,-0.7379495,0
+            -78.8800838,-0.7363396,0
+            -78.88063,-0.7357707,0
+            -78.8801247,-0.7352447,0
+            -78.8784402,-0.7347405,0
+            -78.8777,-0.7342471,0
+            -78.8778556,-0.7328846,0
+            -78.8774398,-0.7316348,0
+            -78.8764555,-0.7309107,0
+            -78.8750446,-0.7298754,0
+            -78.8746611,-0.7280704,0
+            -78.8743023,-0.72741,0
+            -78.8735359,-0.7268568,0
+            -78.8730544,-0.7239482,0
+            -78.8752002,-0.7211589,0
+            -78.8782472,-0.7193352,0
+            -78.879363,-0.7175543,0
+            -78.8806719,-0.7141428,0
+            -78.8804358,-0.7120187,0
+            -78.8825172,-0.7086715,0
+            -78.8849098,-0.7058608,0
+            -78.8856331,-0.7052832,0
+            -78.8862706,-0.7046841,0
+            -78.886486,-0.7042426,0
+            -78.8868946,-0.7031359,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Línea 38</name>
+        <styleUrl>#line-9C27B0-4488-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -78.9059558,-0.7816802,0
+            -78.9065476,-0.7821499,0
+            -78.9065262,-0.7830939,0
+            -78.9064618,-0.784274,0
+            -78.9065476,-0.7848747,0
+            -78.9067407,-0.7853039,0
+            -78.9075132,-0.7853682,0
+            -78.9082213,-0.7851751,0
+            -78.9087578,-0.7848533,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Línea 39</name>
+        <styleUrl>#line-9C27B0-3906-nodesc</styleUrl>
+        <LineString>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -78.9185842,-0.8307404,0
+            -78.9189168,-0.8309872,0
+            -78.9194317,-0.8312983,0
+            -78.9198502,-0.8315879,0
+            -78.9201184,-0.8318132,0
+            -78.9201398,-0.8320385,0
+            -78.9200218,-0.8322316,0
+          </coordinates>
+        </LineString>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

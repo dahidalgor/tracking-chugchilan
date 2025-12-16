@@ -1,0 +1,70 @@
+{
+  "guides": [
+    {
+      "id": 1,
+      "imgSrc": "img/Guias/Guia1.jpg",
+      "names": {
+        "es": "VICTOR EDWIN NEGRETE USUÑO",
+        "en": "VICTOR EDWIN NEGRETE USUÑO",
+        "fr": "VICTOR EDWIN NEGRETE USUÑO",
+        "pt": "VICTOR EDWIN NEGRETE USUÑO",
+        "qu": "VICTOR EDWIN NEGRETE USUÑO"
+      },
+      "languages": {
+        "es": "Español",
+        "en": "Spanish",
+        "fr": "Espagnol",
+        "pt": "Espanhol",
+        "qu": "Kastilla simi"
+      },
+      "contact": "+593 99 092 7095",
+      "whatsapp": "https://wa.me/593990927095"
+    },
+    {
+      "id": 2,
+      "imgSrc": "https://ecuadorconventions.org/wp-content/uploads/2025/01/Guianza-Turistica.webp",
+      "names": {
+        "es": "Guía Local 2",
+        "en": "Local Guide 2",
+        "fr": "Guide Local 2",
+        "pt": "Guia Local 2",
+        "qu": "Llaqtamanta yachaq 2"
+      },
+      "languages": {
+        "es": "Español / Francés",
+        "en": "Spanish / French",
+        "fr": "Espagnol / Français",
+        "pt": "Espanhol / Francês",
+        "qu": "Kastilla simi / Ransis simi"
+      },
+      "contact": {
+        "es": "Información por llenar",
+        "en": "Information to be filled",
+        "fr": "Information à remplir",
+        "pt": "Informação a preencher",
+        "qu": "Manaraq yupaychasqa willay"
+      },
+      "whatsapp": "#"
+    },
+    {
+      "id": 3,
+      "imgSrc": "https://travelecuador.org/wp-content/uploads/2022/06/Marco-I-have-a-Mission.jpg",
+      "names": {
+        "es": "Guía Local 3",
+        "en": "Local Guide 3",
+        "fr": "Guide Local 3",
+        "pt": "Guia Local 3",
+        "qu": "Llaqtamanta yachaq 3"
+      },
+      "languages": {
+        "es": "Español",
+        "en": "Spanish",
+        "fr": "Espagnol",
+        "pt": "Espanhol",
+        "qu": "Kastilla simi"
+      },
+      "contact": "+593 98 765 4321",
+      "whatsapp": "https://wa.me/593987654321"
+    }
+  ]
+}

@@ -19,7 +19,7 @@ body{
   margin:0;
   font-family:Inter,system-ui,sans-serif;
   color:var(--ink);
-  background:#fff;
+  background:url('https://jrnogales.neocities.org/tracking/imagenes/fondor.jpg') center/cover fixed no-repeat;
   line-height:1.6;
 }
 img{max-width:100%;display:block}
@@ -329,10 +329,10 @@ section{scroll-margin-top:80px}
 }
 
 @media (max-width:768px){
-  #map{height:50vh}
+  #map{height:70vh}
 }
 @media (max-width:640px){
-  #map{height:40vh;min-height:250px}
+  #map{height:70vh;min-height:250px}
 }
 
 .map-img{
@@ -859,8 +859,154 @@ section{scroll-margin-top:80px}
     .guide-card:hover {
       transform: translateY(-2px);
     }
+
+    /* ===== ESTILOS PARA SELECTOR DE RUTAS Y MENSAJES ===== */
+    
+    /* Contenedor del selector de rutas */
+    .route-selector-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 20px;
+      padding: 16px;
+      background: #f8fafb;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+    }
+    
+    .route-selector-wrapper label {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 14px;
+    }
+    
+    /* Select / Combobox */
+    .route-selector {
+      padding: 12px 16px;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      font-size: 16px;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--ink);
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .route-selector:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(24, 193, 230, 0.1);
+    }
+    
+    .route-selector:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(24, 193, 230, 0.2);
+    }
+    
+    /* Mensajes de ruta (inicial y celebración) */
+    .route-message {
+      margin-bottom: 20px;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      font-weight: 600;
+      animation: slideDown 0.4s ease;
+      position: relative;
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Mensaje inicial */
+    .initial-message {
+      background: linear-gradient(135deg, #85713f 0%, #a39066 100%);
+      color: #fff;
+      border: 2px solid #6b5830;
+      display: none;
+      margin: 20px;
+    }
+    
+    .initial-message.show {
+      display: block;
+    }
+    
+    .initial-message p {
+      margin: 0;
+      font-size: 18px;
+    }
+    
+    /* Mensaje de celebración */
+    .celebration-message {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      border: 2px solid #047857;
+      display: none;
+      box-shadow: var(--shadow);
+      animation: slideDown 0.5s ease, pulse 0.8s ease 0.5s;
+    }
+    
+    .celebration-message.show {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: var(--shadow);
+      }
+      50% {
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.2), var(--shadow);
+      }
+    }
+    
+    .celebration-message p {
+      margin: 0;
+      font-size: 20px;
+      flex: 1;
+    }
+    
+    .celebration-close {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .celebration-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
     
     /* Responsive */
+    @media (max-width: 768px) {
+      .route-selector-wrapper {
+        flex-direction: column;
+      }
+      
+      .initial-message p,
+      .celebration-message p {
+        font-size: 16px;
+      }
+    }
+    
     @media (max-width: 480px) {
       .modal-content {
         margin: 5vh auto;
@@ -877,5 +1023,23 @@ section{scroll-margin-top:80px}
       
       .modal-footer {
         padding: 12px 20px 20px;
+      }
+      
+      .route-selector-wrapper {
+        padding: 12px;
+      }
+      
+      .initial-message p,
+      .celebration-message p {
+        font-size: 14px;
+      }
+      
+      .celebration-message {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .celebration-message p {
+        width: 100%;
       }
     }

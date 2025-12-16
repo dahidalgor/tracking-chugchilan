@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Tracking Quilotoa - PLANTILLA REFERENCIA"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns="http://www.topografix.com/GPX/1/1"
+     xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  
+  <metadata>
+    <name>Sigchos - Chugchilan</name>
+    <desc>Ruta de trekking desde Sigchos hacia Chugchilan</desc>
+    <time>2025-12-15T00:00:00Z</time>
+  </metadata>
+
+  <!-- IMPORTANTE: Esta es una PLANTILLA de referencia -->
+  <!-- Reemplaza esta sección <trk> con tu propia ruta -->
+  <!-- Necesitas puntos (trkpt) con atributos lat="" y lon="" -->
+  
+  <trk>
+    <name>Sigchos - Chugchilan</name>
+    <trkseg>
+      <!-- Punto inicial de la ruta (Sigchos) -->
+      <trkpt lat="-0.7" lon="-78.8">
+        <ele>2800</ele>
+        <time>2025-12-15T08:00:00Z</time>
+      </trkpt>
+      
+      <!-- Puntos intermedios de la ruta -->
+      <!-- Agrega más puntos según la ruta real -->
+      <trkpt lat="-0.72" lon="-78.81">
+        <ele>2750</ele>
+        <time>2025-12-15T09:00:00Z</time>
+      </trkpt>
+      
+      <trkpt lat="-0.74" lon="-78.82">
+        <ele>2700</ele>
+        <time>2025-12-15T10:00:00Z</time>
+      </trkpt>
+      
+      <!-- Punto final de la ruta (Chugchilan) -->
+      <trkpt lat="-0.76" lon="-78.83">
+        <ele>2650</ele>
+        <time>2025-12-15T12:00:00Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>
