@@ -396,10 +396,11 @@ section{scroll-margin-top:80px}
 
 /* GUIAS */
 .guide-container{
-  display:flex;
-  justify-content:center;
-  max-width:500px;
-  margin:0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .guide{
   display:grid;

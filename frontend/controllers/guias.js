@@ -1,82 +1,86 @@
-// Datos de los guías traducibles por idioma
-const guidesData = {
-  1: {
-    imgSrc: './data/img/Guias/Guia1.jpg',
-    names: {
-      es: 'NEGRETE USUÑO VICTOR EDWIN',
-      en: 'VICTOR EDWIN NEGRETE USUÑO',
-      fr: 'VICTOR EDWIN NEGRETE USUÑO',
-      pt: 'VICTOR EDWIN NEGRETE USUÑO',
-      qu: 'VICTOR EDWIN NEGRETE USUÑO'
-    },
-    languages: {
-      es: 'Español',
-      en: 'Spanish',
-      fr: 'Espagnol',
-      pt: 'Espanhol',
-      qu: 'Kastilla simi'
-    },
-    contact: '+593 99 092 7095',
-    whatsapp: 'https://wa.me/593990927095'
-  },
-  2: {
-    imgSrc: 'https://ecuadorconventions.org/wp-content/uploads/2025/01/Guianza-Turistica.webp',
-    names: {
-      es: 'Guía Local 2',
-      en: 'Local Guide 2',
-      fr: 'Guide Local 2',
-      pt: 'Guia Local 2',
-      qu: 'Llaqtamanta yachaq 2'
-    },
-    languages: {
-      es: 'Español / Francés',
-      en: 'Spanish / French',
-      fr: 'Espagnol / Français',
-      pt: 'Espanhol / Francês',
-      qu: 'Kastilla simi / Ransis simi'
-    },
-    contact: {
-      es: 'Información por llenar',
-      en: 'Information to be filled',
-      fr: 'Information à remplir',
-      pt: 'Informação a preencher',
-      qu: 'Manaraq yupaychasqa willay'
-    },
-    whatsapp: '#'
-  },
-  3: {
-    imgSrc: 'https://travelecuador.org/wp-content/uploads/2022/06/Marco-I-have-a-Mission.jpg',
-    names: {
-      es: 'Guía Local 3',
-      en: 'Local Guide 3',
-      fr: 'Guide Local 3',
-      pt: 'Guia Local 3',
-      qu: 'Llaqtamanta yachaq 3'
-    },
-    languages: {
-      es: 'Español',
-      en: 'Spanish',
-      fr: 'Espagnol',
-      pt: 'Espanhol',
-      qu: 'Kastilla simi'
-    },
-    contact: {
-      es: 'Información por llenar',
-      en: 'Information to be filled',
-      fr: 'Information à remplir',
-      pt: 'Informação a preencher',
-      qu: 'Manaraq yupaychasqa willay'
-    },
-    whatsapp: '#'
-  }
-};
+// Datos de los guías - se cargarán desde guides.json
+let guidesData = {};
 
 // Variables globales
 let currentLanguage = 'es';
 let currentGuideId = null;
 const modal = document.getElementById('guideModal');
-const closeModalBtn = document.querySelector('.close-modal');
-const guideCards = document.querySelectorAll('.guide-card');
+
+// Función para cargar guías desde la API
+async function loadGuides() {
+  try {
+    const response = await fetch('/api/guides');
+    const data = await response.json();
+    guidesData = {};
+    data.guides.forEach(guide => {
+      guidesData[guide.id] = guide;
+    });
+
+    // Generar tarjetas dinámicamente
+    generateGuideCards();
+
+    // Una vez generadas, configurar event listeners
+    setupEventListeners();
+  } catch (error) {
+    console.error('Error cargando guías:', error);
+  }
+}
+
+// Función para generar las tarjetas de guías
+function generateGuideCards() {
+  const container = document.getElementById('guideContainer');
+  if (!container) return;
+
+  container.innerHTML = ''; // Limpiar contenedor
+
+  Object.values(guidesData).forEach(guide => {
+    const card = document.createElement('article');
+    card.className = 'card guide-card';
+    card.setAttribute('data-guide-id', guide.id);
+    card.innerHTML = `
+      <div class="guide">
+        <img src="${guide.imgSrc}" alt="Guía ${guide.id}">
+        <div><strong>${guide.names.es}</strong><br><span class="subtitle">${guide.languages.es}</span></div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Función para configurar event listeners
+function setupEventListeners() {
+  const guideCards = document.querySelectorAll('.guide-card');
+  // Event listeners para abrir el modal al hacer clic en una tarjeta
+  guideCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const guideId = parseInt(card.getAttribute('data-guide-id'));
+      openModal(guideId);
+    });
+  });
+
+  // Event listener para cerrar el modal
+  const closeModalBtn = document.querySelector('.close-modal');
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  }
+
+  // Cerrar modal al hacer clic fuera del contenido
+  const modal = document.getElementById('guideModal');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Cerrar modal con la tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      closeModal();
+    }
+  });
+}
 
 // Función para obtener datos del guía según idioma
 function getGuideData(guideId, lang = currentLanguage) {
@@ -226,27 +230,5 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
-// Event listeners para abrir el modal al hacer clic en una tarjeta
-guideCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const guideId = card.getAttribute('data-guide-id');
-    openModal(guideId);
-  });
-});
-
-// Event listener para cerrar el modal
-closeModalBtn.addEventListener('click', closeModal);
-
-// Cerrar modal al hacer clic fuera del contenido
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    closeModal();
-  }
-});
-
-// Cerrar modal con la tecla Escape
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.style.display === 'block') {
-    closeModal();
-  }
-});
+// Cargar guías al inicio
+loadGuides();
