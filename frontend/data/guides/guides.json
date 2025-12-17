@@ -2,7 +2,7 @@
   "guides": [
     {
       "id": 1,
-      "imgSrc": "./data/img/Guias/Guia1.jpg",
+      "imgSrc": "http://localhost:4000/images/guides/Guia1.jpg",
       "names": {
         "es": "VICTOR EDWIN NEGRETE USUÑO",
         "en": "VICTOR EDWIN NEGRETE USUÑO",
@@ -21,24 +21,64 @@
       "whatsapp": "https://wa.me/593990927095"
     },
     {
-      "id": 4,
-      "imgSrc": "./data/img/Guias/images_2.jpg",
+      "id": 5,
+      "imgSrc": "http://localhost:4000/images/guides/Image.jpeg",
       "names": {
-        "es": "Guia de prueba",
-        "en": "Guia de prueba",
-        "fr": "Guia de prueba",
-        "pt": "Guia de prueba",
-        "qu": "Guia de prueba"
+        "es": "David Hidalgo",
+        "en": "David Hidalgo",
+        "fr": "David Hidalgo",
+        "pt": "David Hidalgo",
+        "qu": "David Hidalgo"
       },
       "languages": {
-        "es": "Español / Inglés",
-        "en": "Spanish / English",
-        "fr": "Espagnol / Anglais",
-        "pt": "Espanhol / Inglês",
-        "qu": "Kastilla simi / Inlish simi"
+        "es": "Español / Inglés / Quechua",
+        "en": "Spanish / English / Quechua",
+        "fr": "Espagnol / Anglais / Quechua",
+        "pt": "Espanhol / Inglês / Quíchua",
+        "qu": "Kastilla simi / Inlish simi / Runasimi"
       },
-      "contact": "+593 1231231232",
-      "whatsapp": "https://wa.me/5931231231232"
+      "contact": "+593 984703819",
+      "whatsapp": "https://wa.me/593984703819"
+    },
+    {
+      "id": 6,
+      "imgSrc": "http://localhost:4000/images/guides/Image_1.jpeg",
+      "names": {
+        "es": "sadjiaso",
+        "en": "sadjiaso",
+        "fr": "sadjiaso",
+        "pt": "sadjiaso",
+        "qu": "sadjiaso"
+      },
+      "languages": {
+        "es": "Español",
+        "en": "Spanish",
+        "fr": "Espagnol",
+        "pt": "Espanhol",
+        "qu": "Kastilla simi"
+      },
+      "contact": "+593 988888888",
+      "whatsapp": "https://wa.me/593988888888"
+    },
+    {
+      "imgSrc": "http://localhost:4000/images/guides/Image_2.jpeg",
+      "names": {
+        "es": "djisaodjsiao",
+        "en": "djisaodjsiao",
+        "fr": "djisaodjsiao",
+        "pt": "djisaodjsiao",
+        "qu": "djisaodjsiao"
+      },
+      "languages": {
+        "es": "Inglés / Francés",
+        "en": "English / French",
+        "fr": "Anglais / Français",
+        "pt": "Inglês / Francês",
+        "qu": "Inlish simi / Ransis simi"
+      },
+      "contact": "+593 999999999",
+      "whatsapp": "https://wa.me/593999999999",
+      "id": 7
     }
   ]
 }

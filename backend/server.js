@@ -55,6 +55,9 @@ app.get('/login', (req, res) => {
 // Ruta para servir archivos de data
 app.use('/data', express.static(path.join(__dirname, '..', 'frontend', 'data')));
 
+// Ruta para servir imágenes de guías
+app.use('/images/guides', express.static(path.join(__dirname, '..', 'frontend', 'data', 'img', 'Guias')));
+
 // ENDPOINTS DE GUÍAS
 
 // GET - Obtener todos los guías
@@ -150,15 +153,15 @@ app.post('/api/upload-image', upload.single('file'), (req, res) => {
       return res.status(400).json({ error: 'No se envió archivo' });
     }
 
-    // Ruta relativa correcta para el frontend
-    const relativePath = `./data/img/Guias/${req.file.filename}`;
+    // Devolver URL absoluta del servidor backend
+    const imageUrl = `http://localhost:${process.env.PORT || 4000}/images/guides/${req.file.filename}`;
     
     console.log(`Imagen guardada en: ${req.file.path}`);
-    console.log(`Ruta relativa devuelta: ${relativePath}`);
+    console.log(`URL devuelta: ${imageUrl}`);
 
     res.json({
       success: true,
-      path: relativePath,
+      path: imageUrl,
       filename: req.file.filename
     });
   } catch (error) {

@@ -1,8 +1,9 @@
 let guidesData = { guides: [] };
+const URL = 'http://localhost:4000/';
 
 async function loadGuides() {
     try {
-        const response = await fetch('http://localhost:4000/api/guides');
+        const response = await fetch(`${URL}api/guides`);
         guidesData = await response.json();
         const tableBody = document.querySelector('#guidesTable tbody');
         tableBody.innerHTML = ''; // Clear existing
@@ -57,11 +58,25 @@ document.getElementById('closeModal').addEventListener('click', () => {
 
 document.getElementById('guideForm').addEventListener('submit', async (event) => {
     event.preventDefault();
-    const name = document.getElementById('name').value;
+    const name = document.getElementById('name').value.trim();
     const contactNum = document.getElementById('contact').value.replace(/\D/g, ''); // Limpiar número
-    const imgSrc = document.getElementById('imgSrc').value;
+    const imgSrcInput = document.getElementById('imgSrc');
 
-    if (!imgSrc) {
+    // Validar nombre
+    if (!name) {
+        alert('Por favor ingresa el nombre del guía');
+        return;
+    }
+
+    // Validar contacto
+    if (!contactNum || contactNum.length < 9) {
+        alert('Por favor ingresa un número de contacto válido');
+        return;
+    }
+
+    // Validar imagen
+    const base64Image = imgSrcInput.dataset.file;
+    if (!base64Image) {
         alert('Por favor selecciona una imagen');
         return;
     }
@@ -78,7 +93,6 @@ document.getElementById('guideForm').addEventListener('submit', async (event) =>
         alert('Selecciona al menos un idioma');
         return;
     }
-    const langString = selectedLangs.join(' / ');
 
     // Mapeo de traducciones
     const langTranslations = {
@@ -94,22 +108,32 @@ document.getElementById('guideForm').addEventListener('submit', async (event) =>
         translatedLangs[lang] = selectedLangs.map(l => langTranslations[lang][l]).join(' / ');
     });
 
-    const newGuide = {
-        imgSrc: imgSrc,
-        names: {
-            es: name,
-            en: name,
-            fr: name,
-            pt: name,
-            qu: name
-        },
-        languages: translatedLangs,
-        contact: '+593 ' + contactNum,
-        whatsapp: 'https://wa.me/593' + contactNum
-    };
-
     try {
-        const response = await fetch('http://localhost:4000/api/guides', {
+        // Subir imagen primero
+        let imgPath;
+        try {
+            imgPath = await uploadImage(base64Image, imgSrcInput.dataset.fileName || 'guide-image.jpg');
+        } catch (error) {
+            alert('Error al subir la imagen. Por favor intenta de nuevo.');
+            return;
+        }
+
+        // Crear guía con la imagen subida
+        const newGuide = {
+            imgSrc: imgPath,
+            names: {
+                es: name,
+                en: name,
+                fr: name,
+                pt: name,
+                qu: name
+            },
+            languages: translatedLangs,
+            contact: '+593 ' + contactNum,
+            whatsapp: 'https://wa.me/593' + contactNum
+        };
+
+        const response = await fetch(`${URL}api/guides`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -117,9 +141,11 @@ document.getElementById('guideForm').addEventListener('submit', async (event) =>
             body: JSON.stringify(newGuide)
         });
         if (response.ok) {
+            alert('¡Guía creado exitosamente!');
             loadGuides(); // Recargar la tabla
             document.getElementById('guideModal').style.display = 'none';
             document.getElementById('guideForm').reset();
+            document.getElementById('imagePreview').style.display = 'none';
         } else {
             alert('Error al crear el guía');
         }
@@ -173,33 +199,54 @@ function setupDropZone(dropZoneId, fileInputId, previewId, hiddenInputId, fileSe
     });
 }
 
-// Función para manejar archivo
+// Función para manejar archivo - Solo valida y muestra preview
 async function handleFile(file, preview, hiddenInput) {
     if (!file.type.startsWith('image/')) {
         alert('Por favor selecciona un archivo de imagen.');
         return;
     }
 
-    const formData = new FormData();
-    formData.append('file', file);
+    // Convertir a base64 para preview local sin subir
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        // Almacenar el objeto File para subir después en el submit
+        hiddenInput.dataset.file = e.target.result; // base64
+        hiddenInput.dataset.fileName = file.name;
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+}
 
+// Función para subir imagen al servidor
+async function uploadImage(base64Data, fileName) {
     try {
-        const response = await fetch('http://localhost:4000/api/upload-image', {
+        // Convertir base64 a blob
+        const byteCharacters = atob(base64Data.split(',')[1]);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: 'image/jpeg' });
+
+        const formData = new FormData();
+        formData.append('file', blob, fileName);
+
+        const response = await fetch(`${URL}api/upload-image`, {
             method: 'POST',
             body: formData
         });
 
         if (response.ok) {
             const result = await response.json();
-            hiddenInput.value = result.path;
-            preview.src = result.path;
-            preview.style.display = 'block';
+            return result.path;
         } else {
-            alert('Error al subir la imagen');
+            throw new Error('Error al subir la imagen');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Error al subir la imagen');
+        throw error;
     }
 }
 
@@ -257,6 +304,12 @@ window.editGuide = function (id) {
     }
 }
 
+window.closeFormModal = function () {
+    document.getElementById('guideModal').style.display = 'none';
+    document.getElementById('guideForm').reset();
+    document.getElementById('imagePreview').style.display = 'none';
+}
+
 window.closeEditModal = function () {
     document.getElementById('editModal').style.display = 'none';
     document.getElementById('editForm').reset();
@@ -265,7 +318,7 @@ window.closeEditModal = function () {
 
 window.deleteGuide = function (id) {
     if (confirm('¿Seguro que quiere eliminar este guía?')) {
-        fetch(`http://localhost:4000/api/guides/${id}`, {
+        fetch(`${URL}api/guides/${id}`, {
             method: 'DELETE'
         }).then(response => {
             if (response.ok) {
@@ -281,15 +334,42 @@ window.deleteGuide = function (id) {
 document.getElementById('editForm').addEventListener('submit', async (event) => {
     event.preventDefault();
     const id = parseInt(document.getElementById('editId').value);
-    const name = document.getElementById('editName').value;
+    const name = document.getElementById('editName').value.trim();
     const contactNum = document.getElementById('editContact').value.replace(/\D/g, '');
-    const imgSrc = document.getElementById('editImgSrc').value;
+    const imgSrcInput = document.getElementById('editImgSrc');
 
-    if (!imgSrc) {
+    // Validar nombre
+    if (!name) {
+        alert('Por favor ingresa el nombre del guía');
+        return;
+    }
+
+    // Validar contacto
+    if (!contactNum || contactNum.length < 9) {
+        alert('Por favor ingresa un número de contacto válido');
+        return;
+    }
+
+    // Validar imagen - puede ser la anterior o una nueva
+    let imgPath = imgSrcInput.value;
+    const base64Image = imgSrcInput.dataset.file;
+
+    // Si hay una nueva imagen (base64), subirla
+    if (base64Image) {
+        try {
+            imgPath = await uploadImage(base64Image, imgSrcInput.dataset.fileName || 'guide-image.jpg');
+        } catch (error) {
+            alert('Error al subir la imagen. Por favor intenta de nuevo.');
+            return;
+        }
+    }
+
+    if (!imgPath) {
         alert('Por favor selecciona una imagen');
         return;
     }
 
+    // Validar idiomas
     const selectedLangs = [];
     const langCheckboxes = ['editLangEsp', 'editLangIng', 'editLangFra', 'editLangPor', 'editLangQue'];
     langCheckboxes.forEach(cb => {
@@ -301,7 +381,6 @@ document.getElementById('editForm').addEventListener('submit', async (event) => 
         alert('Selecciona al menos un idioma');
         return;
     }
-    const langString = selectedLangs.join(' / ');
 
     const langTranslations = {
         es: { 'Español': 'Español', 'Inglés': 'Inglés', 'Francés': 'Francés', 'Portugués': 'Portugués', 'Quechua': 'Quechua' },
@@ -318,7 +397,7 @@ document.getElementById('editForm').addEventListener('submit', async (event) => 
 
     const updatedGuide = {
         id: id,
-        imgSrc: imgSrc,
+        imgSrc: imgPath,
         names: {
             es: name,
             en: name,
@@ -332,7 +411,7 @@ document.getElementById('editForm').addEventListener('submit', async (event) => 
     };
 
     try {
-        const response = await fetch(`http://localhost:4000/api/guides/${id}`, {
+        const response = await fetch(`${URL}api/guides/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -340,6 +419,7 @@ document.getElementById('editForm').addEventListener('submit', async (event) => 
             body: JSON.stringify(updatedGuide)
         });
         if (response.ok) {
+            alert('¡Guía modificado exitosamente!');
             loadGuides();
             closeEditModal();
         } else {
