@@ -538,11 +538,11 @@ section {
 }
 
 /* GUIAS */
-.guide-container {
-  display: flex;
-  justify-content: center;
-  max-width: 500px;
-  margin: 0 auto;
+.guide-container{
+  display:flex;
+  justify-content:center;
+  max-width:500px;
+  margin:0 auto;
 }
 
 .guide {
