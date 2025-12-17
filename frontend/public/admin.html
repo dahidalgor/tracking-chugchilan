@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="Admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1><i class="fas fa-cog"></i> Panel de Administración</h1>
+            <p>Gestiona los guías de trekking</p>
+        </header>
+
+        <main class="admin-main">
+            <div class="actions">
+                <button id="createGuideBtn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Crear Guía
+                </button>
+            </div>
+
+            <div class="table-container">
+                <h2><i class="fas fa-users"></i> Lista de Guías</h2>
+                <table id="guidesTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Idiomas</th>
+                            <th>Contacto</th>
+                            <th>WhatsApp</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas se agregarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="guideModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-plus"></i> Crear Nuevo Guía</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="guideForm">
+                    <div class="form-group">
+                        <label for="imgFile"><i class="fas fa-image"></i> Imagen:</label>
+                        <div id="dropZone" class="drop-zone">
+                            <input type="file" id="imgFile" accept="image/*" style="display: none;" aria-label="Seleccionar imagen">
+                            <div class="drop-zone-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Arrastra y suelta una imagen aquí o <span id="fileSelect">haz clic para seleccionar</span></p>
+                                <img id="imagePreview" src="" alt="" style="display: none; max-width: 100px; margin-top: 10px;">
+                            </div>
+                        </div>
+                        <input type="hidden" id="imgSrc" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Nombre:</label>
+                        <input type="text" id="name" placeholder="Nombre del guía" required autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact"><i class="fas fa-phone"></i> Contacto (número):</label>
+                        <input type="text" id="contact" placeholder="0990927095" required autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-language"></i> Idiomas:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="langEsp" value="Español"> Español</label>
+                            <label><input type="checkbox" id="langIng" value="Inglés"> Inglés</label>
+                            <label><input type="checkbox" id="langFra" value="Francés"> Francés</label>
+                            <label><input type="checkbox" id="langPor" value="Portugués"> Portugués</label>
+                            <label><input type="checkbox" id="langQue" value="Quechua"> Quechua</label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                        <button type="button" id="closeModal" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Ver -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-eye"></i> Ver Guía</h3>
+                <button class="close-modal" onclick="closeViewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="guide-details">
+                    <p><strong>ID:</strong> <span id="viewId"></span></p>
+                    <p><strong>Nombre:</strong> <span id="viewName"></span></p>
+                    <p><strong>Imagen:</strong> <img id="viewImg" src="" alt="Imagen" style="max-width: 100px;"></p>
+                    <p><strong>Idiomas:</strong> <span id="viewLanguages"></span></p>
+                    <p><strong>Contacto:</strong> <span id="viewContact"></span></p>
+                    <p><strong>WhatsApp:</strong> <a id="viewWhatsapp" href="" target="_blank">Abrir WhatsApp</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Editar -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Modificar Guía</h3>
+                <button class="close-modal" onclick="closeEditModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <input type="hidden" id="editId">
+                    <div class="form-group">
+                        <label for="editImgFile"><i class="fas fa-image"></i> Imagen:</label>
+                        <div id="editDropZone" class="drop-zone">
+                            <input type="file" id="editImgFile" accept="image/*" style="display: none;" aria-label="Seleccionar imagen">
+                            <div class="drop-zone-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Arrastra y suelta una imagen aquí o <span id="editFileSelect">haz clic para seleccionar</span></p>
+                                <img id="editImagePreview" src="" alt="" style="display: none; max-width: 100px; margin-top: 10px;">
+                            </div>
+                        </div>
+                        <input type="hidden" id="editImgSrc" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editName"><i class="fas fa-user"></i> Nombre:</label>
+                        <input type="text" id="editName" placeholder="Nombre del guía" required autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editContact"><i class="fas fa-phone"></i> Contacto (número):</label>
+                        <input type="text" id="editContact" placeholder="0990927095" required autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-language"></i> Idiomas:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="editLangEsp" value="Español"> Español</label>
+                            <label><input type="checkbox" id="editLangIng" value="Inglés"> Inglés</label>
+                            <label><input type="checkbox" id="editLangFra" value="Francés"> Francés</label>
+                            <label><input type="checkbox" id="editLangPor" value="Portugués"> Portugués</label>
+                            <label><input type="checkbox" id="editLangQue" value="Quechua"> Quechua</label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Modificar</button>
+                        <button type="button" onclick="closeEditModal()" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../controllers/admin.js" defer></script>
+</body>
+</html>

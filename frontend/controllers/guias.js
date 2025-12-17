@@ -9,7 +9,7 @@ const modal = document.getElementById('guideModal');
 // Función para cargar guías desde la API
 async function loadGuides() {
   try {
-    const response = await fetch('/api/guides');
+    const response = await fetch('http://localhost:4000/api/guides');
     const data = await response.json();
     guidesData = {};
     data.guides.forEach(guide => {
