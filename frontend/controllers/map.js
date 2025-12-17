@@ -28,7 +28,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // ----- CARGAR PUNTOS DE INTERÉS -----
 async function loadInterestPoints(lang = 'es') {
     try {
-        const fileName = `./data/points/points-${lang}.json`;
+        const fileName = `../data/points/points-${lang}.json`;
         const response = await fetch(fileName);
         if (!response.ok) throw new Error(`No se pudo cargar ${fileName}`);
         const data = await response.json();
@@ -79,7 +79,7 @@ function loadGPXRoute(routeName) {
         map.removeLayer(gpxLayer);
     }
 
-    const gpxFile = `./data/gpx/${routeName}.gpx`;
+    const gpxFile = `../data/gpx/${routeName}.gpx`;
 
     gpxLayer = new L.GPX(gpxFile, {
         async: true,
