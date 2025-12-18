@@ -1,0 +1,24 @@
+{
+  "guides": [
+    {
+      "id": 1,
+      "imgSrc": "http://localhost:4000/images/guides/Guia1.jpg",
+      "names": {
+        "es": "VICTOR EDWIN NEGRETE USUÑO",
+        "en": "VICTOR EDWIN NEGRETE USUÑO",
+        "fr": "VICTOR EDWIN NEGRETE USUÑO",
+        "pt": "VICTOR EDWIN NEGRETE USUÑO",
+        "qu": "VICTOR EDWIN NEGRETE USUÑO"
+      },
+      "languages": {
+        "es": "Español",
+        "en": "Spanish",
+        "fr": "Espagnol",
+        "pt": "Espanhol",
+        "qu": "Kastilla simi"
+      },
+      "contact": "+593 99 092 7095",
+      "whatsapp": "https://wa.me/593990927095"
+    }
+  ]
+}
