@@ -26,6 +26,10 @@ async function loadGuides() {
   }
 }
 
+async function loadGuidesIndex() {
+  
+}
+
 // Función para generar las tarjetas de guías
 function generateGuideCards() {
   const container = document.getElementById('guideContainer');

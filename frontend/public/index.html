@@ -72,10 +72,32 @@
     <!-- COMBOBOX DE SELECCIÓN DE RUTAS -->
     <div class="route-selector-wrapper">
       <label for="routeSelector" id="routeSelectorLabel">Selecciona tu ruta:</label>
-      <select id="routeSelector" class="route-selector">
-        <option value="sigchos-chugchilan">Sigchos - Chugchilan</option>
-        <option value="chugchilan-quilotoa">Chugchilan - Quilotoa</option>
-      </select>
+      <div class="custom-select-wrapper">
+        <button class="custom-select-btn" id="routeSelector">
+          <span class="custom-select-text">Sigchos - Chugchilan</span>
+          <svg class="custom-select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        // Estas son las opciones de rutas, se podria escalar usando logica con bd
+        <div class="custom-select-dropdown" id="routeSelectorDropdown">
+          <div class="custom-select-option" data-value="sigchos-chugchilan">
+            <span>🏘️</span>
+            <div>
+              <div class="option-title">Sigchos - Chugchilan</div>
+              <div class="option-subtitle">17 km de trekking</div>
+            </div>
+          </div>
+          <div class="custom-select-option" data-value="chugchilan-quilotoa">
+            <span>🏞️</span>
+            <div>
+              <div class="option-title">Chugchilan - Quilotoa</div>
+              <div class="option-subtitle">13 km de trekking</div>
+            </div>
+          </div>
+          // Fin opciones de rutas
+        </div>
+      </div>
     </div>
     <!-- MENSAJE INICIAL -->
     <div id="initialMessage" class="route-message initial-message">
@@ -257,6 +279,9 @@
 
   <!-- SCRIPT DEL HAMBURGER MENU -->
   <script src="../controllers/hamburgerMenu.js" defer></script>
+
+  <!-- SCRIPT DEL SELECTOR DE RUTAS PERSONALIZADO -->
+  <script src="../controllers/routeSelector.js" defer></script>
 
   <!-- SCRIPT PARA EL MODAL DE GUÍAS - MINIMALISTA -->
   <script src="../controllers/guias.js"></script>
