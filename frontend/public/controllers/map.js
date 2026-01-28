@@ -21,6 +21,26 @@ const routeDestinations = {
     }
 };
 
+// ----- MARCADOR TRIANGULAR (DEFINIDO TEMPRANO) -----
+function makeHeadingIcon(angleDeg = 0) {
+    return L.divIcon({
+        className: 'heading-icon',
+        html: `
+          <svg class="heading-shadow" viewBox="0 0 100 100" style="transform:rotate(${angleDeg}deg)">
+            <path d="M50 6 L72 68 Q50 58 28 68 Z" fill="#1d4ed8" stroke="#0f3fb1" stroke-width="4" />
+            <circle cx="50" cy="58" r="6" fill="#fff" opacity=".9"/>
+          </svg>`,
+        iconSize: [36, 36],
+        iconAnchor: [18, 18],
+    });
+}
+
+// ----- VARIABLES GLOBALES PARA GEOLOCALIZACIÓN -----
+let headingDeg = null;
+let follow = true;
+let youMarker = null;
+let accuracyCircle = null;
+
 // ----- INICIALIZAR MAPA PEREZOSAMENTE (LAZY LOADING) -----
 function initializeMap() {
     if (mapInitialized) return;
@@ -39,8 +59,49 @@ function initializeMap() {
         attribution: '&copy; OpenStreetMap'
     }).addTo(map);
     
+    // Registrar event listeners de geolocalización DESPUÉS de crear el mapa
+    map.on('locationfound', (e) => {
+        const latlng = e.latlng;
+        console.log('[Map] Ubicación encontrada:', latlng);
+
+        if (!youMarker) {
+            youMarker = L.marker(latlng, {
+                icon: makeHeadingIcon(headingDeg ?? 0), zIndexOffset: 1000
+            }).addTo(map);
+            console.log('[Map] Marcador de usuario creado en:', latlng);
+        } else {
+            youMarker.setLatLng(latlng);
+            const el = youMarker.getElement()?.querySelector('svg');
+            if (el && headingDeg != null) {
+                el.style.transform = `rotate(${headingDeg}deg)`;
+            }
+        }
+
+        if (!accuracyCircle) {
+            accuracyCircle = L.circle(latlng, {
+                radius: e.accuracy || 15,
+                weight: 1,
+                color: '#2563eb',
+                opacity: .6
+            }).addTo(map);
+            console.log('[Map] Círculo de precisión creado con radio:', e.accuracy);
+        } else {
+            accuracyCircle.setLatLng(latlng);
+            accuracyCircle.setRadius(e.accuracy || 15);
+        }
+
+        if (follow) map.setView(latlng, Math.max(map.getZoom(), 16), { animate: false });
+
+        checkOffRoute(latlng);
+    });
+
+    map.on('locationerror', (e) => {
+        console.error('[Map] Error de ubicación:', e);
+        showBanner('⚠️ No se pudo obtener ubicación');
+    });
+    
     mapInitialized = true;
-    console.log('[Map] Mapa inicializado correctamente');
+    console.log('[Map] Mapa inicializado correctamente con listeners de geolocalización');
     
     // Cargar datos una vez inicializado
     loadInterestPoints();
@@ -154,24 +215,6 @@ function loadCurrentRoute() {
 // Cargar ruta inicial cuando se solicite (no automáticamente)
 let gpxLayer = null;
 
-// ----- MARCADOR TRIANGULAR -----
-function makeHeadingIcon(angleDeg = 0) {
-    return L.divIcon({
-        className: 'heading-icon',
-        html: `
-          <svg class="heading-shadow" viewBox="0 0 100 100" style="transform:rotate(${angleDeg}deg)">
-            <path d="M50 6 L72 68 Q50 58 28 68 Z" fill="#1d4ed8" stroke="#0f3fb1" stroke-width="4" />
-            <circle cx="50" cy="58" r="6" fill="#fff" opacity=".9"/>
-          </svg>`,
-        iconSize: [36, 36],
-        iconAnchor: [18, 18],
-    });
-}
-
-let headingDeg = null;
-let follow = true;
-let youMarker = null;
-let accuracyCircle = null;
 const banner = document.getElementById('banner');
 
 function showBanner(msg) {
@@ -324,50 +367,23 @@ document.getElementById('btnStart').addEventListener('click', function () {
 
 // ----- GEOLOC -----
 document.getElementById('btnLocate').addEventListener('click', () => {
+    if (!mapInitialized) {
+        initializeMap();
+    }
     map.locate({ watch: true, setView: true, maxZoom: 17, enableHighAccuracy: true });
 });
 
-map.on('locationfound', (e) => {
-    const latlng = e.latlng;
-
-    if (!youMarker) {
-        youMarker = L.marker(latlng, {
-            icon: makeHeadingIcon(headingDeg ?? 0), zIndexOffset: 1000
-        }).addTo(map);
-    } else {
-        youMarker.setLatLng(latlng);
-        const el = youMarker.getElement()?.querySelector('svg');
-        if (el && headingDeg != null) el.style.transform = `rotate(${headingDeg}deg)`;
-    }
-
-    if (!accuracyCircle) {
-        accuracyCircle = L.circle(latlng, {
-            radius: e.accuracy || 15,
-            weight: 1,
-            color: '#2563eb',
-            opacity: .6
-        }).addTo(map);
-    } else {
-        accuracyCircle.setLatLng(latlng);
-        accuracyCircle.setRadius(e.accuracy || 15);
-    }
-
-    if (follow) map.setView(latlng, Math.max(map.getZoom(), 16), { animate: false });
-
-    checkOffRoute(latlng);
-});
-
-map.on('locationerror', (e) => {
-    console.error('Error de ubicación:', e);
-    showBanner('⚠️ No se pudo obtener ubicación');
-});
+// Event listeners de geolocalización movidos a initializeMap()
 
 // ----- BRÚJULA -----
 function handleOrientation(ev) {
     if (typeof ev.alpha === 'number') {
         headingDeg = 360 - ev.alpha;
         const el = youMarker?.getElement()?.querySelector('svg');
-        if (el) el.style.transform = `rotate(${headingDeg}deg)`;
+        if (el) {
+            el.style.transform = `rotate(${headingDeg}deg)`;
+            console.log('[Compass] Heading actualizado:', headingDeg);
+        }
     }
 }
 
@@ -379,7 +395,9 @@ async function enableCompass() {
         }
         window.addEventListener('deviceorientation', handleOrientation, { passive: true });
         showBanner('Brújula activada');
-    } catch {
+        console.log('[Compass] Brújula habilitada');
+    } catch (error) {
+        console.error('[Compass] Error al habilitar brújula:', error);
         alert('Tu navegador no permite brújula');
     }
 }
