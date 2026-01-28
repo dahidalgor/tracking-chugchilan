@@ -758,12 +758,16 @@ section {
   width: 36px;
   height: 36px;
   transform: translate(-18px, -18px);
+  z-index: 10000 !important;
+  position: relative;
+  display: block;
 }
 
 .heading-icon svg {
   width: 36px;
   height: 36px;
   transform-origin: 50% 56%;
+  display: block;
 }
 
 .heading-shadow {

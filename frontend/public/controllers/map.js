@@ -26,12 +26,18 @@ function makeHeadingIcon(angleDeg = 0) {
     return L.divIcon({
         className: 'heading-icon',
         html: `
-          <svg class="heading-shadow" viewBox="0 0 100 100" style="transform:rotate(${angleDeg}deg)">
-            <path d="M50 6 L72 68 Q50 58 28 68 Z" fill="#1d4ed8" stroke="#0f3fb1" stroke-width="4" />
-            <circle cx="50" cy="58" r="6" fill="#fff" opacity=".9"/>
+          <svg class="heading-shadow" viewBox="0 0 100 100" style="transform:rotate(${angleDeg}deg); width: 40px; height: 40px;">
+            <defs>
+              <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.5"/>
+              </filter>
+            </defs>
+            <path d="M50 10 L80 70 Q50 60 20 70 Z" fill="#1d4ed8" stroke="#0f3fb1" stroke-width="3" filter="url(#shadow)" />
+            <circle cx="50" cy="55" r="7" fill="#fff" opacity="0.95"/>
           </svg>`,
-        iconSize: [36, 36],
-        iconAnchor: [18, 18],
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
+        popupAnchor: [0, -20]
     });
 }
 
@@ -62,7 +68,10 @@ function initializeMap() {
     // Registrar event listeners de geolocalización DESPUÉS de crear el mapa
     map.on('locationfound', (e) => {
         const latlng = e.latlng;
-        console.log('[Map] Ubicación encontrada:', latlng);
+        const accuracy = e.accuracy || 15;
+        const precisionThreshold = 30; // metros - cuando la precisión es buena
+        
+        console.log('[Map] Ubicación encontrada:', latlng, 'Precisión:', accuracy, 'm');
 
         if (!youMarker) {
             youMarker = L.marker(latlng, {
@@ -79,15 +88,32 @@ function initializeMap() {
 
         if (!accuracyCircle) {
             accuracyCircle = L.circle(latlng, {
-                radius: e.accuracy || 15,
-                weight: 1,
+                radius: accuracy,
+                weight: 2,
                 color: '#2563eb',
-                opacity: .6
+                fillColor: '#2563eb',
+                opacity: 0.8,
+                fillOpacity: 0.2
             }).addTo(map);
-            console.log('[Map] Círculo de precisión creado con radio:', e.accuracy);
+            console.log('[Map] Círculo de precisión creado con radio:', accuracy, 'm');
         } else {
             accuracyCircle.setLatLng(latlng);
-            accuracyCircle.setRadius(e.accuracy || 15);
+            accuracyCircle.setRadius(accuracy);
+            console.log('[Map] Círculo de precisión actualizado:', accuracy, 'm');
+        }
+
+        // Si la precisión es buena (< 30m), ocultar el círculo y mostrar solo la flecha
+        if (accuracy < precisionThreshold) {
+            if (map.hasLayer(accuracyCircle)) {
+                map.removeLayer(accuracyCircle);
+                console.log('[Map] Círculo de precisión oculto (precisión buena)');
+            }
+        } else {
+            // Si la precisión es mala, mostrar el círculo
+            if (!map.hasLayer(accuracyCircle)) {
+                accuracyCircle.addTo(map);
+                console.log('[Map] Círculo de precisión visible (precisión mala)');
+            }
         }
 
         if (follow) map.setView(latlng, Math.max(map.getZoom(), 16), { animate: false });
@@ -348,6 +374,25 @@ document.getElementById('btnStart').addEventListener('click', function () {
 
         // Activar geolocalización automáticamente
         map.locate({ watch: true, setView: true, maxZoom: 17, enableHighAccuracy: true });
+        
+        // Activar automáticamente el sensor de orientación del dispositivo
+        if (window.DeviceOrientationEvent) {
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                // iOS 13+
+                DeviceOrientationEvent.requestPermission()
+                    .then(permission => {
+                        if (permission === 'granted') {
+                            window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+                            console.log('[Orientation] Sensor de orientación activado automáticamente');
+                        }
+                    })
+                    .catch(console.error);
+            } else {
+                // Android y otros navegadores
+                window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+                console.log('[Orientation] Sensor de orientación activado automáticamente');
+            }
+        }
     } else {
         // Parar seguimiento
         routeStarted = false;
@@ -379,10 +424,16 @@ document.getElementById('btnLocate').addEventListener('click', () => {
 function handleOrientation(ev) {
     if (typeof ev.alpha === 'number') {
         headingDeg = 360 - ev.alpha;
-        const el = youMarker?.getElement()?.querySelector('svg');
-        if (el) {
-            el.style.transform = `rotate(${headingDeg}deg)`;
-            console.log('[Compass] Heading actualizado:', headingDeg);
+        
+        if (youMarker) {
+            const markerElement = youMarker.getElement();
+            if (markerElement) {
+                const svg = markerElement.querySelector('svg');
+                if (svg) {
+                    svg.style.transform = `rotate(${headingDeg}deg)`;
+                    console.log('[Compass] Heading actualizado:', headingDeg.toFixed(1), '°');
+                }
+            }
         }
     }
 }
