@@ -46,7 +46,17 @@ const translations = {
     routeOption2: "Chugchilan - Quilotoa",
     initialMessage: "¿Preparado? ¡Empecemos!",
     celebrationChugchilan: "¡Felicitaciones! Llegaste a Chugchilan",
-    celebrationQuilotoa: "¡Felicitaciones! Llegaste a Quilotoa"
+    celebrationQuilotoa: "¡Felicitaciones! Llegaste a Quilotoa",
+
+        // FOOTER
+    footerText: "Impulsando comunidades mediante herramientas digitales y turismo responsable. Proyecto de vinculación PUCE.",
+    ayudaTitle: "Ayuda",
+    soporte: "Soporte",
+    privacidad: "Privacidad",
+    proyectoTitle: "Proyecto",
+    creditos: "Créditos",
+    copyright: "© 2026 TRACKING CHUGCHILÁN. Todos los derechos reservados."
+
   },
   en: {
     // Navbar
@@ -94,7 +104,17 @@ const translations = {
     routeOption2: "Chugchilan - Quilotoa",
     initialMessage: "Ready? Let's go!",
     celebrationChugchilan: "Congratulations! You arrived at Chugchilan",
-    celebrationQuilotoa: "Congratulations! You arrived at Quilotoa"
+    celebrationQuilotoa: "Congratulations! You arrived at Quilotoa",
+
+        // FOOTER
+    footerText: "Empowering communities through digital tools and responsible tourism. PUCE outreach project.",
+    ayudaTitle: "Help",
+    soporte: "Support",
+    privacidad: "Privacy",
+    proyectoTitle: "Project",
+    creditos: "Credits",
+    copyright: "© 2026 TRACKING CHUGCHILÁN. All rights reserved."
+
   },
   fr: {
     // Navbar
@@ -142,7 +162,17 @@ const translations = {
     routeOption2: "Chugchilan - Quilotoa",
     initialMessage: "Prêt? Commençons!",
     celebrationChugchilan: "Félicitations! Vous êtes arrivé à Chugchilan",
-    celebrationQuilotoa: "Félicitations! Vous êtes arrivé à Quilotoa"
+    celebrationQuilotoa: "Félicitations! Vous êtes arrivé à Quilotoa",
+
+        // FOOTER
+    footerText: "Autonomiser les communautés grâce à des outils numériques et un tourisme responsable. Projet de liaison PUCE.",
+    ayudaTitle: "Aide",
+    soporte: "Support",
+    privacidad: "Confidentialité",
+    proyectoTitle: "Projet",
+    creditos: "Crédits",
+    copyright: "© 2026 TRACKING CHUGCHILÁN. Tous droits réservés."
+
   },
   pt: {
     // Navbar
@@ -190,7 +220,17 @@ const translations = {
     routeOption2: "Chugchilan - Quilotoa",
     initialMessage: "Pronto? Vamos começar!",
     celebrationChugchilan: "Parabéns! Você chegou em Chugchilan",
-    celebrationQuilotoa: "Parabéns! Você chegou em Quilotoa"
+    celebrationQuilotoa: "Parabéns! Você chegou em Quilotoa",
+
+      // FOOTER
+    footerText: "Capacitando comunidades por meio de ferramentas digitais e turismo responsável. Projeto de extensão PUCE.",
+    ayudaTitle: "Ajuda",
+    soporte: "Suporte",
+    privacidad: "Privacidade",
+    proyectoTitle: "Projeto",
+    creditos: "Créditos",
+    copyright: "© 2026 TRACKING CHUGCHILÁN. Todos os direitos reservados."
+
   },
   qu: {
     // Navbar
@@ -238,7 +278,17 @@ const translations = {
     routeOption2: "Chugchilan - Quilotoa",
     initialMessage: "¿Allinchu? ¡Kallarichu!",
     celebrationChugchilan: "¡Sulpayki! Chugchilanman rikurankichu",
-    celebrationQuilotoa: "¡Sulpayki! Quilotaoman rikurankichu"
+    celebrationQuilotoa: "¡Sulpayki! Quilotaoman rikurankichu",
+
+        // FOOTER
+    footerText: "Llaktakunata kallpanchay, ch'ipiy yanapakuy, allin turismowan. PUCE tinkuy ruray.",
+    ayudaTitle: "Yanapay",
+    soporte: "Yanapay",
+    privacidad: "Pakasqa willay",
+    proyectoTitle: "Ruray",
+    creditos: "Yupaychana",
+    copyright: "© 2026 TRACKING CHUGCHILÁN. Llapallan hayñikuna waqaychasqa."
+
   }
 };
 
@@ -320,6 +370,52 @@ function changeLanguage(lang) {
   if (typeof updateModalForLanguage === 'function') {
     updateModalForLanguage(lang);
   }
+  // ACTUALIZAR FOOTER - AÑADE ESTA SECCIÓN
+  // Actualizar texto del footer
+  const footerText = document.querySelector('.footer-text');
+  if (footerText) footerText.textContent = t.footerText;
+
+  // Actualizar títulos del footer
+  const ayudaTitle = document.querySelector('.footer-title:nth-of-type(1)');
+  if (ayudaTitle) ayudaTitle.textContent = t.ayudaTitle;
+
+  const proyectoTitle = document.querySelector('.footer-title:nth-of-type(2)');
+  if (proyectoTitle) proyectoTitle.textContent = t.proyectoTitle;
+
+  // Actualizar enlaces del footer
+  const soporteLink = document.querySelector('.footer-links a[href*="mailto:soporte"]');
+  if (soporteLink) {
+    const span = soporteLink.querySelector('span');
+    if (span) {
+      soporteLink.innerHTML = soporteLink.innerHTML.replace(/Soporte/, t.soporte);
+    } else {
+      soporteLink.textContent = t.soporte;
+    }
+  }
+
+  const privacidadLink = document.querySelector('.footer-links a[href*="politicas-privacidad"]');
+  if (privacidadLink) {
+    const span = privacidadLink.querySelector('span');
+    if (span) {
+      privacidadLink.innerHTML = privacidadLink.innerHTML.replace(/Privacidad/, t.privacidad);
+    } else {
+      privacidadLink.textContent = t.privacidad;
+    }
+  }
+
+  const creditosLink = document.querySelector('.footer-links a[href*="creditos"]');
+  if (creditosLink) {
+    const span = creditosLink.querySelector('span');
+    if (span) {
+      creditosLink.innerHTML = creditosLink.innerHTML.replace(/Créditos/, t.creditos);
+    } else {
+      creditosLink.textContent = t.creditos;
+    }
+  }
+
+  // Actualizar copyright
+  const copyright = document.querySelector('.copyright');
+  if (copyright) copyright.textContent = t.copyright;
 
   // Recargar puntos de interés con el nuevo idioma
   loadInterestPoints(lang);
@@ -346,7 +442,53 @@ function closeLanguageMenu() {
   languageToggle.setAttribute('aria-expanded', 'false');
   languageMenu.classList.remove('active');
 }
+// Función para actualizar datos con nuevo idioma
+function updateDataForLanguage(lang) {
+    // Actualizar el dataLoader si está disponible
+    if (window.dataLoader && window.dataLoader.setCurrentLanguage) {
+        window.dataLoader.setCurrentLanguage(lang);
+    } else {
+        console.warn('dataLoader no disponible');
+        // Forzar recarga de datos
+        setTimeout(() => {
+            if (window.dataLoader && window.dataLoader.loadActivities) {
+                window.dataLoader.loadActivities();
+                window.dataLoader.loadLodgings();
+            }
+        }, 100);
+    }
+}
 
+// Event listeners para cambio de idioma
+document.querySelectorAll('.lang-option').forEach(option => {
+    option.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        currentLang = lang;
+        
+        // Actualizar textos de la página
+        updatePageTexts();
+        
+        // Actualizar datos de actividades y hospedajes
+        updateDataForLanguage(lang);
+        
+        // Cerrar menú de idiomas
+        languageMenu.classList.remove('active');
+        languageToggle.setAttribute('aria-expanded', 'false');
+        
+        // Actualizar botón de idioma
+        const flagMap = {
+            'es': '🇪🇸',
+            'en': '🇬🇧',
+            'fr': '🇫🇷',
+            'pt': '🇵🇹',
+            'qu': '🏴'
+        };
+        languageToggle.innerHTML = `${flagMap[lang]} ${this.textContent.split(' ')[1] || 'Idioma'}`;
+        
+        // Guardar preferencia
+        localStorage.setItem('preferredLanguage', lang);
+    });
+});
 // Event listeners para el menú de idiomas
 languageToggle.addEventListener('click', (e) => {
   e.stopPropagation();

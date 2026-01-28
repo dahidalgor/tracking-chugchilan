@@ -1,0 +1,196 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "imgSrc": "../data/img/Actividades/Actividad5.jpg",
+      "title": {
+        "es": "Granja de Animales Andina",
+        "en": "Andean Animal Farm",
+        "fr": "Ferme Animale Andine",
+        "pt": "Fazenda de Animais Andina",
+        "qu": "Andino Uywa Wasi"
+      },
+      "description": {
+        "es": "Interactúa con llamas, alpacas y cuyes. Aprende sobre crianza tradicional andina.",
+        "en": "Interact with llamas, alpacas, and guinea pigs. Learn about traditional Andean breeding.",
+        "fr": "Interagissez avec les lamas, alpagas et cochons d'Inde. Apprenez l'élevage traditionnel andin.",
+        "pt": "Interaja com lhamas, alpacas e porquinhos-da-índia. Aprenda sobre criação tradicional andina.",
+        "qu": "Llama, alpaca, cuywan rimanakuy. Ñawpa uywa yachay."
+      },
+      "schedule": {
+        "es": "Cel: 0983763553",
+        "en": "Cel: 0983763553",
+        "fr": "Cel: 0983763553",
+        "pt": "Cel: 0983763553",
+        "qu": "Cel: 0983763553"
+      },
+      "alt": {
+        "es": "Granja de animales",
+        "en": "Animal farm",
+        "fr": "Ferme d'animaux",
+        "pt": "Fazenda de animais",
+        "qu": "Uywa wasi"
+      }
+    },
+    {
+      "id": 2,
+      "imgSrc": "../data/img/Actividades/Actividad3.jpg",
+      "title": {
+        "es": "Ciclismo de Montaña",
+        "en": "Mountain Biking",
+        "fr": "Vélo de Montagne",
+        "pt": "Ciclismo de Montanha",
+        "qu": "K'uyachi Challwa"
+      },
+      "description": {
+        "es": "Participa en viajes cortos durante el dia o mas largos que pueden durar dias.",
+        "en": "Participate in short trips during the day or longer ones that can last days.",
+        "fr": "Participez à des voyages courts durant la journée ou plus longs qui peuvent durer plusieurs jours.",
+        "pt": "Participe em viagens curtas durante o dia ou mais longas que podem durar dias.",
+        "qu": "Papa, kinwa, sara tarpuy. Ñawpa rurana llamk'anakuna."
+      },
+      "schedule": {
+        "es": "Telf: 032708114 – Cel: 0980046558",
+        "en": "Telf: 032708114 – Cel: 0980046558",
+        "fr": "Telf: 032708114 – Cel: 0980046558",
+        "pt": "Telf: 032708114 – Cel: 0980046558",
+        "qu": "Telf: 032708114 – Cel: 0980046558"
+      },
+      "alt": {
+        "es": "Siembra",
+        "en": "Planting",
+        "fr": "Plantation",
+        "pt": "Plantio",
+        "qu": "Tarpuy"
+      }
+    },
+{
+  "id": 3,
+  "imgSrc": "../data/img/Actividades/Actividad1.jpg",
+  "title": {
+    "es": "Caminata a la fábrica de quesos",
+    "en": "Hike to the Cheese Factory",
+    "fr": "Randonnée à la fromagerie",
+    "pt": "Caminhada até a fábrica de queijos",
+    "qu": "Queso ruray wasi-man purina"
+  },
+  "description": {
+    "es": "Visita guiada a una fábrica artesanal donde se elabora el queso tierno andino, con explicación del proceso y degustación.",
+    "en": "Guided visit to an artisanal factory where Andean fresh cheese is made, including process explanation and tasting.",
+    "fr": "Visite guidée d’une fromagerie artisanale où l’on produit le fromage frais andin, avec explication du processus et dégustation.",
+    "pt": "Visita guiada a uma fábrica artesanal onde é produzido o queijo fresco andino, com explicação do processo e degustação.",
+    "qu": "Queso andino ruraymanta yachaykuna rikuchina, ruray ñan willaywanmi, mikuyta malliywan."
+  },
+  "schedule": {
+    "es": "Telf: 03 2708-013",
+    "en": "Telf: 03 2708-013",
+    "fr": "Telf: 03 2708-013",
+    "pt": "Telf: 03 2708-013",
+    "qu": "Telf: 03 2708-013"
+  },
+  "alt": {
+    "es": "Fábrica artesanal de quesos",
+    "en": "Artisanal cheese factory",
+    "fr": "Fromagerie artisanale",
+    "pt": "Fábrica artesanal de queijos",
+    "qu": "Queso ruray wasi"
+  }
+},
+    {
+      "id": 4,
+      "imgSrc": "../data/img/Actividades/Actividad4.jpg",
+      "title": {
+        "es": "Cabalgata Andina",
+        "en": "Andean Horseback Riding",
+        "fr": "Équitation Andine",
+        "pt": "Cavalgada Andina",
+        "qu": "Andino Kawallu Puriy"
+      },
+      "description": {
+        "es": "Recorrido a caballo por senderos ancestrales con vista al volcán.",
+        "en": "Horseback tour through ancestral trails with volcano view.",
+        "fr": "Tour à cheval sur sentiers ancestraux avec vue sur le volcan.",
+        "pt": "Passeio a cavalo por trilhas ancestrais com vista para o vulcão.",
+        "qu": "Kawalluwan ñan puriy, ñawpa ñankuna. Nina urqu rikuy."
+      },
+      "schedule": {
+        "es": "Cel: 099 060 7758",
+        "en": "Cel: 099 060 7758",
+        "fr": "Cel: 099 060 7758",
+        "pt": "Cel: 099 060 7758",
+        "qu": "Cel: 099 060 7758"
+      },
+      "alt": {
+        "es": "Montar a caballo",
+        "en": "Horse riding",
+        "fr": "Équitation",
+        "pt": "Passeio a cavalo",
+        "qu": "Kawallu puriy"
+      }
+    },
+    {
+      "id": 5,
+      "imgSrc": "../data/img/Actividades/Actividad2.jpg",
+      "title": {
+        "es": "Camping",
+        "en": "Guided Hiking to Crater",
+        "fr": "Randonnée Guidée au Cratère",
+        "pt": "Caminhada Guiada à Cratera",
+        "qu": "Yachachiq Puriy Q'uñi Pataman"
+      },
+      "description": {
+        "es": "Descenso al cráter del Quilotoa con explicación geológica y cultural.",
+        "en": "Descent to Quilotoa crater with geological and cultural explanation.",
+        "fr": "Descente au cratère du Quilotoa avec explication géologique et culturelle.",
+        "pt": "Descida à cratera do Quilotoa com explicação geológica e cultural.",
+        "qu": "Quilotoa q'uñi pataman uraykuy. Pacha yachay, kawsay yachay."
+      },
+      "schedule": {
+        "es": "Cel: 0983763553",
+        "en": "Cel: 0983763553",
+        "fr": "Cel: 0983763553",
+        "pt": "Cel: 0983763553",
+        "qu": "Cel: 0983763553"
+      },
+      "alt": {
+        "es": "Senderismo guiado",
+        "en": "Guided hiking",
+        "fr": "Randonnée guidée",
+        "pt": "Caminhada guiada",
+        "qu": "Yachachiq puriy"
+      }
+    },
+    {
+      "id": 6,
+      "imgSrc": "../data/img/Actividades/Actividad6.jpg",
+      "title": {
+    "es": "Paseo por el Bosque Nublado",
+    "en": "Cloud Forest Walk",
+    "fr": "Promenade en Forêt Nuageuse",
+    "pt": "Passeio pela Floresta Nublada",
+    "qu": "Puyu Sacha Purina"
+      },
+      "description": {
+    "es": "Recorrido guiado por senderos del bosque nublado, rodeado de flora y fauna.",
+    "en": "Guided walk through cloud forest trails, surrounded by flora and fauna.",
+    "fr": "Promenade guidée sur les sentiers de la forêt nuageuse, avec flore et faune.",
+    "pt": "Caminhada guiada por trilhas da floresta nublada, com flora e fauna.",
+    "qu": "Puyu sachapi purina, sacha yuyaykuna chaymanta uywakuna."
+      },
+      "schedule": {
+        "es": "Telf: 03 2708-013",
+        "en": "Telf: 03 2708-013",
+        "fr": "Telf: 03 2708-013",
+        "pt": "Telf: 03 2708-013",
+        "qu": "Telf: 03 2708-013"
+      },
+      "alt": {
+        "es": "Cultura andina",
+        "en": "Andean culture",
+        "fr": "Culture andine",
+        "pt": "Cultura andina",
+        "qu": "Andino yachay"
+      }
+    }
+  ]
+}

@@ -1,76 +1,112 @@
 let guidesData = { guides: [] };
-const URL = 'http://localhost:4000/';
 
+// Cargar guías desde el archivo JSON (igual que index.html)
 async function loadGuides() {
     try {
-        const response = await fetch(`${URL}api/guides`);
+        const response = await fetch('./data/guides/guides.json');
+        
+        if (!response.ok) {
+            throw new Error(`Error cargando guías: ${response.status}`);
+        }
+        
         guidesData = await response.json();
-        const tableBody = document.querySelector('#guidesTable tbody');
-        tableBody.innerHTML = ''; // Clear existing
-        guidesData.guides.forEach(guide => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                        <td>${guide.id}</td>
-                        <td>${guide.names.es}</td>
-                        <td>${guide.languages.es}</td>
-                        <td>${typeof guide.contact === 'string' ? guide.contact : guide.contact.es}</td>
-                        <td><a href="${guide.whatsapp}" target="_blank" class="btn btn-sm btn-success"><i class="fab fa-whatsapp"></i> WhatsApp</a></td>
-                        <td>
-                            <button class="btn btn-sm btn-info" onclick="viewGuide(${guide.id})" title="Ver"><i class="fas fa-eye"></i></button>
-                            <button class="btn btn-sm btn-warning" onclick="editGuide(${guide.id})" title="Modificar"><i class="fas fa-edit"></i></button>
-                            <button class="btn btn-sm btn-danger" onclick="deleteGuide(${guide.id})" title="Eliminar"><i class="fas fa-trash"></i></button>
-                        </td>
-                    `;
-            tableBody.appendChild(row);
-        });
+        console.log('✅ Guías cargados:', guidesData.guides.length);
+        updateTable();
     } catch (error) {
         console.error('Error cargando guías:', error);
+        
+        // Intentar ruta alternativa
+        try {
+            console.log('Intentando ruta alternativa...');
+            const response = await fetch('/data/guides/guides.json');
+            if (response.ok) {
+                guidesData = await response.json();
+                console.log('✅ Guías cargados desde ruta alternativa');
+                updateTable();
+                return;
+            }
+        } catch (e) {
+            console.error('Error en ruta alternativa:', e);
+        }
+        
+        // Si todo falla, usar datos de ejemplo
+        guidesData = { 
+            guides: [
+                {
+                    id: 1,
+                    imgSrc: "data/img/Guias/default.jpg",
+                    names: { es: "Guía de Ejemplo", en: "Example Guide", fr: "Guide Exemple", pt: "Guia Exemplo", qu: "Yachachiy" },
+                    languages: { es: "Español / Inglés", en: "Spanish / English", fr: "Espagnol / Anglais", pt: "Espanhol / Inglês", qu: "Kastilla simi / Inlish simi" },
+                    contact: "+593 999999999",
+                    whatsapp: "https://wa.me/593999999999"
+                }
+            ]
+        };
+        
+        console.log('⚠️ Usando datos de ejemplo');
+        updateTable();
     }
 }
 
-function addGuideToTable(guide) {
+// Actualizar la tabla con los datos
+function updateTable() {
     const tableBody = document.querySelector('#guidesTable tbody');
-    const row = document.createElement('tr');
-    row.innerHTML = `
-                <td>${guide.id}</td>
-                <td>${guide.names.es}</td>
-                <td>${guide.languages.es}</td>
-                <td>${typeof guide.contact === 'string' ? guide.contact : guide.contact.es}</td>
-                <td><a href="${guide.whatsapp}" target="_blank" class="btn btn-sm btn-success"><i class="fab fa-whatsapp"></i> WhatsApp</a></td>
-                <td>
-                    <button class="btn btn-sm btn-info" onclick="viewGuide(${guide.id})" title="Ver"><i class="fas fa-eye"></i></button>
-                    <button class="btn btn-sm btn-warning" onclick="editGuide(${guide.id})" title="Modificar"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-sm btn-danger" onclick="deleteGuide(${guide.id})" title="Eliminar"><i class="fas fa-trash"></i></button>
-                </td>
-            `;
-    tableBody.appendChild(row);
+    if (!tableBody) return;
+    
+    tableBody.innerHTML = '';
+    
+    // Ordenar por ID
+    guidesData.guides.sort((a, b) => a.id - b.id);
+    
+    guidesData.guides.forEach(guide => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${guide.id}</td>
+            <td>${guide.names.es}</td>
+            <td>${guide.languages.es}</td>
+            <td>${typeof guide.contact === 'string' ? guide.contact : guide.contact.es}</td>
+            <td><a href="${guide.whatsapp}" target="_blank" class="btn btn-sm btn-success"><i class="fab fa-whatsapp"></i></a></td>
+            <td>
+                <button class="btn btn-sm btn-info" onclick="viewGuide(${guide.id})" title="Ver"><i class="fas fa-eye"></i></button>
+                <button class="btn btn-sm btn-warning" onclick="editGuide(${guide.id})" title="Modificar"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="deleteGuide(${guide.id})" title="Eliminar"><i class="fas fa-trash"></i></button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
 }
 
-document.getElementById('createGuideBtn').addEventListener('click', () => {
-    document.getElementById('guideModal').style.display = 'block';
-});
+// Función para descargar el archivo JSON actualizado
+function downloadJSON(data, filename = 'guides.json') {
+    const jsonStr = JSON.stringify(data, null, 2);
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
 
-document.getElementById('closeModal').addEventListener('click', () => {
-    document.getElementById('guideModal').style.display = 'none';
-    document.getElementById('guideForm').reset();
-    document.getElementById('imagePreview').style.display = 'none';
-});
-
+// Función para crear un nuevo guía (TODO el trabajo del lado del cliente)
 document.getElementById('guideForm').addEventListener('submit', async (event) => {
     event.preventDefault();
+    
     const name = document.getElementById('name').value.trim();
-    const contactNum = document.getElementById('contact').value.replace(/\D/g, ''); // Limpiar número
+    const contactNum = document.getElementById('contact').value.replace(/\D/g, '');
     const imgSrcInput = document.getElementById('imgSrc');
 
-    // Validar nombre
+    // Validaciones
     if (!name) {
         alert('Por favor ingresa el nombre del guía');
         return;
     }
 
-    // Validar contacto
     if (!contactNum || contactNum.length < 9) {
-        alert('Por favor ingresa un número de contacto válido');
+        alert('Por favor ingresa un número de contacto válido (mínimo 9 dígitos)');
         return;
     }
 
@@ -94,7 +130,7 @@ document.getElementById('guideForm').addEventListener('submit', async (event) =>
         return;
     }
 
-    // Mapeo de traducciones
+    // Traducciones
     const langTranslations = {
         es: { 'Español': 'Español', 'Inglés': 'Inglés', 'Francés': 'Francés', 'Portugués': 'Portugués', 'Quechua': 'Quechua' },
         en: { 'Español': 'Spanish', 'Inglés': 'English', 'Francés': 'French', 'Portugués': 'Portuguese', 'Quechua': 'Quechua' },
@@ -108,56 +144,211 @@ document.getElementById('guideForm').addEventListener('submit', async (event) =>
         translatedLangs[lang] = selectedLangs.map(l => langTranslations[lang][l]).join(' / ');
     });
 
-    try {
-        // Subir imagen primero
-        let imgPath;
-        try {
-            imgPath = await uploadImage(base64Image, imgSrcInput.dataset.fileName || 'guide-image.jpg');
-        } catch (error) {
-            alert('Error al subir la imagen. Por favor intenta de nuevo.');
-            return;
-        }
+    // Generar nuevo ID
+    const newId = guidesData.guides.length > 0 
+        ? Math.max(...guidesData.guides.map(g => g.id)) + 1 
+        : 1;
 
-        // Crear guía con la imagen subida
-        const newGuide = {
-            imgSrc: imgPath,
-            names: {
-                es: name,
-                en: name,
-                fr: name,
-                pt: name,
-                qu: name
-            },
-            languages: translatedLangs,
-            contact: '+593 ' + contactNum,
-            whatsapp: 'https://wa.me/593' + contactNum
-        };
+    // Usar imagen en base64 temporalmente
+    const imagePath = base64Image;
 
-        const response = await fetch(`${URL}api/guides`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newGuide)
-        });
-        if (response.ok) {
-            alert('¡Guía creado exitosamente!');
-            loadGuides(); // Recargar la tabla
-            document.getElementById('guideModal').style.display = 'none';
-            document.getElementById('guideForm').reset();
-            document.getElementById('imagePreview').style.display = 'none';
-        } else {
-            alert('Error al crear el guía');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error al crear el guía');
-    }
+    // Crear nuevo guía
+    const newGuide = {
+        id: newId,
+        imgSrc: imagePath,
+        names: {
+            es: name,
+            en: name,
+            fr: name,
+            pt: name,
+            qu: name
+        },
+        languages: translatedLangs,
+        contact: '+593 ' + contactNum,
+        whatsapp: 'https://wa.me/593' + contactNum
+    };
+
+    // Agregar al array
+    guidesData.guides.push(newGuide);
+    
+    // Actualizar tabla
+    updateTable();
+    
+    // Crear archivo para descargar
+    downloadJSON({ guides: guidesData.guides }, 'guides_updated.json');
+    
+    alert('✅ Guía creado exitosamente. Se ha generado el archivo "guides_updated.json" para descargar.');
+    
+    closeFormModal();
 });
 
-loadGuides();
+// Ver guía (sin cambios)
+window.viewGuide = function (id) {
+    const guide = guidesData.guides.find(g => g.id === id);
+    if (guide) {
+        document.getElementById('viewId').textContent = guide.id;
+        document.getElementById('viewName').textContent = guide.names.es;
+        document.getElementById('viewImg').src = guide.imgSrc;
+        document.getElementById('viewLanguages').textContent = guide.languages.es;
+        document.getElementById('viewContact').textContent = typeof guide.contact === 'string' ? guide.contact : guide.contact.es;
+        document.getElementById('viewWhatsapp').href = guide.whatsapp;
+        document.getElementById('viewWhatsapp').textContent = 'Abrir WhatsApp';
+        document.getElementById('viewModal').style.display = 'block';
+    }
+}
 
-// Función para configurar drop zone
+// Editar guía (actualiza localmente)
+window.editGuide = function (id) {
+    const guide = guidesData.guides.find(g => g.id === id);
+    if (guide) {
+        document.getElementById('editId').value = guide.id;
+        document.getElementById('editImgSrc').value = guide.imgSrc;
+        document.getElementById('editName').value = guide.names.es;
+        
+        // Extraer número de contacto
+        let contactNum = guide.contact;
+        if (typeof contactNum === 'string') {
+            contactNum = contactNum.replace('+593 ', '').replace(/\D/g, '');
+        } else {
+            contactNum = '';
+        }
+        document.getElementById('editContact').value = contactNum;
+
+        // Mostrar imagen actual
+        const preview = document.getElementById('editImagePreview');
+        preview.src = guide.imgSrc;
+        preview.style.display = 'block';
+
+        // Limpiar y marcar idiomas
+        const editLangCheckboxes = ['editLangEsp', 'editLangIng', 'editLangFra', 'editLangPor', 'editLangQue'];
+        editLangCheckboxes.forEach(cb => {
+            document.getElementById(cb).checked = false;
+        });
+
+        const langs = guide.languages.es.split(' / ');
+        langs.forEach(lang => {
+            if (lang === 'Español' || lang === 'Spanish' || lang === 'Espagnol' || lang === 'Espanhol' || lang === 'Kastilla simi') {
+                document.getElementById('editLangEsp').checked = true;
+            }
+            if (lang === 'Inglés' || lang === 'English' || lang === 'Anglais' || lang === 'Inglês' || lang === 'Inlish simi') {
+                document.getElementById('editLangIng').checked = true;
+            }
+            if (lang === 'Francés' || lang === 'French' || lang === 'Français' || lang === 'Francês' || lang === 'Ransis simi') {
+                document.getElementById('editLangFra').checked = true;
+            }
+            if (lang === 'Portugués' || lang === 'Portuguese' || lang === 'Portugais' || lang === 'Português' || lang === 'Purtugis simi') {
+                document.getElementById('editLangPor').checked = true;
+            }
+            if (lang === 'Quechua' || lang === 'Quíchua' || lang === 'Runasimi') {
+                document.getElementById('editLangQue').checked = true;
+            }
+        });
+
+        document.getElementById('editModal').style.display = 'block';
+    }
+}
+
+// Eliminar guía
+window.deleteGuide = async function (id) {
+    if (confirm('¿Seguro que quiere eliminar este guía? Esta acción no se puede deshacer.')) {
+        const index = guidesData.guides.findIndex(g => g.id === id);
+        if (index !== -1) {
+            guidesData.guides.splice(index, 1);
+            updateTable();
+            alert('✅ Guía eliminado exitosamente (localmente)');
+        }
+    }
+}
+
+// Guardar cambios al editar
+document.getElementById('editForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const id = parseInt(document.getElementById('editId').value);
+    const name = document.getElementById('editName').value.trim();
+    const contactNum = document.getElementById('editContact').value.replace(/\D/g, '');
+    
+    // Validaciones
+    if (!name) {
+        alert('Por favor ingresa el nombre del guía');
+        return;
+    }
+
+    if (!contactNum || contactNum.length < 9) {
+        alert('Por favor ingresa un número de contacto válido');
+        return;
+    }
+
+    // Buscar guía
+    const guideIndex = guidesData.guides.findIndex(g => g.id === id);
+    if (guideIndex === -1) {
+        alert('Guía no encontrado');
+        return;
+    }
+
+    // Validar idiomas
+    const selectedLangs = [];
+    const langCheckboxes = ['editLangEsp', 'editLangIng', 'editLangFra', 'editLangPor', 'editLangQue'];
+    langCheckboxes.forEach(cb => {
+        if (document.getElementById(cb).checked) {
+            selectedLangs.push(document.getElementById(cb).value);
+        }
+    });
+    if (selectedLangs.length === 0) {
+        alert('Selecciona al menos un idioma');
+        return;
+    }
+
+    // Traducciones
+    const langTranslations = {
+        es: { 'Español': 'Español', 'Inglés': 'Inglés', 'Francés': 'Francés', 'Portugués': 'Portugués', 'Quechua': 'Quechua' },
+        en: { 'Español': 'Spanish', 'Inglés': 'English', 'Francés': 'French', 'Portugués': 'Portuguese', 'Quechua': 'Quechua' },
+        fr: { 'Español': 'Espagnol', 'Inglés': 'Anglais', 'Francés': 'Français', 'Portugués': 'Portugais', 'Quechua': 'Quechua' },
+        pt: { 'Español': 'Espanhol', 'Inglés': 'Inglês', 'Francés': 'Francês', 'Portugués': 'Português', 'Quechua': 'Quíchua' },
+        qu: { 'Español': 'Kastilla simi', 'Inglés': 'Inlish simi', 'Francés': 'Ransis simi', 'Portugués': 'Purtugis simi', 'Quechua': 'Runasimi' }
+    };
+
+    const translatedLangs = {};
+    Object.keys(langTranslations).forEach(lang => {
+        translatedLangs[lang] = selectedLangs.map(l => langTranslations[lang][l]).join(' / ');
+    });
+
+    // Actualizar guía
+    const imgSrcInput = document.getElementById('editImgSrc');
+    let imgPath = guidesData.guides[guideIndex].imgSrc;
+    
+    // Si hay nueva imagen, usar base64
+    const base64Image = imgSrcInput.dataset.file;
+    if (base64Image) {
+        imgPath = base64Image;
+    }
+
+    guidesData.guides[guideIndex] = {
+        id: id,
+        imgSrc: imgPath,
+        names: {
+            es: name,
+            en: name,
+            fr: name,
+            pt: name,
+            qu: name
+        },
+        languages: translatedLangs,
+        contact: '+593 ' + contactNum,
+        whatsapp: 'https://wa.me/593' + contactNum
+    };
+
+    // Actualizar tabla
+    updateTable();
+    
+    // Crear archivo para descargar
+    downloadJSON({ guides: guidesData.guides }, 'guides_updated.json');
+    
+    closeEditModal();
+    alert('✅ Guía modificado exitosamente. Se ha generado el archivo "guides_updated.json" para descargar.');
+});
+
+// Funciones para manejar archivos (sin cambios)
 function setupDropZone(dropZoneId, fileInputId, previewId, hiddenInputId, fileSelectId) {
     const dropZone = document.getElementById(dropZoneId);
     const fileInput = document.getElementById(fileInputId);
@@ -165,14 +356,17 @@ function setupDropZone(dropZoneId, fileInputId, previewId, hiddenInputId, fileSe
     const hiddenInput = document.getElementById(hiddenInputId);
     const fileSelect = document.getElementById(fileSelectId);
 
-    // Click to select file
+    if (!dropZone || !fileInput || !preview || !hiddenInput || !fileSelect) {
+        console.error('Elementos del drop zone no encontrados');
+        return;
+    }
+
     dropZone.addEventListener('click', () => fileInput.click());
     fileSelect.addEventListener('click', (e) => {
         e.stopPropagation();
         fileInput.click();
     });
 
-    // Drag and drop events
     dropZone.addEventListener('dragover', (e) => {
         e.preventDefault();
         dropZone.classList.add('dragover');
@@ -191,7 +385,6 @@ function setupDropZone(dropZoneId, fileInputId, previewId, hiddenInputId, fileSe
         }
     });
 
-    // File input change
     fileInput.addEventListener('change', (e) => {
         if (e.target.files.length > 0) {
             handleFile(e.target.files[0], preview, hiddenInput);
@@ -199,234 +392,113 @@ function setupDropZone(dropZoneId, fileInputId, previewId, hiddenInputId, fileSe
     });
 }
 
-// Función para manejar archivo - Solo valida y muestra preview
-async function handleFile(file, preview, hiddenInput) {
+function handleFile(file, preview, hiddenInput) {
     if (!file.type.startsWith('image/')) {
-        alert('Por favor selecciona un archivo de imagen.');
+        alert('Por favor selecciona un archivo de imagen (JPG, PNG, etc.).');
         return;
     }
 
-    // Convertir a base64 para preview local sin subir
+    if (file.size > 5 * 1024 * 1024) {
+        alert('La imagen es muy grande. Por favor selecciona una imagen menor a 5MB.');
+        return;
+    }
+
     const reader = new FileReader();
     reader.onload = function(e) {
-        // Almacenar el objeto File para subir después en el submit
-        hiddenInput.dataset.file = e.target.result; // base64
+        hiddenInput.dataset.file = e.target.result;
         hiddenInput.dataset.fileName = file.name;
         preview.src = e.target.result;
         preview.style.display = 'block';
+        preview.alt = 'Vista previa de la imagen';
+    };
+    reader.onerror = function() {
+        alert('Error al leer el archivo. Por favor intenta con otra imagen.');
     };
     reader.readAsDataURL(file);
 }
 
-// Función para subir imagen al servidor
-async function uploadImage(base64Data, fileName) {
-    try {
-        // Convertir base64 a blob
-        const byteCharacters = atob(base64Data.split(',')[1]);
-        const byteNumbers = new Array(byteCharacters.length);
-        for (let i = 0; i < byteCharacters.length; i++) {
-            byteNumbers[i] = byteCharacters.charCodeAt(i);
-        }
-        const byteArray = new Uint8Array(byteNumbers);
-        const blob = new Blob([byteArray], { type: 'image/jpeg' });
-
-        const formData = new FormData();
-        formData.append('file', blob, fileName);
-
-        const response = await fetch(`${URL}api/upload-image`, {
-            method: 'POST',
-            body: formData
-        });
-
-        if (response.ok) {
-            const result = await response.json();
-            return result.path;
-        } else {
-            throw new Error('Error al subir la imagen');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        throw error;
-    }
-}
-
-// Configurar drop zones
-setupDropZone('dropZone', 'imgFile', 'imagePreview', 'imgSrc', 'fileSelect');
-setupDropZone('editDropZone', 'editImgFile', 'editImagePreview', 'editImgSrc', 'editFileSelect');
-
-// Funciones para los botones
-window.viewGuide = function (id) {
-    const guide = guidesData.guides.find(g => g.id === id);
-    if (guide) {
-        document.getElementById('viewId').textContent = guide.id;
-        document.getElementById('viewName').textContent = guide.names.es;
-        document.getElementById('viewImg').src = guide.imgSrc;
-        document.getElementById('viewLanguages').textContent = guide.languages.es;
-        document.getElementById('viewContact').textContent = typeof guide.contact === 'string' ? guide.contact : guide.contact.es;
-        document.getElementById('viewWhatsapp').href = guide.whatsapp;
-        document.getElementById('viewModal').style.display = 'block';
-    }
-}
-
+// Funciones para cerrar modales (sin cambios)
 window.closeViewModal = function () {
     document.getElementById('viewModal').style.display = 'none';
 }
 
-window.editGuide = function (id) {
-    const guide = guidesData.guides.find(g => g.id === id);
-    if (guide) {
-        document.getElementById('editId').value = guide.id;
-        document.getElementById('editImgSrc').value = guide.imgSrc;
-        document.getElementById('editName').value = guide.names.es;
-        document.getElementById('editContact').value = guide.contact.replace('+593 ', '');
-
-        // Mostrar imagen actual
-        const preview = document.getElementById('editImagePreview');
-        preview.src = guide.imgSrc;
-        preview.style.display = 'block';
-
-        // Limpiar checkboxes
-        ['editLangEsp', 'editLangIng', 'editLangFra', 'editLangPor', 'editLangQue'].forEach(cb => {
-            document.getElementById(cb).checked = false;
-        });
-
-        // Marcar los idiomas
-        const langs = guide.languages.es.split(' / ');
-        langs.forEach(lang => {
-            if (lang === 'Español') document.getElementById('editLangEsp').checked = true;
-            if (lang === 'Inglés') document.getElementById('editLangIng').checked = true;
-            if (lang === 'Francés') document.getElementById('editLangFra').checked = true;
-            if (lang === 'Portugués') document.getElementById('editLangPor').checked = true;
-            if (lang === 'Quechua') document.getElementById('editLangQue').checked = true;
-        });
-
-        document.getElementById('editModal').style.display = 'block';
-    }
-}
-
 window.closeFormModal = function () {
-    document.getElementById('guideModal').style.display = 'none';
-    document.getElementById('guideForm').reset();
-    document.getElementById('imagePreview').style.display = 'none';
+    const modal = document.getElementById('guideModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+    const form = document.getElementById('guideForm');
+    if (form) {
+        form.reset();
+    }
+    const preview = document.getElementById('imagePreview');
+    if (preview) {
+        preview.style.display = 'none';
+        preview.src = '';
+    }
+    const imgSrcInput = document.getElementById('imgSrc');
+    if (imgSrcInput) {
+        imgSrcInput.dataset.file = '';
+        imgSrcInput.dataset.fileName = '';
+    }
+    
+    const langCheckboxes = ['langEsp', 'langIng', 'langFra', 'langPor', 'langQue'];
+    langCheckboxes.forEach(id => {
+        const cb = document.getElementById(id);
+        if (cb) cb.checked = false;
+    });
 }
 
 window.closeEditModal = function () {
-    document.getElementById('editModal').style.display = 'none';
-    document.getElementById('editForm').reset();
-    document.getElementById('editImagePreview').style.display = 'none';
-}
-
-window.deleteGuide = function (id) {
-    if (confirm('¿Seguro que quiere eliminar este guía?')) {
-        fetch(`${URL}api/guides/${id}`, {
-            method: 'DELETE'
-        }).then(response => {
-            if (response.ok) {
-                loadGuides();
-            } else {
-                alert('Error al eliminar el guía');
-            }
-        });
+    const modal = document.getElementById('editModal');
+    if (modal) {
+        modal.style.display = 'none';
     }
-}
-
-// Handler para el form de editar
-document.getElementById('editForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const id = parseInt(document.getElementById('editId').value);
-    const name = document.getElementById('editName').value.trim();
-    const contactNum = document.getElementById('editContact').value.replace(/\D/g, '');
+    const form = document.getElementById('editForm');
+    if (form) {
+        form.reset();
+    }
+    const preview = document.getElementById('editImagePreview');
+    if (preview) {
+        preview.style.display = 'none';
+        preview.src = '';
+    }
     const imgSrcInput = document.getElementById('editImgSrc');
-
-    // Validar nombre
-    if (!name) {
-        alert('Por favor ingresa el nombre del guía');
-        return;
+    if (imgSrcInput) {
+        imgSrcInput.dataset.file = '';
+        imgSrcInput.dataset.fileName = '';
     }
+}
 
-    // Validar contacto
-    if (!contactNum || contactNum.length < 9) {
-        alert('Por favor ingresa un número de contacto válido');
-        return;
-    }
-
-    // Validar imagen - puede ser la anterior o una nueva
-    let imgPath = imgSrcInput.value;
-    const base64Image = imgSrcInput.dataset.file;
-
-    // Si hay una nueva imagen (base64), subirla
-    if (base64Image) {
-        try {
-            imgPath = await uploadImage(base64Image, imgSrcInput.dataset.fileName || 'guide-image.jpg');
-        } catch (error) {
-            alert('Error al subir la imagen. Por favor intenta de nuevo.');
-            return;
-        }
-    }
-
-    if (!imgPath) {
-        alert('Por favor selecciona una imagen');
-        return;
-    }
-
-    // Validar idiomas
-    const selectedLangs = [];
-    const langCheckboxes = ['editLangEsp', 'editLangIng', 'editLangFra', 'editLangPor', 'editLangQue'];
-    langCheckboxes.forEach(cb => {
-        if (document.getElementById(cb).checked) {
-            selectedLangs.push(document.getElementById(cb).value);
-        }
-    });
-    if (selectedLangs.length === 0) {
-        alert('Selecciona al menos un idioma');
-        return;
-    }
-
-    const langTranslations = {
-        es: { 'Español': 'Español', 'Inglés': 'Inglés', 'Francés': 'Francés', 'Portugués': 'Portugués', 'Quechua': 'Quechua' },
-        en: { 'Español': 'Spanish', 'Inglés': 'English', 'Francés': 'French', 'Portugués': 'Portuguese', 'Quechua': 'Quechua' },
-        fr: { 'Español': 'Espagnol', 'Inglés': 'Anglais', 'Francés': 'Français', 'Portugués': 'Portugais', 'Quechua': 'Quechua' },
-        pt: { 'Español': 'Espanhol', 'Inglés': 'Inglês', 'Francés': 'Francês', 'Portugués': 'Português', 'Quechua': 'Quíchua' },
-        qu: { 'Español': 'Kastilla simi', 'Inglés': 'Inlish simi', 'Francés': 'Ransis simi', 'Portugués': 'Purtugis simi', 'Quechua': 'Runasimi' }
-    };
-
-    const translatedLangs = {};
-    Object.keys(langTranslations).forEach(lang => {
-        translatedLangs[lang] = selectedLangs.map(l => langTranslations[lang][l]).join(' / ');
-    });
-
-    const updatedGuide = {
-        id: id,
-        imgSrc: imgPath,
-        names: {
-            es: name,
-            en: name,
-            fr: name,
-            pt: name,
-            qu: name
-        },
-        languages: translatedLangs,
-        contact: '+593 ' + contactNum,
-        whatsapp: 'https://wa.me/593' + contactNum
-    };
-
-    try {
-        const response = await fetch(`${URL}api/guides/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedGuide)
+// Inicialización cuando el DOM esté cargado
+document.addEventListener('DOMContentLoaded', function() {
+    setupDropZone('dropZone', 'imgFile', 'imagePreview', 'imgSrc', 'fileSelect');
+    setupDropZone('editDropZone', 'editImgFile', 'editImagePreview', 'editImgSrc', 'editFileSelect');
+    
+    const createGuideBtn = document.getElementById('createGuideBtn');
+    if (createGuideBtn) {
+        createGuideBtn.addEventListener('click', () => {
+            document.getElementById('guideModal').style.display = 'block';
         });
-        if (response.ok) {
-            alert('¡Guía modificado exitosamente!');
-            loadGuides();
-            closeEditModal();
-        } else {
-            alert('Error al modificar el guía');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error al modificar el guía');
     }
+    
+    const closeModalBtn = document.getElementById('closeModal');
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeFormModal);
+    }
+    
+    loadGuides();
 });
+
+// Manejar clics fuera de los modales
+window.onclick = function(event) {
+    const modals = ['guideModal', 'viewModal', 'editModal'];
+    modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal && event.target == modal) {
+            if (modalId === 'guideModal') closeFormModal();
+            if (modalId === 'viewModal') closeViewModal();
+            if (modalId === 'editModal') closeEditModal();
+        }
+    });
+};

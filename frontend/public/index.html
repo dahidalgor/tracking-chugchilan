@@ -13,8 +13,148 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet-gpx@1.7.0"></script>
   <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+  <!-- SCRIPT PARA CARGAR DATOS DE ACTIVIDADES Y HOSPEDAJES -->
+<script src="controllers/dataLoader.js?v=2.0" type="module"></script>
+  <!-- SCRIPT DE NAVEGACIÓN PARA MOSTRAR/OCULTAR SECCIONES -->
+<script src="controllers/navigation.js?v=2.0" defer></script>
   <!-- ESTILOS -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./styles.css?v=2.0">
+  <style>
+    /* Estilos para la sección de Créditos */
+    .creditos-hero {
+        padding: 100px 0 40px;
+        text-align: center;
+    }
+
+    .creditos-hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: #0f172a;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .creditos-hero p {
+        color: #64748b;
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+
+    .container-sm {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .creditos-section {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .institucional-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .puce-header {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .puce-logo-img {
+        width: 150px;
+        height: auto;
+        border-radius: 24px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .puce-logo-img:hover {
+        transform: translateY(-8px) scale(1.05);
+        filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.15));
+    }
+
+    .puce-title h3 {
+        font-size: 1.4rem;
+        color: #0f172a;
+        margin-bottom: 5px;
+    }
+
+    .equipo-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+    }
+
+    .integrantes-list h4, .tutor-box h4 {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #38bdf8;
+        margin-bottom: 15px;
+    }
+
+    .nombres-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .nombre-item {
+        font-weight: 600;
+        color: #0f172a;
+        font-size: 1.05rem;
+    }
+
+    .tutor-name {
+        font-weight: 700;
+        color: #0f172a;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .descargos-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 20px;
+    }
+
+    .descargo-card {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .descargo-card strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #0f172a;
+    }
+
+    @media (max-width: 768px) {
+        .equipo-grid { grid-template-columns: 1fr; }
+        .puce-header { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 
 <body>
@@ -32,7 +172,8 @@
         <a href="#hospedaje">HOSPEDAJE</a>
         <a href="#actividades">ACTIVIDADES</a>
         <a href="#guias">GUÍAS</a>
-        <a href="#contacto">CONTACTO</a>
+
+
       </nav>
       <div class="spacer"></div>
 
@@ -55,7 +196,7 @@
   </header>
 
   <!-- Portada -->
-  <section id="hero" class="hero" aria-label="Portada">
+  <section id="hero" class="seccion hero" aria-label="Portada">
     <div class="hero-inner">
       <h1>TRACKING QUILOTOA</h1>
       <p>Caminar es solo el comienzo: vive la experiencia andina, comparte con su gente y guarda momentos que quedarán
@@ -65,7 +206,7 @@
   </section>
 
   <!-- RUTA con mapa -->
-  <section id="ruta" class="section">
+<section id="ruta" class="seccion section">
     <h2 class="title" style="margin-top: 40px;">LA RUTA</h2>
     <p class="subtitle">Explora el recorrido completo y planifica tus paradas favoritas.</p>
 
@@ -129,97 +270,26 @@
   </section>
 
   <!-- HOSPEDAJE -->
-  <section id="hospedaje" class="section">
-    <h1 class="title">HOSPEDAJE</h1>
-    <p class="subtitle">Elige tu mejor opción para hospedarte y relajarte</p>
-    <div id="portfolio" class="container grid cols-4">
-      <!-- CHUGCHILAN -->
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=10" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min32-2-1024x683.jpg"
-            alt="Hostal Cloud Forest">
-        </a>
-      </article>
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=14" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541057-1024x683.jpg"
-            alt="Hostería Puyu Pacha">
-        </a>
-      </article>
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=11" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541024-1024x683.jpg"
-            alt="Lagoon Hotel">
-        </a>
-      </article>
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=18" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541016-1024x683.jpg"
-            alt="Centro Turístico Quilotoa Ñan">
-        </a>
-      </article>
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=13" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min5410-1024x683.jpg"
-            alt="Cabaña Luna y Miel">
-        </a>
-      </article>
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=12" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min51-1024x683.jpg"
-            alt="Hostal Backpackers">
-        </a>
-      </article>
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=9" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min19-1024x683.jpg"
-            alt="Hostal Doña Clarita">
-        </a>
-      </article>
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=7" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min17-1024x683.jpg"
-            alt="El Bautista Camping">
-        </a>
-      </article>
-      <!-- QUILOTOA -->
-      <article class="card">
-        <a href="https://quilotoatrail.com/admin/establecimiento.php?id=17" target="_blank" rel="noopener">
-          <img class="media" src="https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_1712-1024x683.jpg"
-            alt="Hotel Princesa Toa">
-        </a>
-      </article>
-    </div>
-  </section>
+<!-- HOSPEDAJE -->
+<section id="hospedaje" class="seccion oculto section">
+  <h1 class="title">HOSPEDAJE</h1>
+  <p class="subtitle">Elige tu mejor opción para hospedarte y relajarte</p>
+  <div id="lodgingContainer" class="container">
+    <!-- Se genera dinámicamente con coverflow -->
+  </div>
+</section>
 
-  <!-- ACTIVIDADES -->
-  <section id="actividades" class="section">
-    <h2 class="title">ACTIVIDADES</h2>
-    <p class="subtitle">Programas auténticos en granjas y paisajes andinos, operados por la comunidad.</p>
-    <div class="container grid cols-4">
-      <article class="card">
-        <img class="media" src="../data/img/Actividades/Actividad1.jpg" alt="Granja de animales">
-      </article>
-      <article class="card">
-        <img class="media" src="data/img/Actividades/Actividad2.jpg" alt="Siembra">
-      </article>
-      <article class="card">
-        <img class="media" src="data/img/Actividades/Actividad3.jpg" alt="Pesca deportiva">
-      </article>
-      <article class="card">
-        <img class="media" src="data/img/Actividades/Actividad4.jpg" alt="Montar a caballo">
-      </article>
-      <article class="card">
-        <img class="media" src="data/img/Actividades/Actividad5.jpg" alt="Actividad 5">
-      </article>
-      <article class="card">
-        <img class="media" src="data/img/Actividades/Actividad6.jpg" alt="Actividad 6">
-      </article>
-    </div>
-  </section>
+<!-- ACTIVIDADES -->
+<section id="actividades" class="seccion oculto section">
+  <h2 class="title">ACTIVIDADES</h2>
+  <p class="subtitle">Programas auténticos en granjas y paisajes andinos, operados por la comunidad.</p>
+  <div id="activityContainer" class="container">
+    <!-- Se genera dinámicamente con coverflow -->
+  </div>
+</section>
 
   <!-- GUÍAS -->
-  <section id="guias" class="section">
+  <section id="guias" class="seccion oculto section">
     <h2 class="title">Guías locales certificados</h2>
     <p class="subtitle">Conocimiento de territorio, seguridad y acompañamiento en tu idioma.</p>
     <div id="guideContainer" class="container guide-container">
@@ -228,11 +298,70 @@
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto" class="section">
+  <section id="contacto" class="seccion oculto section">
     <h2 class="title">¿Listo para empezar?</h2>
     <p class="subtitle">Escríbenos fechas, número de personas y actividades que te interesan.</p>
     <div class="container" style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;">
       <a class="btn-primary" href="mailto:info@quilotoatrail.com">Contactar</a>
+    </div>
+  </section>
+
+  <!-- CRÉDITOS -->
+  <section id="creditos" class="seccion oculto section">
+    <div class="container-sm">
+      <div class="creditos-hero">
+        <h1>Créditos</h1>
+
+      </div>
+
+      <section class="creditos-section">
+        <div class="institucional-grid">
+          <div class="puce-header">
+            <img src="./data/img/logo_puce.jpg" 
+                 alt="PUCE" class="puce-logo-img">
+            <div class="puce-title">
+              <h3>Pontificia Universidad Católica del Ecuador</h3>
+              <p style="margin:0; font-size: 0.95rem; color: #64748b;">Programa de Emprendimiento Tecnológico 2025-02</p>
+            </div>
+          </div>
+
+          <div class="equipo-grid">
+            <div class="integrantes-list">
+              <h4>Integrantes</h4>
+              <div class="nombres-grid">
+                <div class="nombre-item">Jordi Nogales</div>
+                <div class="nombre-item">David Hidalgo</div>
+                <div class="nombre-item">Jordy Morales</div>
+              </div>
+            </div>
+            <div class="tutor-box">
+              <h4>Tutor Académico</h4>
+              <div class="tutor-name">Ing. Francisco Rodríguez</div>
+              <p style="font-size: 0.85rem; color: #64748b; margin-top: 5px;">Docente guía de proyecto</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+<section class="creditos-section">
+  <div class="section-title">Alcances y Responsabilidades</div>
+  <div class="descargos-list">
+    <div class="descargo-card">
+      <strong>Ámbito académico</strong>
+      Este proyecto se entrega en su estado actual, con fines exclusivamente formativos. La institución no se compromete a brindar mantenimiento, soporte técnico continuo ni adaptaciones derivadas de cambios en infraestructura tecnológica externa.
+    </div>
+    <div class="descargo-card">
+      <strong>Uso y responsabilidades</strong>
+      La correcta utilización del sistema recae en los usuarios y en la comunidad que haga uso del mismo. No nos responsabilizamos por deficiencias, interrupciones o resultados derivados de una prestación inadecuada de los servicios por parte de terceros o de la comunidad usuaria.
+    </div>
+    <div class="descargo-card">
+      <strong>Compromiso del usuario</strong>
+      Los usuarios se comprometen a emplear la plataforma de manera responsable, ética y conforme a los objetivos del programa, asumiendo las consecuencias derivadas de un uso indebido o fuera del alcance previsto.
+    </div>
+  </div>
+</section>
+
     </div>
   </section>
 
@@ -268,7 +397,7 @@
           </div>
         </div>
       </div>
-
+      
       <div class="modal-footer">
         <a id="modalGuideContactBtn" class="guide-contact-btn" href="#" target="_blank">
           Contactar
@@ -281,16 +410,65 @@
   <script src="controllers/hamburgerMenu.js" defer></script>
 
   <!-- SCRIPT DEL SELECTOR DE RUTAS PERSONALIZADO -->
-  <script src="controllers/routeSelector.js" defer></script>
+  <script src="controllers/routeSelector.js?v=2.0" defer></script>
 
   <!-- SCRIPT PARA EL MODAL DE GUÍAS - MINIMALISTA -->
-  <script src="controllers/guias.js"></script>
+  <script src="controllers/guias.js?v=2.0"></script>
 
   <!-- SCRIPT FUNCIONALIDAD DE IDIOMAS -->
-  <script src="controllers/languages.js"></script>
+  <script src="controllers/languages.js?v=2.0"></script>
 
   <!-- SCRIPT DEL MAPA CON PUNTOS DE INTERÉS -->
-  <script src="controllers/map.js"></script>
+  <script src="controllers/map.js?v=2.0"></script>
 
 </body>
+  <!-- Footer -->
+  <footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="./data/img/logo_puce.jpg" alt="PUCE" class="puce-logo">
+        </div>
+        <p class="footer-text">
+          Impulsando comunidades mediante herramientas digitales y turismo responsable. Proyecto de vinculación PUCE.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Ayuda</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="mailto:soporte@showchilan.com" class="footer-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              Soporte
+            </a>
+          </li>
+          <li>
+            <a href="politicas-privacidad.html" class="footer-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Privacidad
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Proyecto</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="#creditos" class="footer-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Créditos
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 TRACKING CHUGCHILÁN. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
 </html>

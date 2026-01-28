@@ -1,0 +1,319 @@
+{
+  "lodgings": [
+    {
+      "id": 1,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min32-2-1024x683.jpg",
+      "title": {
+        "es": "Hostal Cloud Forest",
+        "en": "Cloud Forest Hostel",
+        "fr": "Auberge Cloud Forest",
+        "pt": "Hostel Cloud Forest",
+        "qu": "Cloud Forest Hostel"
+      },
+      "description": {
+        "es": "Un refugio acogedor en medio del bosque nublado. Habitaciones con vista panorámica y chimenea.",
+        "en": "A cozy refuge in the middle of the cloud forest. Rooms with panoramic view and fireplace.",
+        "fr": "Un refuge confortable au milieu de la forêt nuageuse. Chambres avec vue panoramique et cheminée.",
+        "pt": "Um refúgio aconchegante no meio da floresta nublada. Quartos com vista panorâmica e lareira.",
+        "qu": "Q'uñi wasi pacha, muyu muyupi. Wasi q'epi rikuywan, nina wasiwan."
+      },
+      "schedule": {
+        "es": "Check-in: 14:00 - 20:00 | Check-out: 12:00",
+        "en": "Check-in: 2:00 PM - 8:00 PM | Check-out: 12:00 PM",
+        "fr": "Arrivée: 14h00 - 20h00 | Départ: 12h00",
+        "pt": "Check-in: 14:00 - 20:00 | Check-out: 12:00",
+        "qu": "Yaykuy: 14:00 - 20:00 | Lluqsiy: 12:00"
+      },
+      "phone": "0985066782",
+      "alt": {
+        "es": "Hostal Cloud Forest",
+        "en": "Cloud Forest Hostel",
+        "fr": "Auberge Cloud Forest",
+        "pt": "Hostel Cloud Forest",
+        "qu": "Cloud Forest Hostel"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=10",
+      "location": "chugchilan"
+    },
+    {
+      "id": 2,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541057-1024x683.jpg",
+      "title": {
+        "es": "Hostería Puyu Pacha",
+        "en": "Puyu Pacha Inn",
+        "fr": "Auberge Puyu Pacha",
+        "pt": "Pousada Puyu Pacha",
+        "qu": "Puyu Pacha Inn"
+      },
+      "description": {
+        "es": "Arquitectura tradicional andina con jardines nativos. Ofrece cena con productos locales.",
+        "en": "Traditional Andean architecture with native gardens. Offers dinner with local products.",
+        "fr": "Architecture andine traditionnelle avec jardins natifs. Propose des dîners avec produits locaux.",
+        "pt": "Arquitetura andina tradicional com jardins nativos. Oferece jantar com produtos locais.",
+        "qu": "Ñawpa pacha wasi kamay, kawsay sach'akuna. Mikhuna q'epi mikhuykunata quwan."
+      },
+      "schedule": {
+        "es": "24/7 - Recepción las 24 horas",
+        "en": "24/7 - 24-hour reception",
+        "fr": "24/7 - Réception 24h/24",
+        "pt": "24/7 - Recepção 24 horas",
+        "qu": "24/7 - 24 ura chaskiq"
+      },
+      "phone": "0983268061",
+      "alt": {
+        "es": "Hostería Puyu Pacha",
+        "en": "Puyu Pacha Inn",
+        "fr": "Auberge Puyu Pacha",
+        "pt": "Pousada Puyu Pacha",
+        "qu": "Puyu Pacha Inn"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=14",
+      "location": "chugchilan"
+    },
+    {
+      "id": 3,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541024-1024x683.jpg",
+      "title": {
+        "es": "Lagoon Hotel",
+        "en": "Lagoon Hotel",
+        "fr": "Hôtel Lagoon",
+        "pt": "Hotel Lagoon",
+        "qu": "Lagoon Hotel"
+      },
+      "description": {
+        "es": "Vista directa a la laguna. Spa andino y restaurante gourmet con cocina fusión.",
+        "en": "Direct view of the lagoon. Andean spa and gourmet restaurant with fusion cuisine.",
+        "fr": "Vue directe sur le lagon. Spa andin et restaurant gastronomique avec cuisine fusion.",
+        "pt": "Vista direta da lagoa. Spa andino e restaurante gourmet com culinária fusion.",
+        "qu": "Qocha rikuy t'ika. Andino hampikamayuq, mikhuna wasi."
+      },
+      "schedule": {
+        "es": "Check-in: 15:00 | Check-out: 11:00 | Restaurante: 7:00 - 22:00",
+        "en": "Check-in: 3:00 PM | Check-out: 11:00 AM | Restaurant: 7:00 AM - 10:00 PM",
+        "fr": "Arrivée: 15h00 | Départ: 11h00 | Restaurant: 7h00 - 22h00",
+        "pt": "Check-in: 15:00 | Check-out: 11:00 | Restaurante: 7:00 - 22:00",
+        "qu": "Yaykuy: 15:00 | Lluqsiy: 11:00 | Mikhuna wasi: 7:00 - 22:00"
+      },
+      "phone": "0980925472",
+      "alt": {
+        "es": "Lagoon Hotel",
+        "en": "Lagoon Hotel",
+        "fr": "Hôtel Lagoon",
+        "pt": "Hotel Lagoon",
+        "qu": "Lagoon Hotel"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=11",
+      "location": "chugchilan"
+    },
+    {
+      "id": 4,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min541016-1024x683.jpg",
+      "title": {
+        "es": "Centro Turístico Quilotoa Ñan",
+        "en": "Quilotoa Ñan Tourist Center",
+        "fr": "Centre Touristique Quilotoa Ñan",
+        "pt": "Centro Turístico Quilotoa Ñan",
+        "qu": "Quilotoa Ñan Turista Tantanakuy"
+      },
+      "description": {
+        "es": "Complejo turístico con cabañas familiares y área de camping. Ideal para grupos grandes.",
+        "en": "Tourist complex with family cabins and camping area. Ideal for large groups.",
+        "fr": "Complexe touristique avec cabanes familiales et aire de camping. Idéal pour les grands groupes.",
+        "pt": "Complexo turístico com cabanas familiares e área de camping. Ideal para grupos grandes.",
+        "qu": "Turista wasi, ayllu wasikuna, campamento. Hatun runakunapaq."
+      },
+      "schedule": {
+        "es": "Recepcion: 8:00 - 20:00 | Camping: siempre abierto",
+        "en": "Reception: 8:00 AM - 8:00 PM | Camping: always open",
+        "fr": "Réception: 8h00 - 20h00 | Camping: toujours ouvert",
+        "pt": "Recepção: 8:00 - 20:00 | Campamento: sempre aberto",
+        "qu": "Chaskiq: 8:00 - 20:00 | Campamento: wiñay kichasqa"
+      },
+      "phone": "0980268815",
+      "alt": {
+        "es": "Centro Turístico Quilotoa Ñan",
+        "en": "Quilotoa Ñan Tourist Center",
+        "fr": "Centre Touristique Quilotoa Ñan",
+        "pt": "Centro Turístico Quilotoa Ñan",
+        "qu": "Quilotoa Ñan Turista Tantanakuy"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=18",
+      "location": "chugchilan"
+    },
+    {
+      "id": 5,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min5410-1024x683.jpg",
+      "title": {
+        "es": "Cabaña Luna y Miel",
+        "en": "Luna y Miel Cabin",
+        "fr": "Cabane Luna y Miel",
+        "pt": "Cabana Lua e Mel",
+        "qu": "Killa Michi Wasi"
+      },
+      "description": {
+        "es": "Cabaña romántica con jacuzzi privado. Desayuno casero incluido.",
+        "en": "Romantic cabin with private jacuzzi. Homemade breakfast included.",
+        "fr": "Cabane romantique avec jacuzzi privé. Petit-déjeuner maison inclus.",
+        "pt": "Cabana romântica com jacuzzi privativo. Café da manhã caseiro incluído.",
+        "qu": "Munakuy wasi, jacuzzi kikin. Q'uñi mikhuna q'epi."
+      },
+      "schedule": {
+        "es": "Check-in flexible con reserva previa",
+        "en": "Flexible check-in with prior reservation",
+        "fr": "Arrivée flexible avec réservation préalable",
+        "pt": "Check-in flexível com reserva prévia",
+        "qu": "Chaylla yaykuy, ñawpaq reserva"
+      },
+      "phone": "0962302615",
+      "alt": {
+        "es": "Cabaña Luna y Miel",
+        "en": "Luna y Miel Cabin",
+        "fr": "Cabane Luna y Miel",
+        "pt": "Cabana Lua e Mel",
+        "qu": "Killa Michi Wasi"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=13",
+      "location": "chugchilan"
+    },
+    {
+      "id": 6,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min51-1024x683.jpg",
+      "title": {
+        "es": "Hostal Backpackers",
+        "en": "Backpackers Hostel",
+        "fr": "Auberge Backpackers",
+        "pt": "Hostel Backpackers",
+        "qu": "Backpackers Hostel"
+      },
+      "description": {
+        "es": "Ambiente juvenil con dormitorios compartidos. Sala de juegos y cocina comunitaria.",
+        "en": "Youthful atmosphere with shared dormitories. Game room and community kitchen.",
+        "fr": "Ambiance jeune avec dortoirs partagés. Salle de jeux et cuisine communautaire.",
+        "pt": "Ambiente jovem com dormitórios compartilhados. Sala de jogos e cozinha comunitária.",
+        "qu": "Wayna kawsay, puñuna wasi. Pukllana wasi, mikhuna kamay wasi."
+      },
+      "schedule": {
+        "es": "Recepción: 7:00 - 23:00 | Cocina: 6:00 - 22:00",
+        "en": "Reception: 7:00 AM - 11:00 PM | Kitchen: 6:00 AM - 10:00 PM",
+        "fr": "Réception: 7h00 - 23h00 | Cuisine: 6h00 - 22h00",
+        "pt": "Recepção: 7:00 - 23:00 | Cozinha: 6:00 - 22:00",
+        "qu": "Chaskiq: 7:00 - 23:00 | Mikhuna kamay: 6:00 - 22:00"
+      },
+      "phone": "0988542235",
+      "alt": {
+        "es": "Hostal Backpackers",
+        "en": "Backpackers Hostel",
+        "fr": "Auberge Backpackers",
+        "pt": "Hostel Backpackers",
+        "qu": "Backpackers Hostel"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=12",
+      "location": "chugchilan"
+    },
+    {
+      "id": 7,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min19-1024x683.jpg",
+      "title": {
+        "es": "Hostal Doña Clarita",
+        "en": "Doña Clarita Hostel",
+        "fr": "Auberge Doña Clarita",
+        "pt": "Hostel Doña Clarita",
+        "qu": "Doña Clarita Hostel"
+      },
+      "description": {
+        "es": "Atención familiar y casera. Comida típica preparada por la dueña.",
+        "en": "Family and homemade attention. Typical food prepared by the owner.",
+        "fr": "Attention familiale et maison. Nourriture typique préparée par la propriétaire.",
+        "pt": "Atenção familiar e caseira. Comida típica preparada pela proprietária.",
+        "qu": "Ayllu yanapay, wasi llamk'ay. Mikhuna mama Clarita paqarisqa."
+      },
+      "schedule": {
+        "es": "Desayuno: 6:30 - 9:30 | Cena: 19:00 - 21:00",
+        "en": "Breakfast: 6:30 AM - 9:30 AM | Dinner: 7:00 PM - 9:00 PM",
+        "fr": "Petit-déjeuner: 6h30 - 9h30 | Dîner: 19h00 - 21h00",
+        "pt": "Café da manhã: 6:30 - 9:30 | Jantar: 19:00 - 21:00",
+        "qu": "Paqarin mikhuy: 6:30 - 9:30 | Ch'isi mikhuy: 19:00 - 21:00"
+      },
+      "phone": "0988681909",
+      "alt": {
+        "es": "Hostal Doña Clarita",
+        "en": "Doña Clarita Hostel",
+        "fr": "Auberge Doña Clarita",
+        "pt": "Hostel Doña Clarita",
+        "qu": "Doña Clarita Hostel"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=9",
+      "location": "chugchilan"
+    },
+    {
+      "id": 8,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_2355-min17-1024x683.jpg",
+      "title": {
+        "es": "El Bautista Camping",
+        "en": "El Bautista Camping",
+        "fr": "Camping El Bautista",
+        "pt": "Camping El Bautista",
+        "qu": "El Bautista Camping"
+      },
+      "description": {
+        "es": "Área de camping con fogatas permitidas. Baños ecológicos y duchas con agua caliente.",
+        "en": "Camping area with allowed bonfires. Ecological bathrooms and hot water showers.",
+        "fr": "Zone de camping avec feux de camp autorisés. Toilettes écologiques et douches à eau chaude.",
+        "pt": "Área de camping com fogueiras permitidas. Banheiros ecológicos e chuveiros com água quente.",
+        "qu": "Campamento, nina ranti. Ecolo baño, unu q'uñi ducha."
+      },
+      "schedule": {
+        "es": "Abierto las 24 horas | Registro hasta 22:00",
+        "en": "Open 24 hours | Registration until 10:00 PM",
+        "fr": "Ouvert 24h/24 | Enregistrement jusqu'à 22h00",
+        "pt": "Aberto 24 horas | Registro até 22:00",
+        "qu": "Wiñay kichasqa | 22:00 kama qillqay"
+      },
+      "phone": "0980166143",
+      "alt": {
+        "es": "El Bautista Camping",
+        "en": "El Bautista Camping",
+        "fr": "Camping El Bautista",
+        "pt": "Camping El Bautista",
+        "qu": "El Bautista Camping"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=7",
+      "location": "chugchilan"
+    },
+    {
+      "id": 9,
+      "imgSrc": "https://quilotoatrail.com/wp-content/uploads/2024/07/DSC_1712-1024x683.jpg",
+      "title": {
+        "es": "Hotel Princesa Toa",
+        "en": "Princess Toa Hotel",
+        "fr": "Hôtel Princesse Toa",
+        "pt": "Hotel Princesa Toa",
+        "qu": "Princesa Toa Hotel"
+      },
+      "description": {
+        "es": "Lujo andino con vista directa al cráter. Sauna seco y masajes tradicionales.",
+        "en": "Andean luxury with direct view of the crater. Dry sauna and traditional massages.",
+        "fr": "Luxe andin avec vue directe sur le cratère. Sauna sec et massages traditionnels.",
+        "pt": "Luxo andino com vista direta para a cratera. Sauna seco e massagens tradicionais.",
+        "qu": "Qapaq kawsay, q'uñi rikuy. Sauna, ñawpa hampikamay."
+      },
+      "schedule": {
+        "es": "Check-in: 15:00 | Check-out: 12:00 | Spa: 9:00 - 21:00",
+        "en": "Check-in: 3:00 PM | Check-out: 12:00 PM | Spa: 9:00 AM - 9:00 PM",
+        "fr": "Arrivée: 15h00 | Départ: 12h00 | Spa: 9h00 - 21h00",
+        "pt": "Check-in: 15:00 | Check-out: 12:00 | Spa: 9:00 - 21:00",
+        "qu": "Yaykuy: 15:00 | Lluqsiy: 12:00 | Spa: 9:00 - 21:00"
+      },
+      "phone": "0978820307",
+      "alt": {
+        "es": "Hotel Princesa Toa",
+        "en": "Princess Toa Hotel",
+        "fr": "Hôtel Princesse Toa",
+        "pt": "Hotel Princesa Toa",
+        "qu": "Princesa Toa Hotel"
+      },
+      "url": "https://quilotoatrail.com/admin/establecimiento.php?id=17",
+      "location": "quilotoa"
+    }
+  ]
+}

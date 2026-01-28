@@ -1,3 +1,4 @@
+
 // Datos de los guías - se cargarán desde guides.json
 let guidesData = {};
 
@@ -9,7 +10,7 @@ const modal = document.getElementById('guideModal');
 // Función para cargar guías desde la API
 async function loadGuides() {
   try {
-    const response = await fetch('http://localhost:4000/api/guides');
+    const response = await fetch('./data/guides/guides.json');
     const data = await response.json();
     guidesData = {};
     data.guides.forEach(guide => {
@@ -38,13 +39,21 @@ function generateGuideCards() {
   container.innerHTML = ''; // Limpiar contenedor
 
   Object.values(guidesData).forEach(guide => {
-    const card = document.createElement('article');
-    card.className = 'card guide-card';
+    const card = document.createElement('div');
+    card.className = 'gallery-card guide-card';
     card.setAttribute('data-guide-id', guide.id);
     card.innerHTML = `
-      <div class="guide">
-        <img src="${guide.imgSrc}" alt="Guía ${guide.id}">
-        <div><strong>${guide.names.es}</strong><br><span class="subtitle">${guide.languages.es}</span></div>
+      <div class="gallery-image-wrapper">
+        <img src="${guide.imgSrc}" alt="Guía ${guide.id}" class="gallery-image">
+      </div>
+      <div class="gallery-content">
+        <h3 class="gallery-title">${guide.names.es || 'Guía'}</h3>
+        <p class="gallery-description">${guide.languages.es || ''}</p>
+        <div class="gallery-meta">
+          <span class="gallery-icon">📱</span>
+          <span class="gallery-text">${guide.contact || ''}</span>
+        </div>
+        <a href="${guide.whatsapp || '#'}" class="gallery-button" target="_blank" rel="noopener">Contactar</a>
       </div>
     `;
     container.appendChild(card);

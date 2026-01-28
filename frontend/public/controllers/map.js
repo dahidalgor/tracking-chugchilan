@@ -6,6 +6,8 @@ let routeStarted = false;
 let currentRoute = 'sigchos-chugchilan';
 let destinationReached = false;
 let destinationRadius = 200; // metros
+let map = null; // Será inicializado cuando sea necesario
+let mapInitialized = false;
 
 // Configuración de destinos por ruta
 const routeDestinations = {
@@ -19,11 +21,33 @@ const routeDestinations = {
     }
 };
 
+// ----- INICIALIZAR MAPA PEREZOSAMENTE (LAZY LOADING) -----
+function initializeMap() {
+    if (mapInitialized) return;
+    
+    console.log('[Map] Inicializando mapa...');
+    
+    const mapElement = document.getElementById('map');
+    if (!mapElement) {
+        console.error('[Map] Elemento #map no encontrado');
+        return;
+    }
+    
+    map = L.map('map', { zoomControl: true }).setView([-0.9, -78.8], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19, 
+        attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    
+    mapInitialized = true;
+    console.log('[Map] Mapa inicializado correctamente');
+    
+    // Cargar datos una vez inicializado
+    loadInterestPoints();
+    loadCurrentRoute();
+}
+
 // ----- MAPA BASE -----
-const map = L.map('map', { zoomControl: true }).setView([-0.9, -78.8], 13);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19, attribution: '&copy; OpenStreetMap'
-}).addTo(map);
 
 // ----- CARGAR PUNTOS DE INTERÉS -----
 async function loadInterestPoints(lang = 'es') {
@@ -118,9 +142,17 @@ function loadGPXRoute(routeName) {
     });
 }
 
-// Cargar ruta inicial
+// ----- CARGAR RUTA ACTUAL (CON INICIALIZACIÓN PEREZOSA) -----
+function loadCurrentRoute() {
+    if (!mapInitialized) {
+        console.log('[Map] Inicializando mapa antes de cargar ruta');
+        initializeMap();
+    }
+    loadGPXRoute(currentRoute);
+}
+
+// Cargar ruta inicial cuando se solicite (no automáticamente)
 let gpxLayer = null;
-loadGPXRoute(currentRoute);
 
 // ----- MARCADOR TRIANGULAR -----
 function makeHeadingIcon(angleDeg = 0) {
@@ -243,6 +275,11 @@ if (routeSelector) {
 
 // ----- BOTÓN INICIAR -----
 document.getElementById('btnStart').addEventListener('click', function () {
+    // Inicializar mapa si no está hecho
+    if (!mapInitialized) {
+        initializeMap();
+    }
+    
     if (!routeStarted) {
         routeStarted = true;
         follow = true;
@@ -364,5 +401,8 @@ if (celebrationCloseBtn) {
 // ----- INICIALIZAR -----
 const savedLang = localStorage.getItem('preferredLanguage') || 'es';
 currentLanguage = savedLang;
-loadInterestPoints(savedLang);
 showInitialMessage();
+
+// Exportar funciones globales para lazy loading
+window.initializeMap = initializeMap;
+window.loadCurrentRoute = loadCurrentRoute;
