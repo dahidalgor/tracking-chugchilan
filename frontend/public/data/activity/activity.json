@@ -2,7 +2,7 @@
   "activities": [
     {
       "id": 1,
-      "imgSrc": "../data/img/Actividades/Actividad5.jpg",
+      "imgSrc": "./data/img/Actividades/Actividad5.jpg",
       "title": {
         "es": "Granja de Animales Andina",
         "en": "Andean Animal Farm",
@@ -34,7 +34,7 @@
     },
     {
       "id": 2,
-      "imgSrc": "../data/img/Actividades/Actividad3.jpg",
+      "imgSrc": "./data/img/Actividades/Actividad3.jpg",
       "title": {
         "es": "Ciclismo de Montaña",
         "en": "Mountain Biking",
@@ -66,7 +66,7 @@
     },
 {
   "id": 3,
-  "imgSrc": "../data/img/Actividades/Actividad1.jpg",
+  "imgSrc": "./data/img/Actividades/Actividad1.jpg",
   "title": {
     "es": "Caminata a la fábrica de quesos",
     "en": "Hike to the Cheese Factory",
@@ -98,7 +98,7 @@
 },
     {
       "id": 4,
-      "imgSrc": "../data/img/Actividades/Actividad4.jpg",
+      "imgSrc": "./data/img/Actividades/Actividad4.jpg",
       "title": {
         "es": "Cabalgata Andina",
         "en": "Andean Horseback Riding",
@@ -130,7 +130,7 @@
     },
     {
       "id": 5,
-      "imgSrc": "../data/img/Actividades/Actividad2.jpg",
+      "imgSrc": "./data/img/Actividades/Actividad2.jpg",
       "title": {
         "es": "Camping",
         "en": "Guided Hiking to Crater",
@@ -162,7 +162,7 @@
     },
     {
       "id": 6,
-      "imgSrc": "../data/img/Actividades/Actividad6.jpg",
+      "imgSrc": "./data/img/Actividades/Actividad6.jpg",
       "title": {
     "es": "Paseo por el Bosque Nublado",
     "en": "Cloud Forest Walk",

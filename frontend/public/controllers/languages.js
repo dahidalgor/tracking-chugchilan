@@ -423,6 +423,9 @@ function changeLanguage(lang) {
   // Actualizar mensaje de celebración si existe
   updateCelebrationMessageText(lang);
 
+  // Actualizar datos de actividades y hospedajes con nuevo idioma
+  updateDataForLanguage(lang);
+
   // Cerrar menú de idiomas
   closeLanguageMenu();
 }
@@ -463,43 +466,14 @@ function updateDataForLanguage(lang) {
 document.querySelectorAll('.lang-option').forEach(option => {
     option.addEventListener('click', function() {
         const lang = this.getAttribute('data-lang');
-        currentLang = lang;
-        
-        // Actualizar textos de la página
-        updatePageTexts();
-        
-        // Actualizar datos de actividades y hospedajes
-        updateDataForLanguage(lang);
-        
-        // Cerrar menú de idiomas
-        languageMenu.classList.remove('active');
-        languageToggle.setAttribute('aria-expanded', 'false');
-        
-        // Actualizar botón de idioma
-        const flagMap = {
-            'es': '🇪🇸',
-            'en': '🇬🇧',
-            'fr': '🇫🇷',
-            'pt': '🇵🇹',
-            'qu': '🏴'
-        };
-        languageToggle.innerHTML = `${flagMap[lang]} ${this.textContent.split(' ')[1] || 'Idioma'}`;
-        
-        // Guardar preferencia
-        localStorage.setItem('preferredLanguage', lang);
+        changeLanguage(lang);
     });
 });
+
 // Event listeners para el menú de idiomas
 languageToggle.addEventListener('click', (e) => {
   e.stopPropagation();
   toggleLanguageMenu();
-});
-
-langOptions.forEach(option => {
-  option.addEventListener('click', () => {
-    const lang = option.getAttribute('data-lang');
-    changeLanguage(lang);
-  });
 });
 
 // Cerrar menú al hacer clic fuera
