@@ -12,6 +12,9 @@
         <header class="admin-header">
             <h1><i class="fas fa-cog"></i> Panel de Administración</h1>
             <p>Gestiona los guías de trekking</p>
+            <button id="logoutBtn" class="btn btn-secondary" style="position: absolute; top: 20px; right: 20px;">
+                <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+            </button>
         </header>
 
         <main class="admin-main">
@@ -166,6 +169,21 @@
             </div>
         </div>
     </div>
-    <script src="admin.js" defer></script>
+    <script type="module">
+        import authController from './controllers/auth.js';
+
+        // Verificar que el usuario esté logueado al cargar la página
+        (async () => {
+            await authController.loadUsers();
+            authController.requireLogin();
+            
+            // Configurar botón de logout
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                authController.logout();
+                window.location.href = 'index.html';
+            });
+        })();
+    </script>
+    <script src="controllers/admin.js" defer></script>
 </body>
 </html>

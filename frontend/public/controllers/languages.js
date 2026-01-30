@@ -8,7 +8,7 @@ const translations = {
     actividades: "ACTIVIDADES",
     guias: "GUÍAS",
     contacto: "CONTACTO",
-    planificar: "Planificar ruta",
+    planificar: "¿Administrador?",
 
     // Hero
     title: "TRACKING QUILOTOA",
@@ -29,7 +29,7 @@ const translations = {
 
     // Botones
     iniciar: "🚀 INICIAR",
-    seguir: "🧭 Seguir ON",
+    seguir: "🧭 Seguir OFF",
     ubicacion: "📍 Mi ubicación",
     brujula: "🧲 Brújula",
     contactar: "Contactar",
@@ -66,7 +66,7 @@ const translations = {
     actividades: "ACTIVITIES",
     guias: "GUIDES",
     contacto: "CONTACT",
-    planificar: "Plan route",
+    planificar: "Administrator?",
 
     // Hero
     title: "TRACKING QUILOTOA",
@@ -87,7 +87,7 @@ const translations = {
 
     // Botones
     iniciar: "🚀 START",
-    seguir: "🧭 Follow ON",
+    seguir: "🧭 Follow OFF",
     ubicacion: "📍 My location",
     brujula: "🧲 Compass",
     contactar: "Contact",
@@ -124,7 +124,7 @@ const translations = {
     actividades: "ACTIVITÉS",
     guias: "GUIDES",
     contacto: "CONTACT",
-    planificar: "Planifier route",
+    planificar: "Administrateur ?",
 
     // Hero
     title: "TRACKING QUILOTOA",
@@ -145,7 +145,7 @@ const translations = {
 
     // Botones
     iniciar: "🚀 DÉMARRER",
-    seguir: "🧭 Suivre ON",
+    seguir: "🧭 Suivre OFF",
     ubicacion: "📍 Ma position",
     brujula: "🧲 Boussole",
     contactar: "Contacter",
@@ -182,7 +182,7 @@ const translations = {
     actividades: "ATIVIDADES",
     guias: "GUIAS",
     contacto: "CONTATO",
-    planificar: "Planejar rota",
+    planificar: "Administrador?",
 
     // Hero
     title: "TRACKING QUILOTOA",
@@ -203,7 +203,7 @@ const translations = {
 
     // Botones
     iniciar: "🚀 INICIAR",
-    seguir: "🧭 Seguir ON",
+    seguir: "🧭 Seguir OFF",
     ubicacion: "📍 Minha localización",
     brujula: "🧲 Bússola",
     contactar: "Contactar",
@@ -240,7 +240,7 @@ const translations = {
     actividades: "RUNAYAY",
     guias: "YACHAQ",
     contacto: "RIMAY",
-    planificar: "Ñan kamachina",
+    planificar: "¿Kamachiq?",
 
     // Hero
     title: "QUILOTOA KATIKUY",
@@ -261,7 +261,7 @@ const translations = {
 
     // Botones
     iniciar: "🚀 KALLARI",
-    seguir: "🧭 Katikuy ON",
+    seguir: "🧭 Katikuy OFF",
     ubicacion: "📍 Kaypi kani",
     brujula: "🧲 Suyu rikuchina",
     contactar: "Rimay",
@@ -324,13 +324,28 @@ function changeLanguage(lang) {
   document.querySelector('#ruta .title').textContent = t.laRuta;
   document.querySelector('#ruta .subtitle').textContent = t.rutaSub;
   document.querySelector('.legend').innerHTML = '<span class="sw"></span>' + t.leyenda;
-  document.getElementById('banner').textContent = t.banner;
+  
+  const banner = document.getElementById('banner');
+  if (banner) banner.textContent = t.banner;
 
   // Actualizar botones del mapa
-  document.getElementById('btnStart').textContent = t.iniciar;
-  document.getElementById('btnFollow').textContent = t.seguir;
-  document.getElementById('btnLocate').textContent = t.ubicacion;
-  document.getElementById('btnCompass').textContent = t.brujula;
+  const btnStart = document.getElementById('btnStart');
+  if (btnStart) btnStart.textContent = t.iniciar;
+  
+  const btnFollow = document.getElementById('btnFollow');
+  if (btnFollow) {
+    btnFollow.title = t.seguir;
+    btnFollow.setAttribute('aria-label', t.seguir);
+  }
+  
+  const btnLocate = document.getElementById('btnLocate');
+  if (btnLocate) {
+    btnLocate.title = t.ubicacion;
+    btnLocate.setAttribute('aria-label', t.ubicacion);
+  }
+  
+  const btnCompass = document.getElementById('btnCompass');
+  if (btnCompass) btnCompass.textContent = t.brujula;
 
   // Actualizar hospedaje
   document.querySelector('#hospedaje .title').textContent = t.hospedajeTitle;
@@ -364,7 +379,8 @@ function changeLanguage(lang) {
 
   // Actualizar etiqueta del botón de idioma
   const langNames = { es: 'Spanish', en: 'English', fr: 'French', pt: 'Portuguese', qu: 'Quechua' };
-  document.getElementById('languageToggle').textContent = '🌐 ' + langNames[lang];
+  const languageToggle = document.getElementById('languageToggle');
+  if (languageToggle) languageToggle.textContent = '🌐 ' + langNames[lang];
 
   // Actualizar información de los guías en el modal si está abierto
   if (typeof updateModalForLanguage === 'function') {

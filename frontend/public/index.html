@@ -190,7 +190,7 @@
         </div>
       </div>
 
-      <a class="cta" href="#ruta">Planificar ruta</a>
+      <a class="cta" href="login.html">¿Administrador?</a>
     </div>
   </header>
 
@@ -249,14 +249,26 @@
         <div id="map"></div>
         <div class="panel">
           <button id="btnStart" title="Iniciar trekking y seguimiento" class="btn-start">🚀 INICIAR</button>
-          <button id="btnFollow" title="Activar/desactivar seguimiento">🧭 Seguir ON</button>
-          <button id="btnLocate" title="Centrar en tu ubicación">📍 Mi ubicación</button>
-          <button id="btnCompass" title="Activar brújula del dispositivo">🧲 Brújula</button>
+          <button id="btnFollow" title="Activar/desactivar seguimiento">🧭 Seguir OFF</button>
         </div>
 
         <div class="legend">
           <span class="sw"></span>Ruta Quilotoa Trail
         </div>
+
+        <!-- Botón circular pequeño de 'Mi ubicación' en esquina inferior derecha -->
+        <button id="btnLocate" class="btn-locate-small" title="Centrar en tu ubicación" aria-label="Mi ubicación">
+          <!-- Icono GPS simple -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 20v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.93 4.93l1.41 1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17.66 17.66l1.41 1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 12h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+        </button>
 
         <div id="banner" class="banner">Te alejaste de la ruta (&gt;30 m)</div>
 
@@ -470,4 +482,22 @@
     </div>
   </div>
 </footer>
+
+<script>
+// SCRIPT DE DEBUG - Verificar que todo esté cargado
+console.log('=== VERIFICACIÓN DE CARGA ===');
+console.log('Leaflet disponible:', typeof L !== 'undefined');
+console.log('jQuery disponible:', typeof $ !== 'undefined');
+console.log('window.initializeMap disponible:', typeof window.initializeMap === 'function');
+console.log('Elemento #map:', document.getElementById('map') ? '✓ Encontrado' : '❌ NO encontrado');
+console.log('Elemento #ruta:', document.getElementById('ruta') ? '✓ Encontrado' : '❌ NO encontrado');
+
+// Verificar que los scripts se cargaron
+setTimeout(() => {
+    console.log('=== VERIFICACIÓN A LOS 1000ms ===');
+    console.log('Elemento #map visible:', document.getElementById('map')?.offsetHeight > 0 ? '✓ Sí' : '❌ No');
+    console.log('Elemento #ruta visible:', document.getElementById('ruta')?.offsetHeight > 0 ? '✓ Sí' : '❌ No');
+    console.log('mapInitialized:', typeof mapInitialized !== 'undefined' ? mapInitialized : 'indefinido');
+}, 1000);
+</script>
 </html>

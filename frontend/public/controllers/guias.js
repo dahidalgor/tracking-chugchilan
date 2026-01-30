@@ -1,4 +1,14 @@
 
+// Detectar la ruta base correcta
+function getBasePath() {
+    const currentPath = window.location.pathname;
+    // Si estamos en /public/... o en /... en distribución
+    if (currentPath.includes('/public/')) {
+        return './';
+    }
+    return './';
+}
+
 // Datos de los guías - se cargarán desde guides.json
 let guidesData = {};
 
@@ -10,12 +20,19 @@ const modal = document.getElementById('guideModal');
 // Función para cargar guías desde la API
 async function loadGuides() {
   try {
-    const response = await fetch('./data/guides/guides.json');
+    const url = getBasePath() + 'data/guides/guides.json';
+    console.log('Cargando guías desde:', url);
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
     const data = await response.json();
     guidesData = {};
     data.guides.forEach(guide => {
       guidesData[guide.id] = guide;
     });
+
+    console.log('Guías cargadas:', Object.keys(guidesData).length);
 
     // Generar tarjetas dinámicamente
     generateGuideCards();

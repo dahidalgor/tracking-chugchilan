@@ -1,5 +1,17 @@
 // controllers/dataLoader.js - VERSIÓN CON AUTOPLAY DINÁMICO Y 75/25
 
+// Detectar la ruta base correcta
+function getBasePath() {
+    const currentPath = window.location.pathname;
+    // Si estamos en /public/... o en /... en distribución
+    if (currentPath.includes('/public/')) {
+        return './';
+    }
+    return './';
+}
+
+const BASE_PATH = getBasePath();
+
 let currentLang = 'es';
 let activitiesData = [];
 let lodgingsData = [];
@@ -17,8 +29,8 @@ export function setCurrentLanguage(lang) {
 
 export async function loadActivities() {
     try {
-        console.log('Cargando actividades...');
-        const response = await fetch('./data/activity/activity.json');
+        console.log('Cargando actividades desde:', BASE_PATH + 'data/activity/activity.json');
+        const response = await fetch(BASE_PATH + 'data/activity/activity.json');
         if (!response.ok) throw new Error('Error cargando actividades');
         const data = await response.json();
         activitiesData = data.activities;
@@ -33,8 +45,8 @@ export async function loadActivities() {
 
 export async function loadLodgings() {
     try {
-        console.log('Cargando hospedajes...');
-        const response = await fetch('./data/lodging/lodging.json');
+        console.log('Cargando hospedajes desde:', BASE_PATH + 'data/lodging/lodging.json');
+        const response = await fetch(BASE_PATH + 'data/lodging/lodging.json');
         if (!response.ok) throw new Error('Error cargando hospedajes');
         const data = await response.json();
         lodgingsData = data.lodgings;

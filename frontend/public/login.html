@@ -32,24 +32,40 @@
         </div>
     </div>
     <script type="module">
-        import users from '../controllers/users.js';
+        import authController from './controllers/auth.js';
 
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+        // Cargar usuarios al cargar la página
+        authController.loadUsers().then(() => {
+            document.getElementById('loginForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+                
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value;
+                const errorDiv = document.getElementById('errorMessage');
+
+                // Validar credenciales
+                const user = authController.validateCredentials(username, password);
+
+                if (!user) {
+                    // Usuario no existe o contraseña incorrecta
+                    errorDiv.textContent = 'Usuario o contraseña incorrectos';
+                    errorDiv.style.display = 'block';
+                } else {
+                    // Credenciales válidas
+                    errorDiv.style.display = 'none';
+                    authController.login(user);
+                    
+                    // Redirigir a admin después de 500ms
+                    setTimeout(() => {
+                        window.location.href = 'admin.html';
+                    }, 500);
+                }
+            });
+        }).catch(error => {
+            console.error('Error al inicializar:', error);
             const errorDiv = document.getElementById('errorMessage');
-
-            if (!users[username]) {
-                errorDiv.textContent = 'Usuario no existe';
-                errorDiv.style.display = 'block';
-            } else if (users[username] !== password) {
-                errorDiv.textContent = 'Contraseña incorrecta';
-                errorDiv.style.display = 'block';
-            } else {
-                errorDiv.style.display = 'none';
-                window.location.href = 'admin.html';
-            }
+            errorDiv.textContent = 'Error al cargar la configuración. Intente más tarde.';
+            errorDiv.style.display = 'block';
         });
     </script>
 </body>

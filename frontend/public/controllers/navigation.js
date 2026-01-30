@@ -14,8 +14,18 @@ function hideAllDynamicSections() {
 
 // Función auxiliar para asegurar que el mapa cargue bien
 function refreshMap() {
+    console.log('[Navigation] refreshMap() llamado');
+    console.log('[Navigation] window.initializeMap existe:', typeof window.initializeMap === 'function');
+    
     if (typeof window.initializeMap === 'function') {
-        window.initializeMap();
+        // Pequeño delay para asegurar que el DOM esté actualizado
+        console.log('[Navigation] Llamando initializeMap con 50ms delay...');
+        setTimeout(() => {
+            console.log('[Navigation] Ejecutando initializeMap...');
+            window.initializeMap();
+        }, 50);
+    } else {
+        console.error('[Navigation] ❌ window.initializeMap NO está disponible');
     }
 }
 
@@ -60,11 +70,31 @@ function showSection(sectionId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('[Navigation] ========== DOMContentLoaded ==========');
     hideAllDynamicSections();
+    
     const ruta = document.getElementById('ruta');
+    console.log('[Navigation] Elemento #ruta encontrado:', !!ruta);
+    
     if (ruta) {
+        console.log('[Navigation] Quitando clase oculto de ruta');
         ruta.classList.remove('oculto');
+        console.log('[Navigation] Clase de ruta:', ruta.className);
+        
+        const mapContainer = document.getElementById('map');
+        if (mapContainer) {
+            console.log('[Navigation] Elemento #map encontrado');
+            console.log('[Navigation] Map offsetHeight:', mapContainer.offsetHeight);
+            console.log('[Navigation] Map offsetWidth:', mapContainer.offsetWidth);
+            console.log('[Navigation] Map display:', window.getComputedStyle(mapContainer).display);
+        } else {
+            console.error('[Navigation] ❌ Elemento #map NO encontrado');
+        }
+        
+        console.log('[Navigation] Llamando refreshMap con 100ms delay...');
         setTimeout(refreshMap, 100); 
+    } else {
+        console.error('[Navigation] ❌ Elemento #ruta NO encontrado');
     }
 
     const menuLinks = document.querySelectorAll('.menu a');
