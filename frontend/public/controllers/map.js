@@ -373,14 +373,17 @@ function loadGPXRoute(routeName) {
         .on('loaded', e => {
             console.log('Ruta ' + routeName + ' cargada correctamente');
 
-            // Remover TODOS los marcadores que haya creado el plugin
+            // Remover SOLO los marcadores del plugin GPX, NO el youMarker ni accuracyCircle
             const markersToRemove = [];
             map.eachLayer(layer => {
-                if (layer instanceof L.Marker) {
+                // Solo remover marcadores que NO sean youMarker
+                if (layer instanceof L.Marker && layer !== youMarker) {
                     markersToRemove.push(layer);
                 }
             });
             markersToRemove.forEach(marker => map.removeLayer(marker));
+            
+            console.log('[Map] youMarker protegido durante carga de ruta');
         })
         .on('error', () => {
             console.error('No se pudo cargar ' + gpxFile);

@@ -33,6 +33,31 @@ const translations = {
     ubicacion: "📍 Mi ubicación",
     brujula: "🧲 Brújula",
     contactar: "Contactar",
+    beGuideBtn: "¿Quieres ser guía?",
+
+    // Formulario de registro público
+    guideRegisterTitle: "Registro de Guía",
+    guideRegisterSubtitle: "Ingresa tus datos y un administrador se pondrá en contacto.",
+    regFirstNameLabel: "Nombres",
+    regLastNameLabel: "Apellidos",
+    regWhatsappLabel: "Número de WhatsApp",
+    regEmailLabel: "Correo",
+    languagesLegend: "Idiomas",
+    langOtherLabel: "Otro",
+    regCancel: "Cancelar",
+    regSubmit: "Enviar",
+    registerSuccessTitle: "¡Gracias!",
+    registerSuccessMessage: "Hemos recibido tu solicitud. Un administrador se pondrá en contacto pronto.",
+    registerSuccessClose: "Cerrar",
+    // Confirmaciones y validaciones
+    confirmDeleteRequest: "¿Seguro que desea eliminar esta solicitud?",
+    confirmDeleteGuide: "¿Seguro que quiere eliminar este guía? Esta acción no se puede deshacer.",
+    alertRequestDeleted: "Solicitud eliminada",
+    alertGuideDeleted: "Guía eliminado exitosamente (localmente)",
+    validation_first_last: "Por favor completa tus nombres y apellidos",
+    validation_whatsapp: "Por favor ingresa número de WhatsApp",
+    validation_email: "Por favor ingresa un correo válido",
+    validation_lang_required: "Selecciona al menos un idioma",
 
     // Leyenda
     leyenda: "Ruta Quilotoa Trail",
@@ -91,6 +116,31 @@ const translations = {
     ubicacion: "📍 My location",
     brujula: "🧲 Compass",
     contactar: "Contact",
+    beGuideBtn: "Want to be a guide?",
+
+    // Public registration form
+    guideRegisterTitle: "Guide Registration",
+    guideRegisterSubtitle: "Enter your details and an administrator will contact you.",
+    regFirstNameLabel: "First name",
+    regLastNameLabel: "Last name",
+    regWhatsappLabel: "WhatsApp number",
+    regEmailLabel: "Email",
+    languagesLegend: "Languages",
+    langOtherLabel: "Other",
+    regCancel: "Cancel",
+    regSubmit: "Submit",
+    registerSuccessTitle: "Thank you!",
+    registerSuccessMessage: "We have received your request. An administrator will contact you soon.",
+    registerSuccessClose: "Close",
+    // Confirmations and validations
+    confirmDeleteRequest: "Are you sure you want to delete this request?",
+    confirmDeleteGuide: "Are you sure you want to delete this guide? This action cannot be undone.",
+    alertRequestDeleted: "Request deleted",
+    alertGuideDeleted: "Guide deleted successfully (locally)",
+    validation_first_last: "Please complete your first and last name",
+    validation_whatsapp: "Please enter a WhatsApp number",
+    validation_email: "Please enter a valid email",
+    validation_lang_required: "Select at least one language",
 
     // Leyenda
     leyenda: "Quilotoa Trail Route",
@@ -149,6 +199,31 @@ const translations = {
     ubicacion: "📍 Ma position",
     brujula: "🧲 Boussole",
     contactar: "Contacter",
+      beGuideBtn: "Voulez-vous être guide?",
+
+      // Formulaire public
+      guideRegisterTitle: "Inscription Guide",
+      guideRegisterSubtitle: "Entrez vos informations et un administrateur vous contactera.",
+      regFirstNameLabel: "Prénom",
+      regLastNameLabel: "Nom",
+      regWhatsappLabel: "Numéro WhatsApp",
+      regEmailLabel: "Email",
+      languagesLegend: "Langues",
+      langOtherLabel: "Autre",
+      regCancel: "Annuler",
+      regSubmit: "Envoyer",
+      registerSuccessTitle: "Merci!",
+      registerSuccessMessage: "Nous avons reçu votre demande. Un administrateur vous contactera bientôt.",
+      registerSuccessClose: "Fermer",
+      // Confirmations and validations
+      confirmDeleteRequest: "Êtes-vous sûr de vouloir supprimer cette demande ?",
+      confirmDeleteGuide: "Êtes-vous sûr de vouloir supprimer ce guide ? Cette action est irréversible.",
+      alertRequestDeleted: "Demande supprimée",
+      alertGuideDeleted: "Guide supprimé avec succès (localement)",
+      validation_first_last: "Veuillez compléter votre nom et prénom",
+      validation_whatsapp: "Veuillez entrer un numéro WhatsApp",
+      validation_email: "Veuillez entrer un e-mail valide",
+      validation_lang_required: "Sélectionnez au moins une langue",
 
     // Leyenda
     leyenda: "Route Quilotoa Trail",
@@ -207,6 +282,31 @@ const translations = {
     ubicacion: "📍 Minha localización",
     brujula: "🧲 Bússola",
     contactar: "Contactar",
+    beGuideBtn: "Quer ser guia?",
+
+    // Formulário público
+    guideRegisterTitle: "Registro de Guia",
+    guideRegisterSubtitle: "Insira seus dados e um administrador entrará em contato.",
+    regFirstNameLabel: "Nombres",
+    regLastNameLabel: "Apellidos",
+    regWhatsappLabel: "Número de WhatsApp",
+    regEmailLabel: "Correo",
+    languagesLegend: "Idiomas",
+    langOtherLabel: "Outro",
+    regCancel: "Cancelar",
+    regSubmit: "Enviar",
+    registerSuccessTitle: "Obrigado!",
+    registerSuccessMessage: "Recebemos sua solicitação. Um administrador entrará em contato em breve.",
+    registerSuccessClose: "Fechar",
+    // Confirmations and validations
+    confirmDeleteRequest: "Tem certeza de que deseja excluir esta solicitação?",
+    confirmDeleteGuide: "Tem certeza de que deseja excluir este guia? Esta ação não pode ser desfeita.",
+    alertRequestDeleted: "Solicitação excluída",
+    alertGuideDeleted: "Guia excluído com sucesso (localmente)",
+    validation_first_last: "Por favor complete nomes e sobrenomes",
+    validation_whatsapp: "Por favor insira um número de WhatsApp",
+    validation_email: "Por favor insira um e-mail válido",
+    validation_lang_required: "Selecione pelo menos um idioma",
 
     // Leyenda
     leyenda: "Rota Quilotoa Trail",
@@ -265,6 +365,31 @@ const translations = {
     ubicacion: "📍 Kaypi kani",
     brujula: "🧲 Suyu rikuchina",
     contactar: "Rimay",
+    beGuideBtn: "¿Yachachiymi qam?",
+
+    // Formulario
+    guideRegisterTitle: "Yachaq nisqa ruwasqa",
+    guideRegisterSubtitle: "Qillqiy qankuna, huk kamachiq rimanqa.",
+    regFirstNameLabel: "Sutiykuna",
+    regLastNameLabel: "Aylluchaykuna",
+    regWhatsappLabel: "WhatsApp numera",
+    regEmailLabel: "Correo",
+    languagesLegend: "Rimaykuna",
+    langOtherLabel: "Otra",
+    regCancel: "Chinkay",
+    regSubmit: "Tukuy",
+    registerSuccessTitle: "Sulpayki!",
+    registerSuccessMessage: "Qillqaykita rikuchisqayku. Huk kamachiq rimanqa pasaykuchkan.",
+    registerSuccessClose: "Chinkay",
+    // Confirmations and validations
+    confirmDeleteRequest: "Imayna, rikhuymi chay willakuykita chinkachiy?",
+    confirmDeleteGuide: "Imayna, rikhuymi chay yachaqta chinkachiy? Hinalla mana chinkachakuchu.",
+    alertRequestDeleted: "Willakuy chinkachisqa",
+    alertGuideDeleted: "Yachaq chinkachisqa (local)",
+    validation_first_last: "Qillqiy sutiykuna chaylla kaypi",
+    validation_whatsapp: "Qillqiy WhatsApp numera",
+    validation_email: "Qillqiy correo ruwasqa",
+    validation_lang_required: "Sapa rimaykuna hinaqta rikhuy",
 
     // Leyenda
     leyenda: "Quilotoa Ñan",
@@ -435,6 +560,48 @@ function changeLanguage(lang) {
 
   // Recargar puntos de interés con el nuevo idioma
   loadInterestPoints(lang);
+
+  // Actualizar texto del botón '¿Quieres ser guía?'
+  const beGuideBtn = document.getElementById('beGuideBtn');
+  if (beGuideBtn) beGuideBtn.textContent = t.beGuideBtn;
+
+  // Modal de registro público de guías
+  const guideModalTitle = document.querySelector('#guideRegisterModal .modal-header h2');
+  const guideModalSubtitle = document.querySelector('#guideRegisterModal .modal-header p');
+  if (guideModalTitle) guideModalTitle.textContent = t.guideRegisterTitle;
+  if (guideModalSubtitle) guideModalSubtitle.textContent = t.guideRegisterSubtitle;
+
+  // Form labels
+  const lblFirst = document.querySelector('label[for="regFirstName"]');
+  const lblLast = document.querySelector('label[for="regLastName"]');
+  const lblWhatsapp = document.querySelector('label[for="regWhatsapp"]');
+  const lblEmail = document.querySelector('label[for="regEmail"]');
+  const legend = document.querySelector('#guideRegisterForm legend');
+  const langOtherCbLabel = document.querySelector('label[for="langOtherCb"]');
+  const langOtherText = document.getElementById('langOtherText');
+  if (lblFirst) lblFirst.textContent = t.regFirstNameLabel;
+  if (lblLast) lblLast.textContent = t.regLastNameLabel;
+  if (lblWhatsapp) lblWhatsapp.textContent = t.regWhatsappLabel;
+  if (lblEmail) lblEmail.textContent = t.regEmailLabel;
+  if (legend) legend.textContent = t.languagesLegend;
+  // The checkbox label for 'Otro' doesn't have for attr; find input and nextSibling text
+  const otherLabel = Array.from(document.querySelectorAll('#guideRegisterForm label')).find(l => l.textContent.trim().includes('Otro') || l.textContent.trim().includes('Other') || l.textContent.trim().includes('Otra'));
+  if (otherLabel) otherLabel.childNodes[1].nodeValue = ' ' + t.langOtherLabel;
+  if (langOtherText) langOtherText.placeholder = t.langOtherLabel;
+
+  // Buttons: cancel and submit in form
+  const cancelRegister = document.getElementById('cancelRegister');
+  if (cancelRegister) cancelRegister.textContent = t.regCancel;
+  const submitBtn = document.querySelector('#guideRegisterForm button[type="submit"]');
+  if (submitBtn) submitBtn.textContent = t.regSubmit;
+
+  // Success modal text
+  const successTitle = document.querySelector('#registerSuccess h3');
+  const successMsg = document.querySelector('#registerSuccess p');
+  const successClose = document.getElementById('closeSuccessBtn');
+  if (successTitle) successTitle.textContent = t.registerSuccessTitle;
+  if (successMsg) successMsg.textContent = t.registerSuccessMessage;
+  if (successClose) successClose.textContent = t.registerSuccessClose;
 
   // Actualizar mensaje de celebración si existe
   updateCelebrationMessageText(lang);

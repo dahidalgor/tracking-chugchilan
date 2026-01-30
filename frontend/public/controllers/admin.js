@@ -250,12 +250,13 @@ window.editGuide = function (id) {
 
 // Eliminar guía
 window.deleteGuide = async function (id) {
-    if (confirm('¿Seguro que quiere eliminar este guía? Esta acción no se puede deshacer.')) {
+    const t = (k) => (window.translations && window.translations[window.currentLanguage] && window.translations[window.currentLanguage][k]) || k;
+    if (confirm(t('confirmDeleteGuide'))) {
         const index = guidesData.guides.findIndex(g => g.id === id);
         if (index !== -1) {
             guidesData.guides.splice(index, 1);
             updateTable();
-            alert('✅ Guía eliminado exitosamente (localmente)');
+            alert(t('alertGuideDeleted'));
         }
     }
 }
@@ -488,7 +489,91 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     loadGuides();
+    // Cargar solicitudes de registro de guías (desde localStorage)
+    renderGuideRequests();
 });
+
+// Cargar y mostrar solicitudes de guía guardadas en localStorage
+function getGuideRequests() {
+    try {
+        return JSON.parse(localStorage.getItem('guide_requests') || '[]');
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveGuideRequests(list) {
+    localStorage.setItem('guide_requests', JSON.stringify(list));
+}
+
+function markRequestReviewed(id) {
+    const list = getGuideRequests();
+    const idx = list.findIndex(r => r.id === id);
+    if (idx !== -1) {
+        list[idx].status = 'reviewed';
+        saveGuideRequests(list);
+        renderGuideRequests();
+    }
+}
+
+function renderGuideRequests() {
+    const container = document.getElementById('requestsContainer');
+    if (!container) return;
+    const requests = getGuideRequests().sort((a,b) => b.createdAt.localeCompare(a.createdAt));
+    container.innerHTML = '';
+    if (requests.length === 0) {
+        container.innerHTML = '<p>No hay solicitudes pendientes.</p>';
+        return;
+    }
+
+    requests.forEach(req => {
+        const el = document.createElement('div');
+        el.className = 'request-card';
+        el.style.border = '1px solid #e6e6e6';
+        el.style.padding = '10px';
+        el.style.borderRadius = '8px';
+        el.style.marginBottom = '8px';
+        if (req.status === 'new') {
+            el.style.background = '#fffbea';
+            el.style.borderColor = '#f6d365';
+        }
+
+                el.innerHTML = `
+                        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+                            <div>
+                                <strong>${req.firstName} ${req.lastName}</strong>
+                                ${req.status === 'new' ? '<span style="background:#ff3b30;color:white;padding:2px 8px;border-radius:12px;margin-left:8px;font-size:12px;">NUEVO</span>' : ''}
+                                <div style="color:#555;margin-top:6px;">Idiomas: ${Array.isArray(req.languages)? req.languages.join(' / '): req.languages}</div>
+                                <div style="color:#555;margin-top:6px;">WhatsApp: <a href="https://wa.me/${req.whatsapp.replace(/\D/g,'')}" target="_blank">${req.whatsapp}</a></div>
+                                <div style="color:#555;margin-top:6px;">Correo: ${req.email}</div>
+                                <div style="color:#888;margin-top:6px;font-size:12px;">Enviado: ${new Date(req.createdAt).toLocaleString()}</div>
+                            </div>
+                            <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+                                <div style="display:flex;flex-direction:column;gap:6px;">
+                                    <button class="btn btn-sm btn-primary" onclick="markRequestReviewed(${req.id})">Marcar como revisado</button>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteRequest(${req.id})">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                `;
+
+        container.appendChild(el);
+    });
+}
+
+// Eliminar solicitud de guía
+window.deleteRequest = function(id) {
+    const t = (k) => (window.translations && window.translations[window.currentLanguage] && window.translations[window.currentLanguage][k]) || k;
+    if (!confirm(t('confirmDeleteRequest'))) return;
+    const list = getGuideRequests();
+    const idx = list.findIndex(r => r.id === id);
+    if (idx !== -1) {
+        list.splice(idx, 1);
+        saveGuideRequests(list);
+        renderGuideRequests();
+        alert(t('alertRequestDeleted'));
+    }
+}
 
 // Manejar clics fuera de los modales
 window.onclick = function(event) {

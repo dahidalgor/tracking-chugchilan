@@ -306,6 +306,9 @@
     <div id="guideContainer" class="container guide-container">
       <!-- Las tarjetas se generan dinámicamente -->
     </div>
+    <div style="display:flex;justify-content:center;margin-top:18px;">
+      <button id="beGuideBtn" class="btn-primary">¿Quieres ser guía?</button>
+    </div>
   </section>
 
   <!-- CONTACTO -->
@@ -417,6 +420,61 @@
     </div>
   </div>
 
+  <!-- MODAL PARA REGISTRO DE GUÍAS (PUBLICO) -->
+  <div id="guideRegisterModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeRegisterModal">×</button>
+      <div class="modal-header">
+        <h2>Registro de Guía</h2>
+        <p>Ingresa tus datos y un administrador se pondrá en contacto.</p>
+      </div>
+      <div class="modal-body">
+        <form id="guideRegisterForm">
+          <div class="form-group">
+            <label for="regFirstName">Nombres</label>
+            <input id="regFirstName" name="firstName" type="text" required autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="regLastName">Apellidos</label>
+            <input id="regLastName" name="lastName" type="text" required autocomplete="family-name">
+          </div>
+          <div class="form-group">
+            <label for="regWhatsapp">Número de WhatsApp</label>
+            <input id="regWhatsapp" name="whatsapp" type="tel" required pattern="\+?\d+" value="+593" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Correo</label>
+            <input id="regEmail" name="email" type="email" required autocomplete="email">
+          </div>
+          <fieldset>
+            <legend>Idiomas</legend>
+            <label><input type="checkbox" name="lang" value="es"> Español</label>
+            <label><input type="checkbox" name="lang" value="en"> Inglés</label>
+            <label><input type="checkbox" name="lang" value="fr"> Francés</label>
+            <label><input type="checkbox" name="lang" value="pt"> Portugués</label>
+            <label><input type="checkbox" name="lang" value="qu"> Quichua</label>
+            <label><input type="checkbox" id="langOtherCb" name="lang" value="other"> Otro</label>
+            <input id="langOtherText" name="langOther" type="text" placeholder="Especificar" style="display:none;margin-top:6px;">
+          </fieldset>
+
+          <div style="display:flex;gap:10px;margin-top:12px;justify-content:flex-end;">
+            <button type="button" id="cancelRegister" class="btn-secondary">Cancelar</button>
+            <button type="submit" class="btn-primary">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE ÉXITO EN REGISTRO -->
+  <div id="registerSuccess" class="modal" style="display:none;align-items:center;justify-content:center;">
+    <div class="modal-content" style="max-width:420px;text-align:center;">
+      <h3>¡Gracias!</h3>
+      <p>Hemos recibido tu solicitud. Un administrador se pondrá en contacto pronto.</p>
+      <button id="closeSuccessBtn" class="btn-primary">Cerrar</button>
+    </div>
+  </div>
+
   <!-- SCRIPT DEL HAMBURGER MENU -->
   <script src="controllers/hamburgerMenu.js" defer></script>
 
@@ -425,6 +483,9 @@
 
   <!-- SCRIPT PARA EL MODAL DE GUÍAS - MINIMALISTA -->
   <script src="controllers/guias.js"></script>
+
+  <!-- SCRIPT PARA EL FORMULARIO DE REGISTRO DE GUÍAS -->
+  <script src="controllers/guideRegistration.js"></script>
 
   <!-- SCRIPT FUNCIONALIDAD DE IDIOMAS -->
   <script src="controllers/languages.js"></script>

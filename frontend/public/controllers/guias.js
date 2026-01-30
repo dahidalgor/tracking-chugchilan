@@ -195,7 +195,7 @@ function openModal(guideId) {
   updateModalLabels(currentLanguage);
 
   // Mostrar el modal
-  modal.style.display = 'block';
+  modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
 

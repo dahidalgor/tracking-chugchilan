@@ -962,11 +962,14 @@ section {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  overflow-y: auto;
 }
 
 .modal-content {
   background-color: white;
-  margin: 10vh auto;
   padding: 0;
   width: 90%;
   max-width: 400px;
@@ -974,6 +977,9 @@ section {
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   position: relative;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
@@ -1035,6 +1041,8 @@ section {
 
 .modal-body {
   padding: 24px;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .guide-info-grid {
@@ -1108,6 +1116,39 @@ section {
 
 .guide-contact-btn.email:hover {
   background-color: #2e8b47;
+}
+
+/* Responsive modal para móviles */
+@media (max-width: 480px) {
+  .modal {
+    padding: 12px;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-height: 95vh;
+    max-width: none;
+  }
+
+  .modal-header {
+    padding: 16px 16px 12px;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .modal-footer {
+    padding: 12px 16px 16px;
+  }
+
+  .close-modal {
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+  }
 }
 
 /* Estilo para hacer las tarjetas de guías clickeables */
@@ -1772,5 +1813,65 @@ section {
     .gallery-image-wrapper {
         height: 180px;
     }
+}
+
+/* Estilos para formulario de registro de guías */
+#guideRegisterForm .form-group {
+  margin-bottom: 12px;
+}
+
+#guideRegisterForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+#guideRegisterForm input[type="text"],
+#guideRegisterForm input[type="email"],
+#guideRegisterForm input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+#guideRegisterForm input[type="text"]:focus,
+#guideRegisterForm input[type="email"]:focus,
+#guideRegisterForm input[type="tel"]:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+}
+
+#guideRegisterForm fieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+#guideRegisterForm legend {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+#guideRegisterForm fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-weight: normal;
+  margin-left: 0;
+}
+
+#guideRegisterForm input[type="checkbox"] {
+  cursor: pointer;
 }
 
